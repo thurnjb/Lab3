@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+/*Jay Thurn, Ryan Booth, John Lee
+Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
+
 namespace Lab1
 {
     public class Customer
