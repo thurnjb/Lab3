@@ -8,7 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-/*Jay Thurn, Ryan Booth, John Lee
+/*Jay Thurn, Ryan Booth, John Lee sucks pooops 
 Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
 
 namespace Lab2
