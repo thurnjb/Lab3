@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Lab2.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    <!-- Jay Thurn
+    I have neither given nor received any unauthorized assistance on this assignment-->
+<body>
+    <form id="form1" runat="server">
+        <div style="text-align: right">
+            <asp:Label ID="lblUserLoggedIn" runat="server" Text="" ></asp:Label>
+            <asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click"/>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
