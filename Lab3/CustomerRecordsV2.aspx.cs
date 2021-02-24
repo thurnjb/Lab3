@@ -8,10 +8,8 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-/*this comment is a test*/
-
-/*Jay Thurn
-My submission of this assignment indicates that I have neither received nor given unauthorized assistance in writing this program. All design and coding is my own work.*/
+/*Jay Thurn, Ryan Booth, John Lee
+Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
 
 namespace Lab2
 {

@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
 </head>
-    <!-- Jay Thurn
-    I have neither given nor received any unauthorized assistance on this assignment-->
+    <!-- Jay Thurn, Ryan Booth, John Lee
+    We have neither given nor received any unauthorized assistance on this assignment-->
 <body>
     <form id="form1" runat="server">
         <div>

@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Jay Thurn
-    I have neither given nor received any unauthorized assistance on this assignment-->
+    <!-- Jay Thurn, Ryan Booth, John Lee
+    We have neither given nor received any unauthorized assistance on this assignment-->
     <asp:Table ID="tblServiceInfo" runat="server" HorizontalAlign="Center">
         <asp:TableRow Height="200px">
             <asp:TableCell ColumnSpan="3" HorizontalAlign="Center">
