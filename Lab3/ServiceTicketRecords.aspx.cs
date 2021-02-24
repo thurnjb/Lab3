@@ -93,7 +93,7 @@ namespace Lab2
         {
             if(txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO ServiceTicket VALUES (" + ++count + ", " + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
+                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
                     ddlService.SelectedValue + ", 'Open', '" + DateTime.Now + "', '" + txtFromDeadline.Text + "', '" + txtToDeadline.Text + "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab2"].ConnectionString);
@@ -105,7 +105,10 @@ namespace Lab2
 
                 sqlCommand.ExecuteNonQuery();
 
-                Response.Redirect("NoteCreate.aspx");
+                Session["TicketID"] = count;
+
+                string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
+                ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
             }
             else
             {

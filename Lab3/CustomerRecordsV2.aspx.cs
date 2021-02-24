@@ -17,7 +17,6 @@ namespace Lab2
     {
         private static SqlDataReader queryResults;
         private static int current = -1;
-        private static int count = 0;
         private static DataSet dataset = new DataSet("Customers");
         public static String sqlCommitQuery;
 
@@ -27,7 +26,6 @@ namespace Lab2
             if (!IsPostBack)
             {
                 current = -1;
-                count = 0;
                 connectToData();
             }
         }
@@ -44,17 +42,6 @@ namespace Lab2
             adapter.TableMappings.Add("Table", "Customer");
 
             connection.Open();
-
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = connection;
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = sqlQuery;
-            queryResults = sqlCommand.ExecuteReader();
-            while (queryResults.Read())
-            {
-                count++;
-            }
-            queryResults.Close();
 
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
@@ -98,7 +85,7 @@ namespace Lab2
                 txtInitialContact.Text != "" & txtHeardFrom.Text != "" & txtPhone.Text != "" &
                 txtEmail.Text != "" & txtAddress.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO Customer VALUES (" + ++count + ", '" + txtFirstName.Text +
+                sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES ('" + txtFirstName.Text +
                 "', '" + txtLastName.Text + "', '" + txtInitialContact.Text + "', '" + txtHeardFrom.Text + "', '" +
                 txtPhone.Text + "', '" + txtEmail.Text + "', '" + txtAddress.Text + "', '" + txtDestAddress.Text + "', '" + DateTime.Now + "');";
 

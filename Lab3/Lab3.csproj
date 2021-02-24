@@ -73,6 +73,7 @@
     <Content Include="LoginForm.aspx" />
     <Content Include="NoteCreate.aspx" />
     <Content Include="NotePage.aspx" />
+    <Content Include="PopUpNotes.aspx" />
     <Content Include="ServiceTicketRecords.aspx" />
     <Content Include="TicketHistory.aspx" />
     <Content Include="Web.config" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="NotePage.aspx.designer.cs">
       <DependentUpon>NotePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpNotes.aspx.cs">
+      <DependentUpon>PopUpNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpNotes.aspx.designer.cs">
+      <DependentUpon>PopUpNotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTicketRecords.aspx.cs">
