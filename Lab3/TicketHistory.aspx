@@ -10,9 +10,7 @@
         <legend>All Tickets</legend>
         <asp:GridView ID="grdTickets" runat="server" HorizontalAlign="Center"></asp:GridView>
     </fieldset>
-    <fieldset>
-        <legend>Select ServiceTicketID to View Details</legend>
-        <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+        <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="100px">
         <asp:TableRow>
             <asp:TableCell HorizontalAlign="Center">
                 <asp:DropDownList ID="ddlServiceTicketID" runat="server" 
@@ -26,7 +24,6 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    </fieldset>
     <fieldset>
         <legend>Selected Ticket</legend>
         <asp:GridView ID="grdSelectedTicket" runat="server" EmptyDataText="This ticket has no notes!" HorizontalAlign="Center"></asp:GridView>

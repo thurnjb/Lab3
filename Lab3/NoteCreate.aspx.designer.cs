@@ -7,21 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab2
+namespace Lab3
 {
 
 
-    public partial class CustomerList
+    public partial class NoteCreate
     {
-
-        /// <summary>
-        /// btnViewHomePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewHomePage;
 
         /// <summary>
         /// Table1 control.
@@ -33,21 +24,48 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// grdCustomers control.
+        /// lblNoteTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomers;
+        protected global::System.Web.UI.WebControls.Label lblNoteTitle;
 
         /// <summary>
-        /// dtasrcCustomerList control.
+        /// txtNoteTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
+        protected global::System.Web.UI.WebControls.TextBox txtNoteTitle;
+
+        /// <summary>
+        /// lblNoteContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoteContent;
+
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

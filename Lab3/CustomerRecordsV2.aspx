@@ -4,14 +4,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Jay Thurn, Ryan Booth, John Lee
     We have neither given nor received any unauthorized assistance on this assignment-->
+    <br />
+    <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
         <div>
             <asp:Table ID="tblCustomerInfo" runat="server" HorizontalAlign="Center">
                 <asp:TableRow Height="200px">
                     <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                         <asp:Label ID="lblCustomerRecords" runat="server" Text="Customer Records"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell ColumnSpan="2" HorizontalAlign="Right">
-                        <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

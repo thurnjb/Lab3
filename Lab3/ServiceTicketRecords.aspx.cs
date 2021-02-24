@@ -104,6 +104,8 @@ namespace Lab2
                 sqlCommand.CommandText = sqlCommitQuery;
 
                 sqlCommand.ExecuteNonQuery();
+
+                Response.Redirect("NoteCreate.aspx");
             }
             else
             {

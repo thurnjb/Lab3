@@ -4,12 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Jay Thurn, Ryan Booth, John Lee
     We have neither given nor received any unauthorized assistance on this assignment-->
+    <br />
+    <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page"  OnClick="btnViewHomePage_Click"/>
     <asp:Table ID="Table1" runat="server" HorizontalAlign="center">
-        <asp:TableRow>
-            <asp:TableCell HorizontalAlign="right">
-                <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page"  OnClick="btnViewHomePage_Click"/>
-            </asp:TableCell>
-        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:GridView ID="grdCustomers" runat="server" DataSourceID="dtasrcCustomerList"></asp:GridView>

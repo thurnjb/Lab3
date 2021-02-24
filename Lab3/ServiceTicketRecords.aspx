@@ -5,13 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Jay Thurn, Ryan Booth, John Lee
     We have neither given nor received any unauthorized assistance on this assignment-->
+    <br />
+    <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
     <asp:Table ID="tblServiceInfo" runat="server" HorizontalAlign="Center">
         <asp:TableRow Height="200px">
             <asp:TableCell ColumnSpan="3" HorizontalAlign="Center">
                 <asp:Label ID="lblServiceTicketRecords" runat="server" Text="Service Ticket Records"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
