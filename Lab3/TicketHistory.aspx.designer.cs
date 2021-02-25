@@ -51,13 +51,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.DropDownList ddlServiceTicketID;
 
         /// <summary>
-        /// btnViewTicketDetails control.
+        /// btnViewTicketNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewTicketDetails;
+        protected global::System.Web.UI.WebControls.Button btnViewTicketNotes;
 
         /// <summary>
         /// grdSelectedTicket control.

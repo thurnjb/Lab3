@@ -19,22 +19,22 @@ namespace Lab2
         {
             if (!IsPostBack)
             {
-                String sqlQuery = "SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID";
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                //String sqlQuery = "SELECT C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID";
+                //SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                //SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-                DataTable dtForGridView = new DataTable();
-                sqlAdapter.Fill(dtForGridView);
+                //DataTable dtForGridView = new DataTable();
+                //sqlAdapter.Fill(dtForGridView);
 
-                grdTickets.DataSource = dtForGridView;
-                grdTickets.DataBind();
+                //grdTickets.DataSource = dtForGridView;
+                //grdTickets.DataBind();
             }
         }
 
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
-        protected void btnViewTicketDetails_Click(object sender, EventArgs e)
+        protected void btnViewTicketNotes_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline, N.NoteTitle, N.NoteContent FROM Customer C, Employee E, Service S, ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
+            String sqlQuery = "SELECT T.ServiceTicketID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
             SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 

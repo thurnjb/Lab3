@@ -8,7 +8,7 @@
     <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page" OnClick="btnViewHomePage_Click" />
     <fieldset>
         <legend>All Tickets</legend>
-        <asp:GridView ID="grdTickets" runat="server" HorizontalAlign="Center"></asp:GridView>
+        <asp:GridView ID="grdTickets" runat="server" HorizontalAlign="Center" AutoGenerateEditButton="true" DataKeyNames="ServiceTicketID" DataSourceID="dtasrcServiceTicketID"></asp:GridView>
     </fieldset>
         <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="100px">
         <asp:TableRow>
@@ -20,7 +20,7 @@
                     DataValueField="ServiceTicketID"></asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnViewTicketDetails" runat="server" Text="View Ticket Details" OnClick="btnViewTicketDetails_Click"/>
+                <asp:Button ID="btnViewTicketNotes" runat="server" Text="View Ticket Notes" OnClick="btnViewTicketNotes_Click"/>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
@@ -35,6 +35,8 @@
     <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
-        SelectCommand="SELECT ServiceTicketID FROM ServiceTicket">
+        SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID" 
+        UpdateCommand="UPDATE ServiceTicket SET TicketStatus=@TicketStatus, TicketOpenDate=@TicketOpenDate, FromDeadline=@FromDeadline, ToDeadline=@ToDeadline WHERE ServiceTicketID=@ServiceTicketID"> 
+        
     </asp:SqlDataSource>
 </asp:Content>
