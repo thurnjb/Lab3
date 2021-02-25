@@ -105,7 +105,7 @@ namespace Lab2
 
                 sqlCommand.ExecuteNonQuery();
 
-                Session["TicketID"] = count;
+                Session["ServiceTicketID"] = ++count;
 
                 string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
                 ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);

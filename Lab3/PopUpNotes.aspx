@@ -34,6 +34,11 @@
                         <asp:Button ID="btnSave" runat="server" Text="Save Note" OnClick="btnSave_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
         </div>
     </form>
