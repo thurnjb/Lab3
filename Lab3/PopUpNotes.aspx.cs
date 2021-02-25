@@ -49,7 +49,7 @@ namespace Lab3
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-
+            ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);
         }
     }
 }
