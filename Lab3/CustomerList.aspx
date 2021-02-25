@@ -6,7 +6,7 @@
     We have neither given nor received any unauthorized assistance on this assignment-->
     <br />
     <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page"  OnClick="btnViewHomePage_Click"/>
-    <asp:Table ID="Table1" runat="server" HorizontalAlign="center">
+    <asp:Table ID="Table1" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:GridView ID="grdCustomers" runat="server" DataSourceID="dtasrcCustomerList"></asp:GridView>

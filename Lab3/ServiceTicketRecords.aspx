@@ -7,9 +7,9 @@
     We have neither given nor received any unauthorized assistance on this assignment-->
     <br />
     <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
-    <asp:Table ID="tblServiceInfo" runat="server" HorizontalAlign="Center">
-        <asp:TableRow Height="200px">
-            <asp:TableCell ColumnSpan="3" HorizontalAlign="Center">
+    <asp:Table ID="tblServiceInfo" runat="server">
+        <asp:TableRow Height="100px">
+            <asp:TableCell ColumnSpan="3">
                 <asp:Label ID="lblServiceTicketRecords" runat="server" Text="Service Ticket Records"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
@@ -70,7 +70,7 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <asp:Table ID="tblServicePageButtons" runat="server" HorizontalAlign="Center">
+    <asp:Table ID="tblServicePageButtons" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnPopulate" runat="server" Text="Populate Cells" OnClick="btnPopulate_Click" />
@@ -89,14 +89,14 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ColumnSpan="5" HorizontalAlign="Center">
+            <asp:TableCell ColumnSpan="5">
                 <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+    <asp:Table ID="Table1" runat="server">
         <asp:TableRow>
-            <asp:TableCell HorizontalAlign="Center" ColumnSpan="3">
+            <asp:TableCell ColumnSpan="3">
                 <asp:Label ID="lblInstructions" runat="server" Text="Please select from the lists below to fill the textboxes" Font-Bold="true"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>

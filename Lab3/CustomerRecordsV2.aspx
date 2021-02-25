@@ -7,9 +7,9 @@
     <br />
     <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
         <div>
-            <asp:Table ID="tblCustomerInfo" runat="server" HorizontalAlign="Center">
-                <asp:TableRow Height="200px">
-                    <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
+            <asp:Table ID="tblCustomerInfo" runat="server">
+                <asp:TableRow Height="100px">
+                    <asp:TableCell>
                         <asp:Label ID="lblCustomerRecords" runat="server" Text="Customer Records"></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
@@ -86,7 +86,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-            <asp:Table ID="tblCustomerPageButtons" runat="server" HorizontalAlign="Center">
+            <asp:Table ID="tblCustomerPageButtons" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnPopulate" runat="server" Text="Populate Cells" OnClick="btnPopulate_Click" />
@@ -105,7 +105,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="5" HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="5">
                         <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>

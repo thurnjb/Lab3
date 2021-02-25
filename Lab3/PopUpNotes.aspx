@@ -28,6 +28,9 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
+                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+                    </asp:TableCell>
+                    <asp:TableCell>
                         <asp:Button ID="btnSave" runat="server" Text="Save Note" OnClick="btnSave_Click" />
                     </asp:TableCell>
                 </asp:TableRow>

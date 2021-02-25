@@ -8,11 +8,11 @@
     <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page" OnClick="btnViewHomePage_Click" />
     <fieldset>
         <legend>All Tickets</legend>
-        <asp:GridView ID="grdTickets" runat="server" HorizontalAlign="Center" AutoGenerateEditButton="true" DataKeyNames="ServiceTicketID" DataSourceID="dtasrcServiceTicketID"></asp:GridView>
+        <asp:GridView ID="grdTickets" runat="server" AutoGenerateEditButton="true" DataKeyNames="ServiceTicketID" DataSourceID="dtasrcServiceTicketID"></asp:GridView>
     </fieldset>
-        <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="100px">
+        <asp:Table ID="Table1" runat="server" Height="100px">
         <asp:TableRow>
-            <asp:TableCell HorizontalAlign="Center">
+            <asp:TableCell>
                 <asp:DropDownList ID="ddlServiceTicketID" runat="server" 
                     AutoPostBack="true" 
                     DataSourceID="dtasrcServiceTicketID" 
@@ -26,17 +26,16 @@
     </asp:Table>
     <fieldset>
         <legend>Selected Ticket</legend>
-        <asp:GridView ID="grdSelectedTicket" runat="server" EmptyDataText="This ticket has no notes!" HorizontalAlign="Center"></asp:GridView>
+        <asp:GridView ID="grdSelectedTicket" runat="server" EmptyDataText="This ticket has no notes!"></asp:GridView>
     </fieldset>
     <fieldset>
         <legend>Selected Ticket History</legend>
-        <asp:GridView ID="grdSelectedTicketHistory" runat="server" EmptyDataText="This ticket has no history!" HorizontalAlign="Center"></asp:GridView>
+        <asp:GridView ID="grdSelectedTicketHistory" runat="server" EmptyDataText="This ticket has no history!"></asp:GridView>
     </fieldset>
     <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID" 
         UpdateCommand="UPDATE ServiceTicket SET TicketStatus=@TicketStatus, TicketOpenDate=@TicketOpenDate, FromDeadline=@FromDeadline, ToDeadline=@ToDeadline WHERE ServiceTicketID=@ServiceTicketID"> 
-        
     </asp:SqlDataSource>
 </asp:Content>

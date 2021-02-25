@@ -20,8 +20,13 @@ namespace Lab3
         {
             if(txtNoteContent.Text != ""  & txtNoteTitle.Text != "")
             {
-                
+                sqlCommitQuery = 
             }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

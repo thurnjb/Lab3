@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Table ID="Table1" runat="server">
+            <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblLogin" runat="server" Text="Please enter your login information"></asp:Label>
