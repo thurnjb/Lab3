@@ -2,8 +2,8 @@
 
 DROP TABLE EquipmentService;
 DROP TABLE InventoryService;
-DROP TABLE Notes;
 DROP TABLE TicketHistory;
+DROP TABLE Notes;
 DROP TABLE ServiceTicket;
 DROP TABLE InventoryItem;
 DROP TABLE Equipment;
@@ -52,6 +52,13 @@ CREATE TABLE ServiceTicket
 	ToDeadline varchar(255)
 	);
 
+CREATE TABLE Notes
+	(NoteID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
+	NoteTitle varchar(255),
+	NoteContent TEXT
+	);
+
 CREATE TABLE TicketHistory
 	(TicketHistoryID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
@@ -87,13 +94,6 @@ CREATE TABLE InventoryService
 	(InventoryServiceID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
 	InventoryItemID int REFERENCES InventoryItem(InventoryItemID)
-	);
-
-CREATE TABLE Notes
-	(NoteID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
-	NoteTitle varchar(255),
-	NoteContent TEXT
 	);
 
 --Insert test records
@@ -157,6 +157,21 @@ CREATE TABLE Notes
 	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
 	(5, 5, 1, 'Open',  '2021-02-19', '2021-02-21', '2021-02-25');
 
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(1, 'Ticket Created', 'Ticket Created');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(2, 'Ticket Created', 'Ticket Created');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(3, 'Ticket Created', 'Ticket Created');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(4, 'Ticket Created', 'Ticket Created');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(5, 'Ticket Created', 'Ticket Created');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(1, 'Notey note', 'Test note');
+	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
+	(1, 'Last note', 'Last note test');
+
 	INSERT INTO TICKETHISTORY(ServiceTicketID,EmployeeID,TicketChangeDate,DetailsNote) VALUES
 	(1, 3, '2021-02-19', 'New employee was assigned');
 	INSERT INTO TICKETHISTORY(ServiceTicketID,EmployeeID,TicketChangeDate,DetailsNote) VALUES
@@ -168,20 +183,7 @@ CREATE TABLE Notes
 	INSERT INTO TICKETHISTORY(ServiceTicketID,EmployeeID,TicketChangeDate,DetailsNote) VALUES
 	(1, 1, '2021-02-20', 'Note was added');
 
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(1, 'This is a note title', 'The note description goes here.');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(2, 'This is also a note title', 'The note description also goes here.');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(3, 'Customer address changed', 'Changed from 101 Dalmation St. to 102 Dalmation St.');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(4, 'Customer abandoned service', 'Customer no longer wants service done.');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(5, 'Customer service switch', 'Customer wants to switch from auction to moving.');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(1, 'Notey note', 'Test note');
-	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
-	(1, 'Last note', 'Last note test');
+	
 
 	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID) VALUES
 	(1, 1);
