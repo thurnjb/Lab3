@@ -34,7 +34,7 @@
     </fieldset>
     <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Lab2 %>" 
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT ServiceTicketID FROM ServiceTicket">
     </asp:SqlDataSource>
 </asp:Content>

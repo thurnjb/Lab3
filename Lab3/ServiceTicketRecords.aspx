@@ -141,15 +141,15 @@
         </asp:TableRow>
     </asp:Table>
     <asp:SqlDataSource ID="dtasrcCustomer" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Lab2 %>" 
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT CustomerID, FirstName + ' ' + LastName as CustomerName FROM Customer">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="dtasrcEmployee" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Lab2 %>" 
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT EmployeeID, FirstName + ' ' + LastName as EmployeeName FROM Employee">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="dtasrcService" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Lab2 %>" 
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT * FROM Service">
     </asp:SqlDataSource>
 </asp:Content>

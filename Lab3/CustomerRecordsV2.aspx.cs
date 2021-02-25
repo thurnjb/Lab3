@@ -8,7 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-/*Jay Thurn, Ryan Booth, John Lee sucks pooops 
+/*Jay Thurn, Ryan Booth, John Lee
 Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
 
 namespace Lab2
@@ -35,7 +35,7 @@ namespace Lab2
         {
             String sqlQuery = "Select * from Customer";
 
-            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab2"].ConnectionString);
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -89,7 +89,7 @@ namespace Lab2
                 "', '" + txtLastName.Text + "', '" + txtInitialContact.Text + "', '" + txtHeardFrom.Text + "', '" +
                 txtPhone.Text + "', '" + txtEmail.Text + "', '" + txtAddress.Text + "', '" + txtDestAddress.Text + "', '" + DateTime.Now + "');";
 
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab2"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 sqlConnect.Open();
                 SqlCommand sqlCommand = new SqlCommand();

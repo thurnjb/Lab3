@@ -55,7 +55,7 @@ namespace Lab2
             {
                 String sqlQuery = "INSERT INTO Notes VALUES (" + ++count + ", " + Session["SelectedTicket"] + ", '" + txtNoteTitle.Text + "', '" + txtNoteContent.Text + "');";
 
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab2;Trusted_Connection=Yes;");
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 sqlConnect.Open();
                 SqlCommand sqlCommand = new SqlCommand();

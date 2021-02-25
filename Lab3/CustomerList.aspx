@@ -10,7 +10,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:GridView ID="grdCustomers" runat="server" DataSourceID="dtasrcCustomerList"></asp:GridView>
-                <asp:SqlDataSource ID="dtasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab2 %>" SelectCommand="SELECT * FROM CUSTOMER"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dtasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT * FROM CUSTOMER"></asp:SqlDataSource>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>

@@ -37,7 +37,7 @@ namespace Lab2
         {
             String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline FROM Customer, Employee, Service, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID";
 
-            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab2"].ConnectionString);
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -96,7 +96,7 @@ namespace Lab2
                 sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
                     ddlService.SelectedValue + ", 'Open', '" + DateTime.Now + "', '" + txtFromDeadline.Text + "', '" + txtToDeadline.Text + "');";
 
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab2"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 sqlConnect.Open();
                 SqlCommand sqlCommand = new SqlCommand();
