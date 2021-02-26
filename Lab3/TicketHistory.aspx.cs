@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,20 +15,19 @@ namespace Lab2
 {
     public partial class TicketHistory : System.Web.UI.Page
     {
+        private static SqlDataReader queryResults;
+
         //On first page load, Fills grid view with all tickets
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                
-            }
+           
         }
 
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketNotes_Click(object sender, EventArgs e)
         {
             String sqlQuery = "SELECT  N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
-            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
             DataTable dtForGridView = new DataTable();
