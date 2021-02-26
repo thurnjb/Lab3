@@ -15,7 +15,6 @@
             AutoGenerateColumns="false"
             AllowSorting="true">
             <Columns>
-                <asp:BoundField ReadOnly="true" HeaderText="TicketID" DataField="ServiceTicketID" SortExpression="ServiceTicketID" />
                 <asp:BoundField ReadOnly="true" HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
                 <asp:BoundField ReadOnly="true" HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
                 <asp:BoundField ReadOnly="true" HeaderText="ServiceType" DataField="ServiceType" SortExpression="ServiceType" />
@@ -32,7 +31,7 @@
                 <asp:DropDownList ID="ddlServiceTicketID" runat="server" 
                     AutoPostBack="true" 
                     DataSourceID="dtasrcServiceTicketID" 
-                    DataTextField="ServiceTicketID" 
+                    DataTextField="CustomerName"
                     DataValueField="ServiceTicketID"></asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>

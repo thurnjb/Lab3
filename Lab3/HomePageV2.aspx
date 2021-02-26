@@ -26,7 +26,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:Button ID="btnViewCustomerList" runat="server" Text="View Customer List" OnClick="btnViewCustomerList_Click" />
+                            <asp:Button ID="btnViewCustomerList" runat="server" Text="Edit Customers" OnClick="btnViewCustomerList_Click" />
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Button ID="btnViewTicketHistory" runat="server" Text="Edit Tickets" OnClick="btnViewTicketHistory_Click" />

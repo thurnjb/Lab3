@@ -26,7 +26,7 @@ namespace Lab2
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketNotes_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "SELECT T.ServiceTicketID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
+            String sqlQuery = "SELECT  N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
             SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
