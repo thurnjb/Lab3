@@ -23,7 +23,7 @@ namespace Lab3
             {
                 if(Session["ServiceTicketID"] != null)
                 {
-                    sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", '" + txtNoteTitle.Text + "', '" + txtNoteContent.Text + "');";
+                    sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", '" + HttpUtility.HtmlEncode(txtNoteTitle.Text) + "', '" + HttpUtility.HtmlEncode(txtNoteContent.Text) + "');";
 
                     SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 

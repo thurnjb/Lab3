@@ -15,7 +15,6 @@ namespace Lab2
 {
     public partial class CustomerRecordsV2 : System.Web.UI.Page
     {
-        private static SqlDataReader queryResults;
         private static int current = -1;
         private static DataSet dataset = new DataSet("Customers");
         public static String sqlCommitQuery;
@@ -85,9 +84,9 @@ namespace Lab2
                 txtInitialContact.Text != "" & txtHeardFrom.Text != "" & txtPhone.Text != "" &
                 txtEmail.Text != "" & txtAddress.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES ('" + txtFirstName.Text +
-                "', '" + txtLastName.Text + "', '" + txtInitialContact.Text + "', '" + txtHeardFrom.Text + "', '" +
-                txtPhone.Text + "', '" + txtEmail.Text + "', '" + txtAddress.Text + "', '" + txtDestAddress.Text + "', '" + DateTime.Now + "');";
+                sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES ('" + HttpUtility.HtmlEncode(txtFirstName.Text) +
+                "', '" + HttpUtility.HtmlEncode(txtLastName.Text) + "', '" + HttpUtility.HtmlEncode(txtInitialContact.Text) + "', '" + HttpUtility.HtmlEncode(txtHeardFrom.Text) + "', '" +
+                HttpUtility.HtmlEncode(txtPhone.Text) + "', '" + HttpUtility.HtmlEncode(txtEmail.Text) + "', '" + HttpUtility.HtmlEncode(txtAddress.Text) + "', '" + HttpUtility.HtmlEncode(txtDestAddress.Text) + "', '" + DateTime.Now + "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 

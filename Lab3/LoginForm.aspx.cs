@@ -16,8 +16,6 @@ namespace Lab2
     public partial class LoginForm : System.Web.UI.Page
     {
 
-        private Employee currentUser;
-
         //On page load, if the page loads with loggedout=true, display user logged out. If user tries to access application without logging in, displays invaliduse session string
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,8 +41,8 @@ namespace Lab2
 
             SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnect);
 
-            sqlCommand.Parameters.AddWithValue("UserName", txtUserName.Text);
-            sqlCommand.Parameters.AddWithValue("Password", txtPassWord.Text);
+            sqlCommand.Parameters.AddWithValue("UserName", HttpUtility.HtmlEncode(txtUserName.Text));
+            sqlCommand.Parameters.AddWithValue("Password", HttpUtility.HtmlEncode(txtPassWord.Text));
 
             sqlConnect.Open();
 
