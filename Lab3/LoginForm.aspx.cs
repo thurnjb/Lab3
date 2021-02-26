@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -32,21 +34,31 @@ namespace Lab2
             }
         }
 
-        //This method tests the entered password and displays accordingly
+        //This method tests the entered username and password against the AUTH Database and displays accordingly
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtPassWord.Text == "dukedog")
+            String sqlQuery = "SELECT COUNT(1) FROM Credentials WHERE UserName=@UserName AND Password=@Password";
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
+
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnect);
+
+            sqlCommand.Parameters.AddWithValue("UserName", txtUserName.Text);
+            sqlCommand.Parameters.AddWithValue("Password", txtPassWord.Text);
+
+            sqlConnect.Open();
+
+            int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+            if(count == 1)
             {
-                currentUser = new Employee(txtUserName.Text, txtPassWord.Text);
-                lblStatus.ForeColor = Color.Green;
-                lblStatus.Text = "Successful login for " + currentUser.UserName;
                 Session["UserName"] = txtUserName.Text;
                 Response.Redirect("HomePageV2.aspx");
             }
             else
             {
                 lblStatus.ForeColor = Color.Red;
-                lblStatus.Text = "Login Failed: issue with username and/or password";
+                lblStatus.Text = "Login Failed: issue with Username and/or Password";
             }
         }
     }
