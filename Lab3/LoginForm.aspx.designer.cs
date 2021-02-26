@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab2
+namespace Lab3
 {
 
 
@@ -42,6 +42,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblLogin;
 
         /// <summary>
+        /// lblUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserName;
+
+        /// <summary>
         /// txtUserName control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
+
+        /// <summary>
+        /// lblPassWord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassWord;
 
         /// <summary>
         /// txtPassWord control.

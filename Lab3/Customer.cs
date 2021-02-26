@@ -6,7 +6,7 @@ using System.Web;
 /*Jay Thurn, Ryan Booth, John Lee
 Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
 
-namespace Lab1
+namespace Lab3
 {
     public class Customer
     {

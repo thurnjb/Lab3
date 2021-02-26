@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 /*Jay Thurn, Ryan Booth, John Lee
 Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
 
-namespace Lab2
+namespace Lab3
 {
     public partial class TicketHistory : System.Web.UI.Page
     {
