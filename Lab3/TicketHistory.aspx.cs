@@ -61,5 +61,18 @@ namespace Lab3
         {
             Response.Redirect("HomePageV2.aspx");
         }
+
+        protected void btnAssignEmployee_Click(object sender, EventArgs e)
+        {
+            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
+
+            string s = "window.open('AssignEmployee.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
+            ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+        }
+
+        protected void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TicketHistory.aspx");
+        }
     }
 }

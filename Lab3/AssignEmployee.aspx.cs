@@ -9,9 +9,9 @@ using System.Web.UI.WebControls;
 
 namespace Lab3
 {
-    public partial class PopUpNotes : System.Web.UI.Page
+    public partial class AssignEmployee : System.Web.UI.Page
     {
-
+        private static String sqlQuery;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,31 +19,30 @@ namespace Lab3
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtNoteContent.Text != ""  & txtNoteTitle.Text != "")
+            if(ddlEmployee.SelectedValue != null)
             {
-                if(Session["ServiceTicketID"] != null)
+                if (Session["ServiceTicketID"] != null)
                 {
-                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", '" + HttpUtility.HtmlEncode(txtNoteTitle.Text) + "', '" + HttpUtility.HtmlEncode(txtNoteContent.Text) + "');";
-
+                    sqlQuery = "UPDATE ServiceTicket SET InitiatingEmployeeID=" + ddlEmployee.SelectedValue + " WHERE ServiceTicketID=" + Session["ServiceTicketID"] + ";";
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                     sqlConnect.Open();
                     SqlCommand sqlCommand = new SqlCommand();
                     sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandText = sqlCommitQuery;
+                    sqlCommand.CommandText = sqlQuery;
 
                     sqlCommand.ExecuteNonQuery();
-                    lblErrorMsg.Text = "Note was successfully saved";
+
                     ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);
                 }
                 else
                 {
-                    lblErrorMsg.Text = "No ticket was selected";
+                    lblErrorMsg.Text = "No ticket was selected!";
                 }
             }
             else
             {
-                lblErrorMsg.Text = "Title and Content must be filled";
+                lblErrorMsg.Text = "No employee was selected!";
             }
         }
 

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AssignEmployee.aspx" />
     <Content Include="CustomerList.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
@@ -77,6 +78,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignEmployee.aspx.cs">
+      <DependentUpon>AssignEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssignEmployee.aspx.designer.cs">
+      <DependentUpon>AssignEmployee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
