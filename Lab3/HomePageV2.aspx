@@ -8,7 +8,7 @@
             <asp:Table ID="Table1" runat="server" Height="300px" HorizontalAlign="Center">
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                            <asp:Label ID="lblCompany" runat="server" Text="Thurn Database App"></asp:Label>
+                            <asp:Label ID="lblCompany" runat="server" Text="Thurn,Booth,Lee Database App"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
