@@ -9,7 +9,7 @@
         <div>
             <asp:Table ID="tblCustomerInfo" runat="server">
                 <asp:TableRow Height="100px">
-                    <asp:TableCell>
+                    <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                         <asp:Label ID="lblCustomerRecords" runat="server" Text="Customer Records"></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>

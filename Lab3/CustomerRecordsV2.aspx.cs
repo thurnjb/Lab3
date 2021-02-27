@@ -84,9 +84,7 @@ namespace Lab3
                 txtInitialContact.Text != "" & txtHeardFrom.Text != "" & txtPhone.Text != "" &
                 txtEmail.Text != "" & txtAddress.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES ('" + HttpUtility.HtmlEncode(txtFirstName.Text) +
-                "', '" + HttpUtility.HtmlEncode(txtLastName.Text) + "', '" + HttpUtility.HtmlEncode(txtInitialContact.Text) + "', '" + HttpUtility.HtmlEncode(txtHeardFrom.Text) + "', '" +
-                HttpUtility.HtmlEncode(txtPhone.Text) + "', '" + HttpUtility.HtmlEncode(txtEmail.Text) + "', '" + HttpUtility.HtmlEncode(txtAddress.Text) + "', '" + HttpUtility.HtmlEncode(txtDestAddress.Text) + "', '" + DateTime.Now + "');";
+                sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES (@FirstName, @LastName, @InitialContact, @HeardFrom, @Phone, @Email, @Address, @DestAddress, '" + DateTime.Now + "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -94,8 +92,17 @@ namespace Lab3
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandText = sqlCommitQuery;
+                sqlCommand.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+                sqlCommand.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
+                sqlCommand.Parameters.AddWithValue("@InitialContact", HttpUtility.HtmlEncode(txtInitialContact.Text));
+                sqlCommand.Parameters.AddWithValue("@HeardFrom", HttpUtility.HtmlEncode(txtHeardFrom.Text));
+                sqlCommand.Parameters.AddWithValue("Phone", HttpUtility.HtmlEncode(txtPhone.Text));
+                sqlCommand.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
+                sqlCommand.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
+                sqlCommand.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestAddress.Text));
 
                 sqlCommand.ExecuteNonQuery();
+                lblErrorMsg.Text = "Successfully saved to database!";
             }
             else
             {
