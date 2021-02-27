@@ -35,28 +35,42 @@ namespace Lab3
         //This method tests the entered username and password against the AUTH Database and displays accordingly
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "SELECT COUNT(1) FROM Credentials WHERE UserName=@UserName AND Password=@Password";
-
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
-
-            SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnect);
-
-            sqlCommand.Parameters.AddWithValue("UserName", HttpUtility.HtmlEncode(txtUserName.Text));
-            sqlCommand.Parameters.AddWithValue("Password", HttpUtility.HtmlEncode(txtPassWord.Text));
-
-            sqlConnect.Open();
-
-            int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
-
-            if(count == 1)
+            try
             {
-                Session["UserName"] = txtUserName.Text;
-                Response.Redirect("HomePageV2.aspx");
+                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+
+                sc.Open();
+                System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
+                findPass.Connection = sc;
+                // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
+                findPass.CommandText = "SELECT PasswordHash FROM Pass WHERE Username = @Username";
+                findPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtUserName.Text)));
+
+                SqlDataReader reader = findPass.ExecuteReader(); // create a reader
+
+                if (reader.HasRows) // if the username exists, it will continue
+                {
+                    while (reader.Read()) // this will read the single record that matches the entered username
+                    {
+                        string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
+
+                        if (PasswordHash.ValidatePassword(txtPassWord.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                        {
+                            Session["UserName"] = txtUserName.Text;
+                            Response.Redirect("HomePageV2.aspx");
+                        }
+                        else
+                            lblStatus.Text = "Login failed: issue with Username and/or Password";
+                    }
+                }
+                else // if the username doesn't exist, it will show failure
+                    lblStatus.Text = "Login failed: issue with Username and/or Password";
+
+                sc.Close();
             }
-            else
+            catch(Exception c)
             {
-                lblStatus.ForeColor = Color.Red;
-                lblStatus.Text = "Login Failed: issue with Username and/or Password";
+                lblStatus.Text = c.ToString();
             }
         }
     }

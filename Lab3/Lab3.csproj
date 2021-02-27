@@ -115,6 +115,7 @@
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="PopUpNotes.aspx.cs">
       <DependentUpon>PopUpNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
