@@ -7,6 +7,9 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*Jay Thurn, Ryan Booth, John Lee
+Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
+
 namespace Lab3
 {
     public partial class AssignEmployee : System.Web.UI.Page
@@ -17,6 +20,7 @@ namespace Lab3
 
         }
 
+        //This method updates a ServiceTicket with a new employee that was selected from a ddl
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if(ddlEmployee.SelectedValue != null)
@@ -46,6 +50,7 @@ namespace Lab3
             }
         }
 
+        //This method closes the popup window
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);

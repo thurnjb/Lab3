@@ -2,6 +2,9 @@
 
 <!DOCTYPE html>
 
+<!-- Jay Thurn, Ryan Booth, John Lee
+    We have neither given nor received any unauthorized assistance on this assignment-->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>

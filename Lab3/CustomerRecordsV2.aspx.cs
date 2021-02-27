@@ -19,7 +19,7 @@ namespace Lab3
         private static DataSet dataset = new DataSet("Customers");
         public static String sqlCommitQuery;
 
-        //Page_Load method opens a sql connection and counts # of records in the customer table then calls connectToData method
+        //Page_Load method calls connectToData method
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -76,7 +76,7 @@ namespace Lab3
             txtSaveDate.Text = dataset.Tables[0].Rows[current]["SaveDate"].ToString();
         }
 
-        //btnSave_Click method saves the data in the textboxes to a sql String on Save button click
+        //btnSave_Click method saves the data in the textboxes to a sql String and executes the query
         protected void btnSave_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";

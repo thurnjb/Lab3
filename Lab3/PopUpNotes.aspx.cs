@@ -7,6 +7,9 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*Jay Thurn, Ryan Booth, John Lee
+Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
+
 namespace Lab3
 {
     public partial class PopUpNotes : System.Web.UI.Page
@@ -17,6 +20,8 @@ namespace Lab3
 
         }
 
+
+        //This method creates a new Note object and associates it with the ServiceTicket selected on the previous page
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if(txtNoteContent.Text != ""  & txtNoteTitle.Text != "")
@@ -49,6 +54,7 @@ namespace Lab3
             }
         }
 
+        //This method closes the popup window
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);
