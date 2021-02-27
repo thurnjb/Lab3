@@ -37,10 +37,10 @@ namespace Lab3
         {
             try
             {
-                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+                SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
 
                 sc.Open();
-                System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
+                SqlCommand findPass = new SqlCommand();
                 findPass.Connection = sc;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
                 findPass.CommandText = "SELECT PasswordHash FROM Pass WHERE Username = @Username";
@@ -56,7 +56,7 @@ namespace Lab3
 
                         if (PasswordHash.ValidatePassword(txtPassWord.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
-                            Session["UserName"] = txtUserName.Text;
+                            Session["UserName"] = HttpUtility.HtmlEncode(txtUserName.Text);
                             Response.Redirect("HomePageV2.aspx");
                         }
                         else

@@ -23,7 +23,7 @@ namespace Lab3
             {
                 if(Session["ServiceTicketID"] != null)
                 {
-                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", '" + HttpUtility.HtmlEncode(txtNoteTitle.Text) + "', '" + HttpUtility.HtmlEncode(txtNoteContent.Text) + "');";
+                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
 
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -31,6 +31,8 @@ namespace Lab3
                     SqlCommand sqlCommand = new SqlCommand();
                     sqlCommand.Connection = sqlConnect;
                     sqlCommand.CommandText = sqlCommitQuery;
+                    sqlCommand.Parameters.AddWithValue("@NoteTitle", HttpUtility.HtmlEncode(txtNoteTitle.Text));
+                    sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
 
                     sqlCommand.ExecuteNonQuery();
                     lblErrorMsg.Text = "Note was successfully saved";
