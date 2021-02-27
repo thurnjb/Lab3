@@ -71,8 +71,6 @@
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
     <Content Include="LoginForm.aspx" />
-    <Content Include="NoteCreate.aspx" />
-    <Content Include="NotePage.aspx" />
     <Content Include="PopUpNotes.aspx" />
     <Content Include="ServiceTicketRecords.aspx" />
     <Content Include="TicketHistory.aspx" />
@@ -108,20 +106,6 @@
     </Compile>
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NoteCreate.aspx.cs">
-      <DependentUpon>NoteCreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NoteCreate.aspx.designer.cs">
-      <DependentUpon>NoteCreate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NotePage.aspx.cs">
-      <DependentUpon>NotePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NotePage.aspx.designer.cs">
-      <DependentUpon>NotePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopUpNotes.aspx.cs">
       <DependentUpon>PopUpNotes.aspx</DependentUpon>

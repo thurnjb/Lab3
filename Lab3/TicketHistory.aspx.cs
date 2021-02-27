@@ -50,8 +50,10 @@ namespace Lab3
         //This method saved the selected value in the ddl in session and redirects to the notes page
         protected void btnAddNote_Click(object sender, EventArgs e)
         {
-            Session["SelectedTicket"] = ddlServiceTicketID.SelectedValue;
-            Response.Redirect("NotePage.aspx");
+            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
+
+            string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
+            ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
         }
 
         //This method returns to home page
