@@ -2,10 +2,10 @@
 
 DROP TABLE EquipmentService;
 DROP TABLE InventoryService;
-DROP TABLE Auction;
 DROP TABLE TicketHistory;
 DROP TABLE Notes;
 DROP TABLE ServiceTicket;
+DROP TABLE Auction;
 DROP TABLE InventoryItem;
 DROP TABLE Equipment;
 DROP TABLE Service;
@@ -42,11 +42,18 @@ CREATE TABLE Service
 	ServiceDescription varchar(255),
 	);
 
+CREATE TABLE Auction
+	(AuctionID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	AuctionName varchar(255),
+	AuctionDate datetime,
+	);
+
 CREATE TABLE ServiceTicket
 	(ServiceTicketID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	CustomerID int REFERENCES Customer(CustomerID),
 	InitiatingEmployeeID int REFERENCES Employee(EmployeeID),
 	ServiceID int REFERENCES Service(ServiceID),
+	AuctionID int REFERENCES Auction(AuctionID),
 	TicketStatus varchar(255),
 	TicketOpenDate datetime,
 	FromDeadline varchar(255),
@@ -84,13 +91,6 @@ CREATE TABLE Equipment
 	PurchaseDate varchar(255)
 	);
 
-CREATE TABLE Auction
-	(AuctionID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	AuctionName varchar(255),
-	AuctionDate datetime,
-	);
-
-
 CREATE TABLE EquipmentService
 	(InventoryServiceID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
@@ -100,8 +100,7 @@ CREATE TABLE EquipmentService
 CREATE TABLE InventoryService
 	(InventoryServiceID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	ServiceTicketID int REFERENCES ServiceTicket(ServiceTicketID),
-	InventoryItemID int REFERENCES InventoryItem(InventoryItemID),
-	AuctionID int REFERENCES Auction(AuctionID)
+	InventoryItemID int REFERENCES InventoryItem(InventoryItemID)
 	);
 
 --Insert test records
@@ -132,6 +131,13 @@ CREATE TABLE InventoryService
 	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
 	('Auction', 'Auction job');
 
+	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
+	('March Fest', '2021-03-15');
+	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
+	('Roman Auction', '2021-04-01');
+	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
+	('Chinese Bargain', '2021-05-01');
+
 	INSERT INTO EQUIPMENT(EquipmentName,EquipmentDesc,PurchaseCost,PurchaseDate) VALUES
 	('Moving truck1', '3 ton limit moving truck', 200000.00, '2021-02-05');
 	INSERT INTO EQUIPMENT(EquipmentName,EquipmentDesc,PurchaseCost,PurchaseDate) VALUES
@@ -156,12 +162,12 @@ CREATE TABLE InventoryService
 
 	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
 	(1, 1, 1, 'Open', '2021-02-14', '2021-02-14', '2021-02-14');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(2, 2, 2, 'Open', '2021-02-15', '2021-02-18', '2021-02-20');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
+	(2, 2, 2, 3, 'Open', '2021-02-15', '2021-02-18', '2021-02-20');
 	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
 	(3, 3, 1, 'Open', '2021-02-16', '2021-02-19', '2021-02-20');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(4, 4, 2, 'Open', '2021-02-18', '2021-02-20', '2021-02-20');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
+	(4, 4, 2, 2, 'Open', '2021-02-18', '2021-02-20', '2021-02-20');
 	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
 	(5, 5, 1, 'Open',  '2021-02-19', '2021-02-21', '2021-02-25');
 
@@ -191,18 +197,10 @@ CREATE TABLE InventoryService
 	INSERT INTO TICKETHISTORY(ServiceTicketID,EmployeeID,TicketChangeDate,DetailsNote) VALUES
 	(1, 1, '2021-02-20', 'Note was added');
 
-	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
-	('March Fest', '2021-03-15');
-	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
-	('Roman Auction', '2021-04-01');
-	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
-	('Chinese Bargain', '2021-05-01');
-	
-
-	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID,AuctionID) VALUES
-	(2, 1, 1);
-	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID,AuctionID) VALUES
-	(2, 2, 3);
+	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID) VALUES
+	(2, 1);
+	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID) VALUES
+	(2, 2);
 	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID) VALUES
 	(4, 3);
 	INSERT INTO INVENTORYSERVICE(ServiceTicketID,InventoryItemID) VALUES
