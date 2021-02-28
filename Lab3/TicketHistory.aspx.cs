@@ -15,7 +15,6 @@ namespace Lab3
 {
     public partial class TicketHistory : System.Web.UI.Page
     {
-        private static SqlDataReader queryResults;
 
         //On first page load, Fills grid view with all tickets
         protected void Page_Load(object sender, EventArgs e)
@@ -26,12 +25,17 @@ namespace Lab3
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketNotes_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "SELECT  N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
+            String sqlQuery = "SELECT InitiatingEmployeeID FROM ServiceTicket WHERE ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+            DataSet dsEmployee = new DataSet();
+            sqlAdapter.Fill(dsEmployee);
+
+            sqlQuery = "SELECT  N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
             DataTable dtForGridView = new DataTable();
-            sqlAdapter.Fill(dtForGridView);
+            SqlAdapter.Fill(dtForGridView);
 
             grdSelectedTicket.DataSource = dtForGridView;
             grdSelectedTicket.DataBind();
@@ -45,13 +49,14 @@ namespace Lab3
 
             grdSelectedTicketHistory.DataSource = dt;
             grdSelectedTicketHistory.DataBind();
+
+            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
+            Session["EmployeeID"] = dsEmployee.Tables[0].Rows[0]["InitiatingEmployeeID"].ToString();
         }
 
         //This method saved the selected value in the ddl in session and redirects to the notes page
         protected void btnAddNote_Click(object sender, EventArgs e)
         {
-            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
-
             string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
             ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
         }
@@ -64,8 +69,6 @@ namespace Lab3
 
         protected void btnAssignEmployee_Click(object sender, EventArgs e)
         {
-            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
-
             string s = "window.open('AssignEmployee.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
             ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
         }

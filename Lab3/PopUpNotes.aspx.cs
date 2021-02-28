@@ -40,7 +40,16 @@ namespace Lab3
                     sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
 
                     sqlCommand.ExecuteNonQuery();
-                    lblErrorMsg.Text = "Note was successfully saved";
+                    sqlConnect.Close();
+
+                    sqlCommitQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'Note was added');";
+
+                    SqlCommand sqlcommand = new SqlCommand();
+                    sqlConnect.Open();
+                    sqlcommand.Connection = sqlConnect;
+                    sqlcommand.CommandText = sqlCommitQuery;
+                    sqlcommand.ExecuteNonQuery();
+
                     ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);
                 }
                 else

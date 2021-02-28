@@ -36,6 +36,14 @@ namespace Lab3
                     sqlCommand.CommandText = sqlQuery;
 
                     sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+
+                    sqlQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'New employee was assigned')";
+                    sqlConnect.Open();
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandText = sqlQuery;
+
+                    sqlCommand.ExecuteNonQuery();
 
                     ClientScript.RegisterStartupScript(this.GetType(), "script", "window.close()", true);
                 }

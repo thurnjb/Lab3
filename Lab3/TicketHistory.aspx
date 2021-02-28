@@ -57,11 +57,15 @@
     </asp:Table>
     <fieldset>
         <legend>Selected Ticket Notes</legend>
-        <asp:GridView ID="grdSelectedTicket" runat="server" EmptyDataText="This ticket has no notes!"></asp:GridView>
+        <asp:GridView ID="grdSelectedTicket" runat="server"
+            EmptyDataText="This ticket has no notes!">
+        </asp:GridView>
     </fieldset>
     <fieldset>
         <legend>Selected Ticket History</legend>
-        <asp:GridView ID="grdSelectedTicketHistory" runat="server" EmptyDataText="This ticket has no history!"></asp:GridView>
+        <asp:GridView ID="grdSelectedTicketHistory" runat="server"
+            EmptyDataText="This ticket has no history!">
+        </asp:GridView>
     </fieldset>
     <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server"
