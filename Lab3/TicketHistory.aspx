@@ -48,7 +48,7 @@
                 </asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnViewTicketNotes" runat="server" Text="View Ticket Notes" OnClick="btnViewTicketNotes_Click" />
+                <asp:Button ID="btnViewTicketDetails" runat="server" Text="View Ticket Details" OnClick="btnViewTicketDetails_Click" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Button ID="btnAssignEmployee" runat="server" Text="Assign New Employee" OnClick="btnAssignEmployee_Click" />
@@ -56,10 +56,23 @@
         </asp:TableRow>
     </asp:Table>
     <fieldset>
-        <legend>Selected Ticket Notes</legend>
-        <asp:GridView ID="grdSelectedTicket" runat="server"
-            EmptyDataText="This ticket has no notes!">
-        </asp:GridView>
+        <legend>Selected Ticket Details</legend>
+        <asp:Table ID="tblDetails" runat="server">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:GridView ID="grdSelectedTicket" runat="server"
+                        EmptyDataText="This ticket has no notes!">
+                    </asp:GridView>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:GridView ID="grdAuction" runat="server"
+                        EmptyDataText="This ticket has no auction!">
+                    </asp:GridView>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </fieldset>
     <fieldset>
         <legend>Selected Ticket History</legend>
@@ -67,7 +80,17 @@
             EmptyDataText="This ticket has no history!">
         </asp:GridView>
     </fieldset>
-    <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
+    <asp:Table ID="tblNoteBtn" runat="server" HorizontalAlign="Left">
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Button ID="btnAddNote" runat="server" Text="Add Note:" OnClick="btnAddNote_Click" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnAssignAuction" runat="server" Text="Assign to Auction:" OnClick="btnAssignAuction_Click1" />
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
         SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline, C.FirstName + ' ' + C.LastName + '-' + CONVERT(varchar(255), T.TicketOpenDate) NameDate FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID"
