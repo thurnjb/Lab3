@@ -21,7 +21,14 @@ namespace Lab3
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
-
+            if(tbDate !=null & tbDesc !=null)
+            {
+                lblStatus.Text = "succ";
+            }
+            else
+            {
+                lblStatus.Text = "Please input all information";
+            }
         }
     }
 }
