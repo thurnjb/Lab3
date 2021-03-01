@@ -51,6 +51,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnNotifications;
 
         /// <summary>
+        /// btnCustomerDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCustomerDetails;
+
+        /// <summary>
         /// btnViewCustomerRecord control.
         /// </summary>
         /// <remarks>

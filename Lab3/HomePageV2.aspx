@@ -23,6 +23,11 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
+                        <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
+                            <asp:Button  ID="btnCustomerDetails" runat="server" Text="Customer Information" OnClick="btnCustomerDetails_Click" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Button ID="btnViewCustomerRecord" runat="server" Text="Create New Customer Records" OnClick="btnViewCustomerRecord_Click" />
                         </asp:TableCell>

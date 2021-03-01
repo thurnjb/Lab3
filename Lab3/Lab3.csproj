@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AssignAuction.aspx" />
     <Content Include="AssignEmployee.aspx" />
+    <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerList.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerPortalService.aspx" />
@@ -97,6 +98,13 @@
       <DependentUpon>AssignEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

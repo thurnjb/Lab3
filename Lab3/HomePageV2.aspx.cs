@@ -45,5 +45,10 @@ namespace Lab3
         {
             Response.Redirect("NotificationPage.aspx");
         }
+
+        protected void btnCustomerDetails_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerDetails.aspx");
+        }
     }
 }
