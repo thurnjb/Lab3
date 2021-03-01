@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace Lab3
 {
+    /*Jay Thurn, Ryan Booth, John Lee
+Our submission of this assignment indicates that we have neither received nor given unauthorized assistance in writing this program. All design and coding is our own work.*/
     public partial class CustomerPortalLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -19,6 +21,7 @@ namespace Lab3
             Response.Redirect("LoginForm.aspx");
         }
 
+        //This method checks the users information and logs them in
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             if (Application["CustUsername"] != null & Application["CustPassword"] != null)

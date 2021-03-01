@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<!-- Jay Thurn, Ryan Booth, John Lee
+    We have neither given nor received any unauthorized assistance on this assignment-->
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div style="text-align: center">
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
