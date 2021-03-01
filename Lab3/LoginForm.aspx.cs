@@ -82,8 +82,8 @@ namespace Lab3
             loginCommand.CommandType = System.Data.CommandType.StoredProcedure;
             loginCommand.CommandText = "sp_JeremyEzellLab3";
 
-            loginCommand.Parameters.AddWithValue("@UserName", txtUserName.Text);
-            loginCommand.Parameters.AddWithValue("@PasswordHash", txtPassWord.Text);
+            loginCommand.Parameters.AddWithValue("@UserName", HttpUtility.HtmlEncode(txtUserName.Text));
+            loginCommand.Parameters.AddWithValue("@PasswordHash", HttpUtility.HtmlEncode(txtPassWord.Text));
 
             dbConnection.Open();
 
