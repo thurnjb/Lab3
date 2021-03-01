@@ -6,6 +6,7 @@
     We have neither given nor received any unauthorized assistance on this assignment-->
     <div style="text-align: center">
             <asp:Table ID="Table1" runat="server" Height="300px" HorizontalAlign="Center">
+
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                             <asp:Label ID="lblCompany" runat="server" Text="Thurn,Booth,Lee Database App"></asp:Label>
@@ -14,6 +15,11 @@
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                             <asp:Label ID="lblHomePage" runat="server" Text="Database Application Home Page"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
+                            <asp:Button ID="btnNotifications" runat="server" Text="View Notifications" OnClick="btnNotifications_Click" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

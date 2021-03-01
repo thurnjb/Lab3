@@ -100,5 +100,11 @@ namespace Lab3
                 lblStatus.Text = "Login failed: issue with Username and/or Password";
             }
         }
+
+        protected void btnCustLogin_Click(object sender, EventArgs e)
+        {
+            Session["UserName"] = "Customer";
+            Response.Redirect("CustomerPortalLogin.aspx");
+        }
     }
 }

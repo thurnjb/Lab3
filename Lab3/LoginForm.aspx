@@ -14,6 +14,12 @@
             <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
+                        <asp:Label ID="lblTitle" runat="server" Text="Employee Login Portal"></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+
+                <asp:TableRow>
+                    <asp:TableCell ColumnSpan="2">
                         <asp:Label ID="lblLogin" runat="server" Text="Please enter your login information"></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
@@ -41,6 +47,11 @@
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnCustLogin" runat="server" Text="CUSTOMER LOGIN PORTAL" OnClick="btnCustLogin_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

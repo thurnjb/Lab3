@@ -70,9 +70,12 @@
     <Content Include="AssignAuction.aspx" />
     <Content Include="AssignEmployee.aspx" />
     <Content Include="CustomerList.aspx" />
+    <Content Include="CustomerPortalLogin.aspx" />
+    <Content Include="CustomerPortalService.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
     <Content Include="LoginForm.aspx" />
+    <Content Include="NotificationPage.aspx" />
     <Content Include="PopUpNotes.aspx" />
     <Content Include="ServiceTicketRecords.aspx" />
     <Content Include="TicketHistory.aspx" />
@@ -101,6 +104,27 @@
     <Compile Include="CustomerList.aspx.designer.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerPortal.Master.cs">
+      <DependentUpon>CustomerPortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortal.Master.designer.cs">
+      <DependentUpon>CustomerPortal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPortalLogin.aspx.cs">
+      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortalLogin.aspx.designer.cs">
+      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPortalService.aspx.cs">
+      <DependentUpon>CustomerPortalService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortalService.aspx.designer.cs">
+      <DependentUpon>CustomerPortalService.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerRecordsV2.aspx.cs">
       <DependentUpon>CustomerRecordsV2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +146,13 @@
     </Compile>
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationPage.aspx.cs">
+      <DependentUpon>NotificationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotificationPage.aspx.designer.cs">
+      <DependentUpon>NotificationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="PopUpNotes.aspx.cs">
@@ -155,6 +186,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerPortal.Master" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

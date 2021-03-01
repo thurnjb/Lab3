@@ -40,5 +40,10 @@ namespace Lab3
         {
             Response.Redirect("TicketHistory.aspx");
         }
+
+        protected void btnNotifications_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NotificationPage.aspx");
+        }
     }
 }
