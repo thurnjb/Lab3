@@ -19,9 +19,8 @@
                         </asp:TableCell>
                     </asp:TableRow>
              <asp:TableRow>
-
                  <asp:TableCell ColumnSpan="5">
-                     <asp:DropDownList ID="DropDownList1" runat="server"
+                     <asp:DropDownList ID="ddlCustomerList" runat="server"
                          DataSourceID="dtasrcCustomer"
                          DataTextField="CustomerName"
                          DataValueField="CustomerID"
@@ -30,19 +29,17 @@
                      </asp:DropDownList>
                  </asp:TableCell>
              </asp:TableRow>
-
              <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                            <asp:Button ID="btnView" runat="server" Text="View Customer Details" />
+                            <asp:Button ID="btnView" runat="server" Text="View Customer Details" OnClick="btnView_Click" />
                         </asp:TableCell>
-
              </asp:TableRow>
-
-
-
          </asp:Table>
+         <asp:GridView ID="grdCustomerTicket" runat="server" 
+             EmptyDataText="This customer has no tickets!"
+             AutoGenerateSelectButton="true">
+         </asp:GridView>
      </div>
-
     <asp:SqlDataSource ID="dtasrcCustomer" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT CustomerID, FirstName + ' ' + LastName as CustomerName FROM Customer">

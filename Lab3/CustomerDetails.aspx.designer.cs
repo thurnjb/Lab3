@@ -51,13 +51,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblSelect;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlCustomerList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerList;
 
         /// <summary>
         /// btnView control.
@@ -67,6 +67,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnView;
+
+        /// <summary>
+        /// grdCustomerTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCustomerTicket;
 
         /// <summary>
         /// dtasrcCustomer control.

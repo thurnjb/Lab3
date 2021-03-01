@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,6 +20,20 @@ namespace Lab3
         protected void btnHomePage_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomePageV2.aspx");
+        }
+
+        protected void btnView_Click(object sender, EventArgs e)
+        {
+            String sqlQuery = "SELECT C.FirstName + ' ' + C.LastName as CustomerName, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM  Customer C, ServiceTicket T WHERE T.CustomerID = " + ddlCustomerList.SelectedValue;
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+            DataTable dtCustomer = new DataTable();
+            sqlAdapter.Fill(dtCustomer);
+
+            grdCustomerTicket.DataSource = dtCustomer;
+            grdCustomerTicket.DataBind();
         }
     }
 }
