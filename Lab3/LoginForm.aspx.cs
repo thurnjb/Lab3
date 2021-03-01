@@ -72,6 +72,33 @@ namespace Lab3
             {
                 lblStatus.Text = c.ToString();
             }
+
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+
+            SqlCommand loginCommand = new SqlCommand();
+
+            //Properties for this loginCommand Object
+            loginCommand.Connection = dbConnection;
+            loginCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            loginCommand.CommandText = "AUTH_login";
+
+            loginCommand.Parameters.AddWithValue("@UserName", txtUserName.Text);
+            loginCommand.Parameters.AddWithValue("@PasswordHash", txtPassWord.Text);
+
+            dbConnection.Open();
+
+            SqlDataReader loginResults = loginCommand.ExecuteReader();
+
+            if (loginResults.Read())
+            {
+                Session["UserName"] = HttpUtility.HtmlEncode(txtUserName.Text);
+                Response.Redirect("HomePageV2.aspx");
+            }
+
+            else
+            {
+                lblStatus.Text = "Login failed: issue with Username and/or Password";
+            }
         }
     }
 }
