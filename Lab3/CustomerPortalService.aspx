@@ -38,6 +38,12 @@
                 <asp:Button ID="btnSend" runat="server" Text="Send Service Request" OnClick="btnSend_Click" />
             </asp:TableCell>
         </asp:TableRow>
+
+        <asp:TableRow>
+            <asp:TableCell ColumnSpan="2">
+                <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
         
 
 
