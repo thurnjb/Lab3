@@ -13,5 +13,10 @@ namespace Lab3
         {
 
         }
+
+        protected void btnHomePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePageV2.aspx");
+        }
     }
 }

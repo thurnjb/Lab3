@@ -30,6 +30,21 @@ namespace Lab3
                 count = 0;
                 connectToData();
             }
+
+            if(Application["NewAdd"] != null)
+            {
+                txtCustomerName.Text = Application["CustFName"].ToString() + Application["CustLName"].ToString();
+                if (Application["ServiceType"].ToString() == "1")
+                {
+                    txtServiceType.Text = "Moving";
+                }
+                else
+                {
+                    txtServiceType.Text = "Auction";
+                }
+                txtFromDeadline.Text = "2021-03-05";
+                txtToDeadline.Text = "2021-03-07";
+            }
         }
 
         //Gets count of number of records in ServiceTicket and fills dataset with rows
@@ -109,6 +124,14 @@ namespace Lab3
 
                 string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
                 ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+
+                if(Application["NewAdd"] != null)
+                {
+                    Application["Request"] = null;
+                    Application["NewAdd"] = null;
+                    Application["Added"] = "yes";
+                    Response.Redirect("NotificationPage.aspx");
+                }
             }
             else
             {

@@ -27,6 +27,19 @@ namespace Lab3
                 current = -1;
                 connectToData();
             }
+
+            if(Application["NewAdd"] != null)
+            {
+                txtFirstName.Text = Application["CustFName"].ToString();
+                txtLastName.Text = Application["CustLName"].ToString();
+                txtInitialContact.Text = "Web App";
+                txtHeardFrom.Text = Application["CustHear"].ToString();
+                txtPhone.Text = Application["CustPhone"].ToString();
+                txtEmail.Text = Application["CustUsername"].ToString();
+                txtAddress.Text = Application["CustAddress"].ToString();
+                txtDestAddress.Text = "";
+                txtSaveDate.Text = "";
+            }
         }
 
         //connectToData method opens a sql connection and fills dataset with the query
@@ -103,6 +116,11 @@ namespace Lab3
 
                 sqlCommand.ExecuteNonQuery();
                 lblErrorMsg.Text = "Successfully saved to database!";
+
+                if(Application["NewAdd"] != null)
+                {
+                    Response.Redirect("ServiceTicketRecords.aspx");
+                }
             }
             else
             {

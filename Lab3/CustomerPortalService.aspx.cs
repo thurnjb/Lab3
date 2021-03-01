@@ -21,9 +21,13 @@ namespace Lab3
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
-            if(tbDate !=null & tbDesc !=null)
+            if(tbDate.Text !="" & tbDesc.Text !="")
             {
-                lblStatus.Text = "succ";
+                lblStatus.Text = "Request Successfully Submitted";
+                Application["Request"] = "yes";
+                Application["ServiceType"] = ddlType.SelectedValue;
+                Application["ServiceDate"] = tbDate.Text;
+                Application["ServiceDesc"] = tbDesc.Text;
             }
             else
             {
