@@ -80,7 +80,7 @@ namespace Lab3
             //Properties for this loginCommand Object
             loginCommand.Connection = dbConnection;
             loginCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            loginCommand.CommandText = "AUTH_login";
+            loginCommand.CommandText = "sp_JeremyEzellLab3";
 
             loginCommand.Parameters.AddWithValue("@UserName", txtUserName.Text);
             loginCommand.Parameters.AddWithValue("@PasswordHash", txtPassWord.Text);
