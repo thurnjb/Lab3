@@ -51,13 +51,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblSelect;
 
         /// <summary>
-        /// ddlCustomerList control.
+        /// txtCustomerSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerList;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerSearch;
 
         /// <summary>
         /// btnView control.
@@ -69,13 +69,40 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnView;
 
         /// <summary>
-        /// grdCustomerTicket control.
+        /// grdCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomerTicket;
+        protected global::System.Web.UI.WebControls.GridView grdCustomers;
+
+        /// <summary>
+        /// grdTickets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdTickets;
+
+        /// <summary>
+        /// grdNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdNotes;
+
+        /// <summary>
+        /// grdTicketHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdTicketHistory;
 
         /// <summary>
         /// dtasrcCustomer control.

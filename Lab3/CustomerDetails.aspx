@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="Lab3.CustomerDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<!-- Jay Thurn, Ryan Booth, John Lee
-    We have neither given nor received any unauthorized assistance on this assignment-->
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click"/>
@@ -17,27 +15,69 @@
 
              <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                            <asp:Label ID="lblSelect" runat="server" Text="Customer Lookup"></asp:Label>
+                            <asp:Label ID="lblSelect" runat="server" Text="Enter first or last name"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
              <asp:TableRow>
                  <asp:TableCell ColumnSpan="5">
-                     <asp:DropDownList ID="ddlCustomerList" runat="server"
-                         DataSourceID="dtasrcCustomer"
-                         DataTextField="CustomerName"
-                         DataValueField="CustomerID"
-                         AutoPostBack="true">
-                     </asp:DropDownList>
+                     <asp:TextBox ID="txtCustomerSearch" runat="server"></asp:TextBox>
                  </asp:TableCell>
              </asp:TableRow>
              <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                            <asp:Button ID="btnView" runat="server" Text="View Customer Details" OnClick="btnView_Click" />
+                            <asp:Button ID="btnView" runat="server" Text="View Customers" OnClick="btnView_Click" />
                         </asp:TableCell>
              </asp:TableRow>
          </asp:Table>
-         <asp:GridView ID="grdCustomerTicket" runat="server" 
-             EmptyDataText="This customer has no tickets!" >
+         <br />
+         <asp:GridView ID="grdCustomers" runat="server" 
+             EmptyDataText="No customer with that name!" 
+             AutoGenerateSelectButton="true" 
+             SelectedIndex="1"
+             OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
+             AllowSorting="true" 
+             DataKeyNames="CustomerID" 
+             AutoGenerateColumns="false">
+             <Columns>
+                 <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
+                 <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
+                 <asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />
+                 <asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />
+                 <asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />
+                 <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
+                 <asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />
+                 <asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />
+                 <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
+             </Columns>
+         </asp:GridView>
+         <br />
+         <asp:GridView ID="grdTickets" runat="server" 
+             EmptyDataText="This customer has no tickets!" 
+             AutoGenerateColumns="false"
+             AutoGenerateSelectButton="true"
+             SelectedIndex="1" 
+             AllowSorting="true" 
+             DataKeyNames="ServiceTicketID" 
+             OnSelectedIndexChanged="grdTickets_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
+                <asp:BoundField HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
+                <asp:BoundField HeaderText="ServiceType" DataField="ServiceType" SortExpression="ServiceType" />
+                <asp:BoundField HeaderText="TicketStatus" DataField="TicketStatus" SortExpression="TicketStatus" />
+                <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
+                <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
+                <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
+            </Columns> 
+         </asp:GridView>
+         <br />
+         <asp:GridView ID="grdNotes" runat="server" EmptyDataText="This ticket has no notes!" AutoGenerateColumns="false">
+             <Columns>
+                 <asp:BoundField HeaderText="NoteTitle" DataField="NoteTitle" />
+                 <asp:BoundField HeaderText="NoteContent" DataField="NoteContent" />
+             </Columns>
+         </asp:GridView>
+         <br />
+         <asp:GridView ID="grdTicketHistory" runat="server" EmptyDataText="This ticket has no history!">
          </asp:GridView>
      </div>
     <asp:SqlDataSource ID="dtasrcCustomer" runat="server" 
