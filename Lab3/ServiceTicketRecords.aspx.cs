@@ -122,10 +122,14 @@ namespace Lab3
 
                 Session["ServiceTicketID"] = ++count;
 
-                string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
-                ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+                btnNoteCancel.Visible = true;
+                btnNoteSave.Visible = true;
+                lblNoteContent.Visible = true;
+                lblNoteTitle.Visible = true;
+                txtNoteContent.Visible = true;
+                txtNoteTitle.Visible = true;
 
-                if(Application["NewAdd"] != null)
+                if (Application["NewAdd"] != null)
                 {
                     Application["Request"] = null;
                     Application["NewAdd"] = null;
@@ -213,6 +217,64 @@ namespace Lab3
             txtInitiatingEmployee.Text = ddlEmployeeList.SelectedItem.Text;
         }
 
-        
+        protected void btnNoteCancel_Click(object sender, EventArgs e)
+        {
+            lblNoteErrorMsg.Text = "";
+            btnNoteCancel.Visible = false;
+            btnNoteSave.Visible = false;
+            lblNoteContent.Visible = false;
+            lblNoteTitle.Visible = false;
+            txtNoteContent.Visible = false;
+            txtNoteTitle.Visible = false;
+        }
+
+        protected void btnNoteSave_Click(object sender, EventArgs e)
+        {
+            if (txtNoteContent.Text != "" & txtNoteTitle.Text != "")
+            {
+                if (Session["ServiceTicketID"] != null)
+                {
+                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
+
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                    sqlConnect.Open();
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandText = sqlCommitQuery;
+                    sqlCommand.Parameters.AddWithValue("@NoteTitle", HttpUtility.HtmlEncode(txtNoteTitle.Text));
+                    sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
+
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+
+                    if (Session["EditTicketPage"] != null)
+                    {
+                        sqlCommitQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'Note was added');";
+
+                        SqlCommand sqlcommand = new SqlCommand();
+                        sqlConnect.Open();
+                        sqlcommand.Connection = sqlConnect;
+                        sqlcommand.CommandText = sqlCommitQuery;
+                        sqlcommand.ExecuteNonQuery();
+                    }
+                    lblNoteErrorMsg.Text = "Note was successfully added!";
+                    btnNoteCancel.Visible = false;
+                    btnNoteSave.Visible = false;
+                    lblNoteContent.Visible = false;
+                    lblNoteTitle.Visible = false;
+                    txtNoteContent.Visible = false;
+                    txtNoteTitle.Visible = false;
+                }
+                else
+                {
+                    lblNoteErrorMsg.Text = "No ticket was selected";
+                }
+            }
+            else
+            {
+                lblNoteErrorMsg.Text = "Title and Content must be filled";
+            }
+        }
     }
 }

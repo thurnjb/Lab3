@@ -139,7 +139,37 @@
                 </asp:DropDownList>
             </asp:TableCell>
         </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblNoteTitle" runat="server" Text="Note Title:" Visible="false"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtNoteTitle" runat="server" Visible="false"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblNoteContent" runat="server" Text="Note Content:" Visible="false"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtNoteContent" runat="server" Height="300px" Width="300px" TextMode="MultiLine" Visible="false"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Button ID="btnNoteCancel" runat="server" Text="Cancel" OnClick="btnNoteCancel_Click" Visible="false" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnNoteSave" runat="server" Text="Save Note" OnClick="btnNoteSave_Click" Visible="false" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblNoteErrorMsg" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
     </asp:Table>
+    
     <asp:SqlDataSource ID="dtasrcCustomer" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT CustomerID, FirstName + ' ' + LastName as CustomerName FROM Customer">

@@ -25,6 +25,7 @@ namespace Lab3
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketDetails_Click(object sender, EventArgs e)
         {
+            lblErrorMsg.Text = "";
             String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + "AND T.ServiceID = S.ServiceID";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -66,9 +67,14 @@ namespace Lab3
         //This method saved the selected value in the ddl in session and redirects to the notes page
         protected void btnAddNote_Click(object sender, EventArgs e)
         {
+            lblErrorMsg.Text = "";
             Session["EditTicketPage"] = "true";
-            string s = "window.open('PopUpNotes.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
-            ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+            btnNoteCancel.Visible = true;
+            btnNoteSave.Visible = true;
+            lblNoteContent.Visible = true;
+            lblNoteTitle.Visible = true;
+            txtNoteContent.Visible = true;
+            txtNoteTitle.Visible = true;
         }
 
         //This method returns to home page
@@ -79,8 +85,9 @@ namespace Lab3
 
         protected void btnAssignEmployee_Click(object sender, EventArgs e)
         {
-            string s = "window.open('AssignEmployee.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
-            ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+            ddlEmployee.Visible = true;
+            btnEmployeeCancel.Visible = true;
+            btnEmployeeSave.Visible = true;
         }
 
         protected void btnRefresh_Click(object sender, EventArgs e)
@@ -92,6 +99,114 @@ namespace Lab3
         {
             string s = "window.open('AssignAuction.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
             ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
+        }
+
+        protected void btnEmployeeCancel_Click(object sender, EventArgs e)
+        {
+            lblErrorMsg.Text = "";
+            ddlEmployee.Visible = false;
+            btnEmployeeSave.Visible = false;
+            btnEmployeeCancel.Visible = false;
+        }
+
+        protected void btnEmployeeSave_Click(object sender, EventArgs e)
+        {
+            if (ddlEmployee.SelectedValue != null)
+            {
+                if (Session["ServiceTicketID"] != null)
+                {
+                    String sqlQuery = "UPDATE ServiceTicket SET InitiatingEmployeeID=" + ddlEmployee.SelectedValue + " WHERE ServiceTicketID=" + Session["ServiceTicketID"] + ";";
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                    sqlConnect.Open();
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandText = sqlQuery;
+
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+
+                    sqlQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'New employee was assigned')";
+                    sqlConnect.Open();
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandText = sqlQuery;
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    lblErrorMsg.Text = "Employee successfully changed!";
+                    ddlEmployee.Visible = false;
+                    btnEmployeeSave.Visible = false;
+                    btnEmployeeCancel.Visible = false;
+                }
+                else
+                {
+                    lblErrorMsg.Text = "No ticket was selected!";
+                }
+            }
+            else
+            {
+                lblErrorMsg.Text = "No employee was selected!";
+            }
+        }
+
+        protected void btnNoteCancel_Click(object sender, EventArgs e)
+        {
+            lblNoteErrorMsg.Text = "";
+            btnNoteCancel.Visible = false;
+            btnNoteSave.Visible = false;
+            lblNoteContent.Visible = false;
+            lblNoteTitle.Visible = false;
+            txtNoteContent.Visible = false;
+            txtNoteTitle.Visible = false;
+        }
+
+        protected void btnNoteSave_Click(object sender, EventArgs e)
+        {
+            if (txtNoteContent.Text != "" & txtNoteTitle.Text != "")
+            {
+                if (Session["ServiceTicketID"] != null)
+                {
+                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
+
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                    sqlConnect.Open();
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = sqlConnect;
+                    sqlCommand.CommandText = sqlCommitQuery;
+                    sqlCommand.Parameters.AddWithValue("@NoteTitle", HttpUtility.HtmlEncode(txtNoteTitle.Text));
+                    sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
+
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+
+                    if (Session["EditTicketPage"] != null)
+                    {
+                        sqlCommitQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'Note was added');";
+
+                        SqlCommand sqlcommand = new SqlCommand();
+                        sqlConnect.Open();
+                        sqlcommand.Connection = sqlConnect;
+                        sqlcommand.CommandText = sqlCommitQuery;
+                        sqlcommand.ExecuteNonQuery();
+                    }
+                    lblNoteErrorMsg.Text = "Note was successfully added!";
+                    btnNoteCancel.Visible = false;
+                    btnNoteSave.Visible = false;
+                    lblNoteContent.Visible = false;
+                    lblNoteTitle.Visible = false;
+                    txtNoteContent.Visible = false;
+                    txtNoteTitle.Visible = false;
+                }
+                else
+                {
+                    lblNoteErrorMsg.Text = "No ticket was selected";
+                }
+            }
+            else
+            {
+                lblNoteErrorMsg.Text = "Title and Content must be filled";
+            }
         }
     }
 }
