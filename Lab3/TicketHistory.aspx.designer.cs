@@ -42,13 +42,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnRefresh;
 
         /// <summary>
-        /// grdTickets control.
+        /// dtlVwTickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdTickets;
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwTickets;
 
         /// <summary>
         /// Table1 control.
@@ -139,6 +139,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdSelectedTicket;
+
+        /// <summary>
+        /// dtlVwTicketNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwTicketNotes;
 
         /// <summary>
         /// grdAuction control.

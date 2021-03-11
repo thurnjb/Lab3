@@ -21,5 +21,22 @@ namespace Lab3
         {
             Response.Redirect("HomePageV2.aspx");
         }
+        protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void dtlVwUpdateCustomer_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            Response.Redirect("CustomerList.aspx");
+        }
+
+        protected void dtlVwUpdateCustomer_ModeChanging(object sender, DetailsViewModeEventArgs e)
+        {
+            if (e.CancelingEdit)
+            {
+                Response.Redirect("CustomerList.aspx");
+            }
+        }
     }
 }

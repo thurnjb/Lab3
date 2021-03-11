@@ -32,14 +32,7 @@ namespace Lab3
             DataSet dsEmployee = new DataSet();
             sqlAdapter.Fill(dsEmployee);
 
-            sqlQuery = "SELECT  N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + ";";
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-            DataTable dtForGridView = new DataTable();
-            SqlAdapter.Fill(dtForGridView);
-
-            grdSelectedTicket.DataSource = dtForGridView;
-            grdSelectedTicket.DataBind();
+            DataBindNotes();
 
             sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + ";";
             SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -207,6 +200,25 @@ namespace Lab3
             {
                 lblNoteErrorMsg.Text = "Title and Content must be filled";
             }
+        }
+
+        protected void DataBindNotes()
+        {
+            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + ";";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+            DataTable dtForGridView = new DataTable();
+            SqlAdapter.Fill(dtForGridView);
+
+            dtlVwTicketNotes.DataSource = dtForGridView;
+            dtlVwTicketNotes.DataBind();
+        }
+
+        protected void dtlVwTicketNotes_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
+            dtlVwTicketNotes.PageIndex = e.NewPageIndex;
+            DataBindNotes();
         }
     }
 }

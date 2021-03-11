@@ -17,13 +17,13 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:GridView ID="grdTickets" runat="server"
-                        AutoGenerateEditButton="true"
-                        DataKeyNames="ServiceTicketID"
-                        DataSourceID="dtasrcServiceTicketID"
-                        AutoGenerateColumns="false"
-                        AllowSorting="true">
-                        <Columns>
+                    <asp:DetailsView ID="dtlVwTickets" runat="server" Height="50px" Width="300px" 
+                        AllowPaging="true" 
+                        DataSourceID="dtasrcServiceTicketID" 
+                        DataKeyNames="ServiceTicketID" 
+                        AutoGenerateEditButton="true" 
+                        AutoGenerateRows="false">
+                        <Fields>
                             <asp:BoundField ReadOnly="true" HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
                             <asp:BoundField ReadOnly="true" HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
                             <asp:BoundField ReadOnly="true" HeaderText="ServiceType" DataField="ServiceType" SortExpression="ServiceType" />
@@ -31,8 +31,8 @@
                             <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
                             <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
                             <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
-                        </Columns>
-                    </asp:GridView>
+                        </Fields>
+                    </asp:DetailsView>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
@@ -87,6 +87,17 @@
                     <asp:GridView ID="grdSelectedTicket" runat="server"
                         EmptyDataText="This ticket has no notes!">
                     </asp:GridView>
+                    <asp:DetailsView ID="dtlVwTicketNotes" runat="server" Height="50px" Width="250px" 
+                        EmptyDataText="This ticket has no notes!" 
+                        AllowPaging="true"
+                        DataKeyNames="NoteID" 
+                        OnPageIndexChanging="dtlVwTicketNotes_PageIndexChanging" 
+                        AutoGenerateRows="false">
+                        <Fields>
+                            <asp:BoundField HeaderText="NoteTitle" DataField="NoteTitle" />
+                            <asp:BoundField HeaderText="NoteContent" DataField="NoteContent" />
+                        </Fields>
+                    </asp:DetailsView>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
