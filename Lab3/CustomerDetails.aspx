@@ -80,8 +80,4 @@
          <asp:GridView ID="grdTicketHistory" runat="server" EmptyDataText="This ticket has no history!">
          </asp:GridView>
      </div>
-    <asp:SqlDataSource ID="dtasrcCustomer" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
-        SelectCommand="SELECT CustomerID, FirstName + ' ' + LastName as CustomerName FROM Customer">
-    </asp:SqlDataSource>
 </asp:Content>

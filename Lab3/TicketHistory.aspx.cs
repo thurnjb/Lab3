@@ -15,7 +15,6 @@ namespace Lab3
 {
     public partial class TicketHistory : System.Web.UI.Page
     {
-
         //On first page load, Fills grid view with all tickets
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,8 +24,9 @@ namespace Lab3
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketDetails_Click(object sender, EventArgs e)
         {
+            object pageIndex = grdTickets.SelectedValue;
             lblErrorMsg.Text = "";
-            String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + "AND T.ServiceID = S.ServiceID";
+            String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + pageIndex + "AND T.ServiceID = S.ServiceID";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
             DataSet dsEmployee = new DataSet();
@@ -34,7 +34,7 @@ namespace Lab3
 
             DataBindNotes();
 
-            sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + ";";
+            sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + pageIndex + ";";
             SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
             DataTable dtAuction = new DataTable();
@@ -42,7 +42,7 @@ namespace Lab3
             grdAuction.DataSource = dtAuction;
             grdAuction.DataBind();
 
-            sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + ddlServiceTicketID.SelectedValue;
+            sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + pageIndex;
 
             SqlDataAdapter sqladapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -52,7 +52,7 @@ namespace Lab3
             grdSelectedTicketHistory.DataSource = dt;
             grdSelectedTicketHistory.DataBind();
 
-            Session["ServiceTicketID"] = ddlServiceTicketID.SelectedValue;
+            Session["ServiceTicketID"] = pageIndex;
             Session["EmployeeID"] = dsEmployee.Tables[0].Rows[0]["InitiatingEmployeeID"].ToString();
             Session["ServiceType"] = dsEmployee.Tables[0].Rows[0]["ServiceType"].ToString();
         }
@@ -204,7 +204,7 @@ namespace Lab3
 
         protected void DataBindNotes()
         {
-            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + ddlServiceTicketID.SelectedValue + ";";
+            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + grdTickets.SelectedValue + ";";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
@@ -219,6 +219,19 @@ namespace Lab3
         {
             dtlVwTicketNotes.PageIndex = e.NewPageIndex;
             DataBindNotes();
+        }
+
+        protected void dtlVwEditTicket_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            Response.Redirect("TicketHistory.aspx");
+        }
+
+        protected void dtlVwEditTicket_ModeChanging(object sender, DetailsViewModeEventArgs e)
+        {
+            if (e.CancelingEdit)
+            {
+                Response.Redirect("TicketHistory.aspx");
+            }
         }
     }
 }
