@@ -50,5 +50,10 @@ namespace Lab3
         {
             Response.Redirect("CustomerSearch.aspx");
         }
+
+        protected void btnInitialContact_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InitialContactForm.aspx");
+        }
     }
 }

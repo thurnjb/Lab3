@@ -43,6 +43,11 @@
                             <asp:Button ID="btnViewTicketHistory" runat="server" Text="Edit Tickets" OnClick="btnViewTicketHistory_Click" />
                         </asp:TableCell>
                     </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Button ID="btnInitialContact" runat="server" Text="Initial Contact Form" OnClick="btnInitialContact_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
         </div>
 </asp:Content>
