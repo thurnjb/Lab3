@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="Lab3.CustomerDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerSearch.aspx.cs" Inherits="Lab3.CustomerDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -36,8 +36,9 @@
              SelectedIndex="1"
              OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
              AllowSorting="true" 
+             OnSorting="grdCustomers_Sorting"
              DataKeyNames="CustomerID" 
-             AutoGenerateColumns="false">
+             AutoGenerateColumns="false" >
              <Columns>
                  <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
                  <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
@@ -58,7 +59,8 @@
              SelectedIndex="1" 
              AllowSorting="true" 
              DataKeyNames="ServiceTicketID" 
-             OnSelectedIndexChanged="grdTickets_SelectedIndexChanged">
+             OnSelectedIndexChanged="grdTickets_SelectedIndexChanged" 
+             OnSorting="grdTickets_Sorting">
             <Columns>
                 <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
                 <asp:BoundField HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
@@ -70,14 +72,19 @@
             </Columns> 
          </asp:GridView>
          <br />
-         <asp:GridView ID="grdNotes" runat="server" EmptyDataText="This ticket has no notes!" AutoGenerateColumns="false">
+         <asp:GridView ID="grdNotes" runat="server" EmptyDataText="This ticket has no notes!" AutoGenerateColumns="false" DataKeyNames="NoteID">
              <Columns>
-                 <asp:BoundField HeaderText="NoteTitle" DataField="NoteTitle" />
-                 <asp:BoundField HeaderText="NoteContent" DataField="NoteContent" />
+                 <asp:BoundField HeaderText="NoteTitle" DataField="NoteTitle"/>
+                 <asp:BoundField HeaderText="NoteContent" DataField="NoteContent"/>
              </Columns>
          </asp:GridView>
          <br />
-         <asp:GridView ID="grdTicketHistory" runat="server" EmptyDataText="This ticket has no history!">
+         <asp:GridView ID="grdTicketHistory" runat="server" EmptyDataText="This ticket has no history!" AutoGenerateColumns="false" DataKeyNames="TicketHistoryID">
+             <Columns>
+                 <asp:BoundField HeaderText="EmployeeContact" DataField="EmployeeContact"/>
+                 <asp:BoundField HeaderText="TicketChangeDate" DataField="TicketChangeDate"/>
+                 <asp:BoundField HeaderText="DetailsNote" DataField="DetailsNote"/>
+             </Columns>
          </asp:GridView>
      </div>
 </asp:Content>

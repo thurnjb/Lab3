@@ -24,7 +24,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                            <asp:Button  ID="btnCustomerDetails" runat="server" Text="Customer Information" OnClick="btnCustomerDetails_Click" />
+                            <asp:Button  ID="btnCustomerSearch" runat="server" Text="Customer Search" OnClick="btnCustomerSearch_Click" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
