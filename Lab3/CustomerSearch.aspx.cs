@@ -103,30 +103,30 @@ namespace Lab3
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
         {
-            if(ViewState["SortExpression"] == null)
+            if(ViewState["CustomerSort"] == null)
             {
-                ViewState["SortExpression"] = e.SortExpression + " " + e.SortDirection;
+                ViewState["CustomerSort"] = e.SortExpression + " " + e.SortDirection;
             }
 
-            String[] sortData = ViewState["SortExpression"].ToString().Trim().Split(' ');
+            String[] sortData = ViewState["CustomerSort"].ToString().Trim().Split(' ');
 
             if(e.SortExpression == sortData[0])
             {
                 if(sortData[1] == "Ascending")
                 {
                     CustomerGridView.DefaultView.Sort = e.SortExpression + " DESC";
-                    this.ViewState["SortExpression"] = e.SortExpression + " Descending";
+                    this.ViewState["CustomerSort"] = e.SortExpression + " Descending";
                 }
                 else
                 {
                     CustomerGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                    this.ViewState["SortExpression"] = e.SortExpression + " Ascending";
+                    this.ViewState["CustomerSort"] = e.SortExpression + " Ascending";
                 }
             }
             else
             {
                 CustomerGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                this.ViewState["SortExpression"] = e.SortExpression + " Ascending";
+                this.ViewState["CustomerSort"] = e.SortExpression + " Ascending";
             }
 
             grdCustomers.DataSource = CustomerGridView;
@@ -135,30 +135,30 @@ namespace Lab3
 
         protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
         {
-            if (ViewState["SortExpression"] == null)
+            if (ViewState["TicketSort"] == null)
             {
-                ViewState["SortExpression"] = e.SortExpression + " " + e.SortDirection;
+                ViewState["TicketSort"] = e.SortExpression + " " + e.SortDirection;
             }
 
-            String[] sortData = ViewState["SortExpression"].ToString().Trim().Split(' ');
+            String[] sortData = ViewState["TicketSort"].ToString().Trim().Split(' ');
 
             if (e.SortExpression == sortData[0])
             {
                 if (sortData[1] == "Ascending")
                 {
                     TicketGridView.DefaultView.Sort = e.SortExpression + " DESC";
-                    this.ViewState["SortExpression"] = e.SortExpression + " Descending";
+                    this.ViewState["TicketSort"] = e.SortExpression + " Descending";
                 }
                 else
                 {
                     TicketGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                    this.ViewState["SortExpression"] = e.SortExpression + " Ascending";
+                    this.ViewState["TicketSort"] = e.SortExpression + " Ascending";
                 }
             }
             else
             {
                 TicketGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                this.ViewState["SortExpression"] = e.SortExpression + " Ascending";
+                this.ViewState["TicketSort"] = e.SortExpression + " Ascending";
             }
 
             grdTickets.DataSource = TicketGridView;
