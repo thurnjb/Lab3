@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.5.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Syncfusion.Compression.Portable, Version=18.4200.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Compression.Net.Core.18.4.0.47\lib\netstandard2.0\Syncfusion.Compression.Portable.dll</HintPath>
@@ -89,6 +92,11 @@
     <Content Include="InitialContactForm.aspx" />
     <Content Include="LoginForm.aspx" />
     <Content Include="NotificationPage.aspx" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="ServiceTicketRecords.aspx" />
     <Content Include="TicketHistory.aspx" />
     <Content Include="Web.config" />
@@ -202,6 +210,8 @@
     <Content Include="ConsignmentContract.pdf" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
