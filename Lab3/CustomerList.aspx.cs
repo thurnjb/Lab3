@@ -40,6 +40,7 @@ namespace Lab3
             }
         }
 
+        //Method to populate file gridview with files owned by a particular customer
         protected void dltSelect(Object sender, EventArgs e)
         {
             GridViewRow row = grdCustomers.SelectedRow;
@@ -49,6 +50,8 @@ namespace Lab3
             int custID = getCustID(customerName);
             BindGrid(custID);
         }
+        
+        //Method to bind gridview using the selected customerID
         protected void BindGrid(int custID)
         {
             string constr = ConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
@@ -66,6 +69,8 @@ namespace Lab3
                 }
             }
         }
+
+        //Method drives the upload button. Uploads file to the DB.
         protected void btn_Upload(object sender, EventArgs e)
         {
             String filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
@@ -99,6 +104,7 @@ namespace Lab3
             BindGrid(custID);
         }
 
+        //Method behind the download button. Uses selected file ID to grab and download file.
         protected void DownloadFile(object sender, EventArgs e)
         {
             int id = int.Parse((sender as LinkButton).CommandArgument);
