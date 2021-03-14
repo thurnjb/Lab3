@@ -69,7 +69,7 @@
                 </asp:SqlDataSource>
                 <asp:SqlDataSource ID="dtasrcUpdateCustomer" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-                    SelectCommand="SELECT Customer.*, tblFiles.id, tblFiles.Name, tblFiles.ContentType, tblFiles.Data FROM CUSTOMER FULL OUTER JOIN tblFiles ON Customer.CustomerID = tblFiles.CustomerID WHERE Customer.CustomerID=@CustomerID"
+                    SelectCommand="SELECT * FROM CUSTOMER  WHERE CustomerID=@CustomerID"
                     UpdateCommand="UPDATE Customer SET FirstName=@FirstName, LastName=@LastName, InitialContact=@InitialContact, HeardFrom=@HeardFrom, Phone=@Phone, Email=@Email, Address=@Address, DestAddress=@DestAddress WHERE CustomerID=@CustomerID">
                     <SelectParameters>
                         <asp:ControlParameter Name="CustomerID" ControlID="grdCustomers" />
