@@ -1,16 +1,3 @@
---Drop tables
-
-DROP TABLE EquipmentService;
-DROP TABLE InventoryService;
-DROP TABLE TicketHistory;
-DROP TABLE Notes;
-DROP TABLE ServiceTicket;
-DROP TABLE Auction;
-DROP TABLE InventoryItem;
-DROP TABLE Equipment;
-DROP TABLE Service;
-DROP TABLE Customer;
-DROP TABLE Employee;
 
 --Create tables
 CREATE TABLE Customer
