@@ -125,7 +125,7 @@ namespace Lab3
                     if (PasswordHash.ValidatePassword(txtPassWord.Text, storedHash))
                     {
                         Session["UserName"] = txtUserName.Text;
-                        Response.Redirect("~/CustomerPortalService.aspx");
+                        Response.Redirect("~/HomePageV2.aspx");
                     }
                 }
             }
