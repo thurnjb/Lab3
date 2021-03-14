@@ -14,7 +14,8 @@
                     AutoGenerateSelectButton="true" 
                     DataKeyNames="CustomerID"
                     AutoGenerateColumns="false"
-                    AllowSorting="true">
+                    AllowSorting="true"
+                    OnSelectedIndexChanged="dltSelect">
                     <Columns>
                         <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
                         <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
@@ -45,15 +46,30 @@
                         <asp:BoundField HeaderText="Address" DataField="Address" />
                         <asp:BoundField HeaderText="DestAddress" DataField="DestAddress" />
                         <asp:BoundField ReadOnly="true" HeaderText="SaveDate" DataField="SaveDate" />
+
                     </Fields>
                 </asp:DetailsView>
+                <asp:Panel ID="Panel1" runat="server" Visible="false" HorizontalAlign="Left">
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btn_Upload" />
+                </asp:Panel>
+                <asp:GridView ID="grdFiles" runat="server" AutoGenerateColumns="false" Visible ="false">
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="File Name" />
+                            <asp:TemplateField>
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                 </ItemTemplate>
+                            </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
                 <asp:SqlDataSource ID="dtasrcCustomerList" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
                     SelectCommand="SELECT * FROM CUSTOMER">
                 </asp:SqlDataSource>
                 <asp:SqlDataSource ID="dtasrcUpdateCustomer" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-                    SelectCommand="SELECT * FROM CUSTOMER WHERE CustomerID=@CustomerID"
+                    SelectCommand="SELECT * FROM CUSTOMER  WHERE CustomerID=@CustomerID"
                     UpdateCommand="UPDATE Customer SET FirstName=@FirstName, LastName=@LastName, InitialContact=@InitialContact, HeardFrom=@HeardFrom, Phone=@Phone, Email=@Email, Address=@Address, DestAddress=@DestAddress WHERE CustomerID=@CustomerID">
                     <SelectParameters>
                         <asp:ControlParameter Name="CustomerID" ControlID="grdCustomers" />
