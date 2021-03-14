@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,9 +14,19 @@ Our submission of this assignment indicates that we have neither received nor gi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString.Get("loggedout") == "true")
+            {
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = "User has successfully logged out";
+            }
+
+            if (Session["CustInvalidUse"] != null)
+            {
+                lblStatus.ForeColor = Color.Red;
+                lblStatus.Text = Session["CustInvalidUse"].ToString();
+            }
 
         }
-
         protected void btnEmpLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("LoginForm.aspx");

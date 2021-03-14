@@ -21,15 +21,15 @@ namespace Lab3
             else
             {
                 btnLogOut.Visible = false;
-                Session["InvalidCust"] = "You must first login to access the application.";
-          
+                Session["CustInvalidUse"] = "You must first login to access the application.";
+                Response.Redirect("CustomerPortalLogin.aspx");
             }
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("CustomerPortalLogin.aspx");
+            Response.Redirect("CustomerPortalLogin.aspx?loggedout=true");
         }
     }
 }
