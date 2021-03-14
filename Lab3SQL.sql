@@ -129,6 +129,12 @@ CREATE TABLE InventoryService
 	('Moving', 'Moving job');
 	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
 	('Auction', 'Auction job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Appraisal', 'Appraisal job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Consignment', 'Consignment job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Combination', 'Combination job');
 
 	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
 	('March Fest', '2021-03-15');
