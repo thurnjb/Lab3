@@ -11,88 +11,97 @@ namespace Lab3
 {
 
 
-    public partial class PopUpNotes
+    public partial class CustomerDetails
     {
 
         /// <summary>
-        /// form1 control.
+        /// btnHomePage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btnHomePage;
 
         /// <summary>
-        /// tblNotes control.
+        /// detailTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblNotes;
+        protected global::System.Web.UI.WebControls.Table detailTable;
 
         /// <summary>
-        /// lblNoteTitle control.
+        /// lblCustDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoteTitle;
+        protected global::System.Web.UI.WebControls.Label lblCustDetail;
 
         /// <summary>
-        /// txtNoteTitle control.
+        /// lblSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoteTitle;
+        protected global::System.Web.UI.WebControls.Label lblSelect;
 
         /// <summary>
-        /// lblNoteContent control.
+        /// txtCustomerSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoteContent;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerSearch;
 
         /// <summary>
-        /// txtNoteContent control.
+        /// btnView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoteContent;
+        protected global::System.Web.UI.WebControls.Button btnView;
 
         /// <summary>
-        /// btnCancel control.
+        /// grdCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.GridView grdCustomers;
 
         /// <summary>
-        /// btnSave control.
+        /// grdTickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.GridView grdTickets;
 
         /// <summary>
-        /// lblErrorMsg control.
+        /// grdNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
+        protected global::System.Web.UI.WebControls.GridView grdNotes;
+
+        /// <summary>
+        /// grdTicketHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdTicketHistory;
     }
 }

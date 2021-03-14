@@ -1,56 +1,64 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerPortal.Master" AutoEventWireup="true" CodeBehind="CustomerPortalService.aspx.cs" Inherits="Lab3.CustomerPortalService" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerPortal.Master"
+    AutoEventWireup="true" CodeBehind="CustomerPortalService.aspx.cs"
+    Inherits="Lab3.CustomerPortalService" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<!-- Jay Thurn, Ryan Booth, John Lee
-    We have neither given nor received any unauthorized assistance on this assignment-->
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1"
+    runat="server">
+
     <div style="text-align: center">
-    <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblTitle" runat="server" Text="Customer Service Request"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblServiceType" runat="server" Text="Service Type: "></asp:Label>
-                <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
-                    <asp:ListItem Value="1">Moving</asp:ListItem>
-                    <asp:ListItem Value="2">Auction</asp:ListItem>
-                </asp:DropDownList>
-            </asp:TableCell>
-        </asp:TableRow>
+        <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Label ID="lblTitle" runat="server" Text="Customer Service Request"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Label ID="lblServiceType" runat="server" Text="Service Type: "></asp:Label>
+                    <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlType_SelectedIndexChanged"
+                        DataSourceID="dtasrcService"
+                        DataTextField="ServiceType"
+                        DataValueField="ServiceID">
+                    </asp:DropDownList>
+                </asp:TableCell>
+            </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblServiceDate" runat="server" Text="Service Date:"></asp:Label>
-                <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Label ID="lblServiceDate" runat="server" Text="Service Date:"></asp:Label>
+                    <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblDesc" runat="server" Text="Service Decription:"></asp:Label>
-                <asp:TextBox ID="tbDesc" runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Label ID="lblDesc" runat="server" Text="Service Decription:"></asp:Label>
+                    <asp:TextBox ID="tbDesc" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnSend" runat="server" Text="Send Service Request" OnClick="btnSend_Click" />
-            </asp:TableCell>
-        </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Button ID="btnSend" runat="server" Text="Send Service Request"
+                        OnClick="btnSend_Click" />
+                </asp:TableCell>
+            </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
 
 
 
-    </asp:Table>
-</div>
+
+        </asp:Table>
+    </div>
+    <asp:SqlDataSource ID="dtasrcService" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT * FROM Service"></asp:SqlDataSource>
 </asp:Content>

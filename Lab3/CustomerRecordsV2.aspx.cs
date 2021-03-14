@@ -59,7 +59,6 @@ namespace Lab3
             command.Connection = connection;
             command.CommandType = CommandType.Text;
             command.CommandText = sqlQuery;
-
             adapter.SelectCommand = command;
             if(dataset.Tables.Count == 0)
             {
