@@ -60,6 +60,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DetailsView dtlVwEditTicket;
 
         /// <summary>
+        /// dtlVwTicketNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwTicketNotes;
+
+        /// <summary>
+        /// grdSelectedTicketHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdSelectedTicketHistory;
+
+        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
@@ -67,24 +85,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Table1;
-
-        /// <summary>
-        /// btnViewTicketDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewTicketDetails;
-
-        /// <summary>
-        /// btnAssignEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAssignEmployee;
 
         /// <summary>
         /// ddlEmployee control.
@@ -123,49 +123,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblErrorMsg;
 
         /// <summary>
-        /// tblDetails control.
+        /// tblButtons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblDetails;
-
-        /// <summary>
-        /// dtlVwTicketNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dtlVwTicketNotes;
-
-        /// <summary>
-        /// grdAuction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdAuction;
-
-        /// <summary>
-        /// grdSelectedTicketHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdSelectedTicketHistory;
-
-        /// <summary>
-        /// tblNoteBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblNoteBtn;
+        protected global::System.Web.UI.WebControls.Table tblButtons;
 
         /// <summary>
         /// btnAddNote control.
@@ -175,6 +139,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNote;
+
+        /// <summary>
+        /// btnAssignEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAssignEmployee;
 
         /// <summary>
         /// btnAssignAuction control.
@@ -267,6 +240,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcUpdateTicket;
 
         /// <summary>
+        /// dtasrcNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcNotes;
+
+        /// <summary>
+        /// dtasrcHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcHistory;
+
+        /// <summary>
         /// dtasrcEmployee control.
         /// </summary>
         /// <remarks>
@@ -274,5 +265,14 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployee;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }
