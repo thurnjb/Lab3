@@ -42,6 +42,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdCustomers;
 
         /// <summary>
+        /// dtlVwUpdateCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwUpdateCustomer;
+
+        /// <summary>
         /// dtasrcCustomerList control.
         /// </summary>
         /// <remarks>
@@ -49,5 +58,14 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
+
+        /// <summary>
+        /// dtasrcUpdateCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcUpdateCustomer;
     }
 }

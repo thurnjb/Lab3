@@ -21,5 +21,20 @@ namespace Lab3
         {
             Response.Redirect("HomePageV2.aspx");
         }
+
+        //This method refreshes the page to remove the detailsview and update gridview
+        protected void dtlVwUpdateCustomer_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            Response.Redirect("CustomerList.aspx");
+        }
+
+        //This method refreshes the page on cancel click to remove detailsview
+        protected void dtlVwUpdateCustomer_ModeChanging(object sender, DetailsViewModeEventArgs e)
+        {
+            if (e.CancelingEdit)
+            {
+                Response.Redirect("CustomerList.aspx");
+            }
+        }
     }
 }

@@ -51,6 +51,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdTickets;
 
         /// <summary>
+        /// dtlVwEditTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwEditTicket;
+
+        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Table1;
-
-        /// <summary>
-        /// ddlServiceTicketID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlServiceTicketID;
 
         /// <summary>
         /// btnViewTicketDetails control.
@@ -132,13 +132,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table tblDetails;
 
         /// <summary>
-        /// grdSelectedTicket control.
+        /// dtlVwTicketNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdSelectedTicket;
+        protected global::System.Web.UI.WebControls.DetailsView dtlVwTicketNotes;
 
         /// <summary>
         /// grdAuction control.
@@ -256,6 +256,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcServiceTicketID;
+
+        /// <summary>
+        /// dtasrcUpdateTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcUpdateTicket;
 
         /// <summary>
         /// dtasrcEmployee control.

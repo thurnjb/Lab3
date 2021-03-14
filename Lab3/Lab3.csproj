@@ -44,6 +44,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Syncfusion.Compression.Portable, Version=18.4200.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Net.Core.18.4.0.47\lib\netstandard2.0\Syncfusion.Compression.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=18.4460.0.47, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.4.0.47\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Portable, Version=18.4200.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.Net.Core.18.4.0.47\lib\netstandard2.0\Syncfusion.Pdf.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.4.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,12 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssignAuction.aspx" />
-    <Content Include="CustomerDetails.aspx" />
+    <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerList.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerPortalService.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
+    <Content Include="InitialContactForm.aspx" />
     <Content Include="LoginForm.aspx" />
     <Content Include="NotificationPage.aspx" />
     <Content Include="ServiceTicketRecords.aspx" />
@@ -89,12 +102,12 @@
       <DependentUpon>AssignAuction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerDetails.aspx.cs">
-      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    <Compile Include="CustomerSearch.aspx.cs">
+      <DependentUpon>CustomerSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerDetails.aspx.designer.cs">
-      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    <Compile Include="CustomerSearch.aspx.designer.cs">
+      <DependentUpon>CustomerSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
@@ -139,6 +152,13 @@
     <Compile Include="HomePageV2.aspx.designer.cs">
       <DependentUpon>HomePageV2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InitialContactForm.aspx.cs">
+      <DependentUpon>InitialContactForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialContactForm.aspx.designer.cs">
+      <DependentUpon>InitialContactForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomerPortal.Master" />
+    <Content Include="ConsignmentContract.pdf" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
@@ -218,7 +239,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
+  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

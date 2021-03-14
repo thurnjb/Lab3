@@ -11,7 +11,7 @@
             <asp:TableCell>
                 <asp:GridView ID="grdCustomers" runat="server" 
                     DataSourceID="dtasrcCustomerList" 
-                    AutoGenerateEditButton="true" 
+                    AutoGenerateSelectButton="true" 
                     DataKeyNames="CustomerID"
                     AutoGenerateColumns="false"
                     AllowSorting="true">
@@ -27,10 +27,37 @@
                         <asp:BoundField ReadOnly="true" HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
                     </Columns>
                 </asp:GridView>
+                <asp:DetailsView ID="dtlVwUpdateCustomer" runat="server" Height="50px" Width="250px" 
+                    DefaultMode="Edit"
+                    AutoGenerateEditButton="true" 
+                    AutoGenerateRows="false" 
+                    DataSourceID="dtasrcUpdateCustomer" 
+                    DataKeyNames="CustomerID" 
+                    OnItemUpdated="dtlVwUpdateCustomer_ItemUpdated" 
+                    OnModeChanging="dtlVwUpdateCustomer_ModeChanging">
+                    <Fields>
+                        <asp:BoundField HeaderText="FirstName" DataField="FirstName" />
+                        <asp:BoundField HeaderText="LastName" DataField="LastName" />
+                        <asp:BoundField HeaderText="InitialContact" DataField="InitialContact" />
+                        <asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" />
+                        <asp:BoundField HeaderText="Phone" DataField="Phone" />
+                        <asp:BoundField HeaderText="Email" DataField="Email" />
+                        <asp:BoundField HeaderText="Address" DataField="Address" />
+                        <asp:BoundField HeaderText="DestAddress" DataField="DestAddress" />
+                        <asp:BoundField ReadOnly="true" HeaderText="SaveDate" DataField="SaveDate" />
+                    </Fields>
+                </asp:DetailsView>
                 <asp:SqlDataSource ID="dtasrcCustomerList" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
-                    SelectCommand="SELECT * FROM CUSTOMER"
-                     UpdateCommand="UPDATE Customer SET FirstName=@FirstName, LastName=@LastName, InitialContact=@InitialContact, HeardFrom=@HeardFrom, Phone=@Phone, Email=@Email, Address=@Address, DestAddress=@DestAddress WHERE CustomerID=@CustomerID">
+                    SelectCommand="SELECT * FROM CUSTOMER">
+                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="dtasrcUpdateCustomer" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+                    SelectCommand="SELECT * FROM CUSTOMER WHERE CustomerID=@CustomerID"
+                    UpdateCommand="UPDATE Customer SET FirstName=@FirstName, LastName=@LastName, InitialContact=@InitialContact, HeardFrom=@HeardFrom, Phone=@Phone, Email=@Email, Address=@Address, DestAddress=@DestAddress WHERE CustomerID=@CustomerID">
+                    <SelectParameters>
+                        <asp:ControlParameter Name="CustomerID" ControlID="grdCustomers" />
+                    </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Type="String" Name="FirstName" />
                         <asp:Parameter Type="String" Name="LastName" />
