@@ -11,6 +11,12 @@
         <div style="text-align: center">
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
         <asp:TableRow>
+                    <asp:TableCell ColumnSpan="2" Font-Bold="true" Font-Size="X-Large" HorizontalAlign="Center">
+                        <asp:Label ID="lblCompany" runat="server" Text="Green Valley Auctions"></asp:Label>
+                        <br />
+                    </asp:TableCell>
+         </asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
                 <asp:Label ID="lblTitle" runat="server" Text="Customer Login Portal"></asp:Label>
             </asp:TableCell>
