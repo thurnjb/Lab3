@@ -39,15 +39,15 @@ namespace Lab3
                 DataSet dsEmployee = new DataSet();
                 sqlAdapter.Fill(dsEmployee);
 
-                DataBindNotes();
+                //DataBindNotes();
 
                 sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + pageIndex + ";";
                 SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
                 DataTable dtAuction = new DataTable();
                 Adapter.Fill(dtAuction);
-                grdAuction.DataSource = dtAuction;
-                grdAuction.DataBind();
+                //grdAuction.DataSource = dtAuction;
+                //grdAuction.DataBind();
 
                 sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + pageIndex;
 
