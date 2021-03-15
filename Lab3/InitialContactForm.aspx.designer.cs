@@ -15,6 +15,15 @@ namespace Lab3
     {
 
         /// <summary>
+        /// btnHomePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHomePage;
+
+        /// <summary>
         /// tblContent control.
         /// </summary>
         /// <remarks>
@@ -168,6 +177,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table tblButtons;
 
         /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
         /// btnLookAt control.
         /// </summary>
         /// <remarks>
@@ -193,5 +211,14 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAuction;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

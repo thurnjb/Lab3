@@ -1,3 +1,7 @@
+DROP TABLE Pass;
+DROP TABLE Person;
+
+
 USE [AUTH]
 GO
 
