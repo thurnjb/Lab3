@@ -24,22 +24,27 @@ namespace Lab3
         protected void grdNotifications_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["NotificationID"] = grdNotifications.SelectedValue;
+            lblSuccessMsg.Text = "Customer Selected!";
+            lblErrorMsg.Text = "";
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             txtCalendarDate.Text = Calendar1.SelectedDate.Date.ToString();
+            lblErrorMsg.Text = "";
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             lstbxPotentialDates.Items.Add(txtCalendarDate.Text);
+            txtCalendarDate.Text = "";
+            lblErrorMsg.Text = "";
         }
 
         protected void btnSendRequest_Click(object sender, EventArgs e)
         {
             int lstbxCount = lstbxPotentialDates.Items.Count;
-            if(lstbxPotentialDates.Items.Count != 0)
+            if(lstbxPotentialDates.Items.Count != 0 & grdNotifications.SelectedValue != null)
             {
                 for(int i = 0; i < lstbxCount; i++)
                 {
@@ -59,6 +64,11 @@ namespace Lab3
                     lstbxPotentialDates.Items.RemoveAt(k);
                 }
             }
+            else
+            {
+                lblErrorMsg.Text = "Must select a notification and dates!";
+            }
+            lblSuccessMsg.Text = "";
         }
 
         

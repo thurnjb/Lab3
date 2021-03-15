@@ -74,7 +74,7 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
                 sqlCommand.Parameters.AddWithValue("@InitialContact", HttpUtility.HtmlEncode(txtInitialContact.Text));
                 sqlCommand.Parameters.AddWithValue("@HeardFrom", HttpUtility.HtmlEncode(txtHeardFrom.Text));
-                sqlCommand.Parameters.AddWithValue("Phone", HttpUtility.HtmlEncode(txtPhone.Text));
+                sqlCommand.Parameters.AddWithValue("@Phone", HttpUtility.HtmlEncode(txtPhone.Text));
                 sqlCommand.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
                 sqlCommand.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
                 sqlCommand.Parameters.AddWithValue("@RequestedService", HttpUtility.HtmlEncode(txtRequestedService.Text));
@@ -93,6 +93,18 @@ namespace Lab3
         protected void btnHomePage_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomePageV2.aspx");
+        }
+
+        protected void btnPopulate_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "Jimbo";
+            txtLastName.Text = "Jam";
+            txtInitialContact.Text = "Phone";
+            txtHeardFrom.Text = "Referral";
+            txtPhone.Text = "1234567890";
+            txtEmail.Text = "JimboJam99@aol.com";
+            txtAddress.Text = "99 Jimbo Ln.,Harrisonburg,VA,22801";
+            txtRequestedService.Text = "Moving";
         }
     }
 }

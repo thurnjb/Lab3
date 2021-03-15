@@ -21,7 +21,13 @@
             <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
         </Columns>
     </asp:GridView>
+    
     <asp:Table ID="Table1" runat="server">
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblSuccessMsg" runat="server" Text="" ></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Calendar ID="Calendar1" runat="server" DayNameFormat="Shortest" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
@@ -43,6 +49,11 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnSendRequest" runat="server" Text="Send Request" OnClick="btnSendRequest_Click"/>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
