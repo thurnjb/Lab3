@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -45,6 +47,39 @@ namespace Lab3
                 {
                     lblDetail.Text = "New Customer and Service Ticket Successfully Added";
                 }
+            }
+        }
+
+        protected void gridViewCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Add")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow selectedRow = grdNotifications.Rows[index];
+                Application["CustUsername"] = selectedRow.Cells[2].Text;
+                Application["CustFName"] = selectedRow.Cells[3].Text;
+                Application["CustLName"] = selectedRow.Cells[4].Text;
+                Application["CustService"] = selectedRow.Cells[5].Text;
+                Application["DateNeeded"] = selectedRow.Cells[6].Text;
+                Application["Description"] = selectedRow.Cells[7].Text;
+                Application["CustAddress"] = selectedRow.Cells[8].Text;
+                Application["NewAdd"] = "yes";
+
+                Response.Redirect("CustomerRecordsV2.aspx");
+
+            }
+            else if (e.CommandName == "Deny")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow selectedRow = grdNotifications.Rows[index];
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+                String Username = selectedRow.Cells[2].Text;
+                SqlCommand cmd = new SqlCommand("DELETE FROM Notifications WHERE Username='" + Username + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                lblDetail.Text = "Notification removed!";
+                Response.Redirect("NotificationPage.aspx");
             }
         }
 

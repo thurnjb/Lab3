@@ -139,6 +139,19 @@ CREATE TABLE InventoryService
 	InventoryItemID int REFERENCES InventoryItem(InventoryItemID)
 	);
 
+CREATE TABLE Notifications
+	(
+	NotificationID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Username varchar(80),
+	FirstName varchar(80),
+	LastName varchar(80),
+	ServiceNeeded varchar(80),
+	DateNeeded varchar(80),
+	NoteDescription varchar(255),
+	CustAddress varchar(80),
+	
+	);
+
 --Insert test records
 	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
 	('Joe', 'Jenkins', '1234567890', 'joejoe@joe.com', 'Phone', 'Web', '123 S. Main St.,Harrisonburg,Virginia,22801', '312 W. Water,Harrisonburg,Virginia,22801',  '2021-02-10');
@@ -268,3 +281,4 @@ SELECT * FROM INVENTORYITEM;
 SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
+SELECT * FROM Notifications;

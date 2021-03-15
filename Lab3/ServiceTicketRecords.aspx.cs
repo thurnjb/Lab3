@@ -33,15 +33,8 @@ namespace Lab3
 
             if(Application["NewAdd"] != null)
             {
-                txtCustomerName.Text = Application["CustFName"].ToString() + Application["CustLName"].ToString();
-                if (Application["ServiceType"].ToString() == "1")
-                {
-                    txtServiceType.Text = "Moving";
-                }
-                else
-                {
-                    txtServiceType.Text = "Auction";
-                }
+                txtCustomerName.Text = Application["CustFName"].ToString() + " " + Application["CustLName"].ToString();
+                txtServiceType.Text = Application["CustService"].ToString();
                 txtFromDeadline.Text = "2021-03-05";
                 txtToDeadline.Text = "2021-03-07";
             }

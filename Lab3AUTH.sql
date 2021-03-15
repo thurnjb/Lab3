@@ -5,8 +5,9 @@ CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
 FirstName varchar(20) NOT NULL,
 LastName varchar(30) NOT NULL,
-Username varchar (20) NOT NULL,
+Username varchar (80) NOT NULL,
 Employee bit NOT NULL,
+CustHear varchar(255),
 CustAddress varchar(255),
 CustPhone varchar(255),
 PRIMARY KEY (UserID));
@@ -39,4 +40,3 @@ INSERT INTO Pass VALUES
 
 Select * from person;
 Select * from pass;
-SELECT Pass.Username, PasswordHash, Person.EmployeeFROM PassINNER JOIN Person ON Pass.UserID = Person.UserIDWHERE Pass.Username='wyatt.errp@gmail.com'

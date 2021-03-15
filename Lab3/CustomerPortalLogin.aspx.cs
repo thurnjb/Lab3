@@ -92,7 +92,7 @@ Our submission of this assignment indicates that we have neither received nor gi
                 Application["CustAddress"] = tbAddressCreate.Text;
                 Application["CustPhone"] = tbPhoneCreate.Text;
                 Application["CustHear"] = tbHearCreate.Text;
-                addUser(tbFirstNameCreate.Text, tbLastNameCreate.Text, tbAddressCreate.Text, tbPhoneCreate.Text, tbUsernameCreate.Text, tbPasswordCreate.Text);
+                addUser(tbFirstNameCreate.Text, tbLastNameCreate.Text, tbHearCreate.Text, tbAddressCreate.Text, tbPhoneCreate.Text, tbUsernameCreate.Text, tbPasswordCreate.Text);
                 lblAccountStatus.Text = "Account Successfully Created";
 
             }
@@ -102,9 +102,9 @@ Our submission of this assignment indicates that we have neither received nor gi
             }
         }
 
-        protected void addUser(String userFirst, String userLast, String userAddress, String userPhone, String userName, String userPass)
+        protected void addUser(String userFirst, String userLast, String custHear, String userAddress, String userPhone, String userName, String userPass)
         {
-            String sqlQueryPerson = "INSERT INTO Person (FirstName, LastName, Username, Employee, CustAddress, CustPhone) VALUES (@FirstName, @LastName, @Username, @Employee, @CustPhone, @CustAddress)";
+            String sqlQueryPerson = "INSERT INTO Person (FirstName, LastName, Username, Employee, CustHear, CustAddress, CustPhone) VALUES (@FirstName, @LastName, @Username, @Employee, @CustHear, @CustAddress, @CustPhone)";
             String sqlQueryPass = "INSERT INTO Pass (UserID, Username, PasswordHash) VALUES (@UserID, @Username, @PasswordHash)";
             //String sqlQuery = "INSERT INTO Users (UserID, UserAddress, UserPhone, UserName, UserEmail, UserPass) VALUES (@UserID, @UserAddress, @UserPhone, @UserName, @UserEmail, @UserPass)";
             String connectionString = ConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
@@ -113,6 +113,7 @@ Our submission of this assignment indicates that we have neither received nor gi
 
             sqlCommand.Parameters.AddWithValue("@FirstName", userFirst);
             sqlCommand.Parameters.AddWithValue("@LastName", userLast);
+            sqlCommand.Parameters.AddWithValue("@CustHear", custHear);
             sqlCommand.Parameters.AddWithValue("@CustAddress", userAddress);
             sqlCommand.Parameters.AddWithValue("@CustPhone", userPhone);
             sqlCommand.Parameters.AddWithValue("@Username", userName);
