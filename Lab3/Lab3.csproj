@@ -91,6 +91,7 @@
     <Content Include="HomePageV2.aspx" />
     <Content Include="InitialContactForm.aspx" />
     <Content Include="LoginForm.aspx" />
+    <Content Include="LookAtScheduling.aspx" />
     <Content Include="NotificationPage.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LookAtScheduling.aspx.cs">
+      <DependentUpon>LookAtScheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LookAtScheduling.aspx.designer.cs">
+      <DependentUpon>LookAtScheduling.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotificationPage.aspx.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>

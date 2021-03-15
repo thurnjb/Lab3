@@ -16,7 +16,7 @@ namespace Lab3
 
         protected void btnLookAt_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("LookAtScheduling.aspx");
         }
 
         protected void btnTicket_Click(object sender, EventArgs e)
