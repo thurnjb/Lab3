@@ -105,12 +105,6 @@
             <asp:TableCell>
                 <asp:Button ID="btnClear" runat="server" Text="Clear Cells" OnClick="btnClear_Click" />
             </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" />
-            </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell ColumnSpan="5">

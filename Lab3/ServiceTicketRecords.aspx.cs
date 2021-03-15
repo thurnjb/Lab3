@@ -93,17 +93,16 @@ namespace Lab3
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";
-            current = 0;
-            txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-            txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-            txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-            txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalServiceType"].ToString();
-            txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-            txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-            txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-            txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
-            txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
-            txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
+            txtCustomerName.Text = "Jimbo Jam";
+            txtInitiatingEmployee.Text = "Jane Doe";
+            txtServiceType.Text = "Moving";
+            txtAdditionalService.Text = "Trash Removal";
+            txtTicketStatus.Text = "Open";
+            txtTicketOpenDate.Text = "01/01/1999 00:00:00";
+            txtFromDeadline.Text = "01/01/1999 00:00:00";
+            txtToDeadline.Text = "01/01/1999 00:00:00";
+            txtLookAt.Text = "01/01/1999 00:00:00";
+            txtPickup.Text = "01/01/1999 00:00:00";
         }
 
         //This method creates an insert sql statement and executes
@@ -159,54 +158,6 @@ namespace Lab3
             txtTicketOpenDate.Text = "";
             txtFromDeadline.Text = "";
             txtToDeadline.Text = "";
-        }
-
-        //This method goes back a record in the table
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblErrorMsg.Text = "";
-                current--;
-                txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-                txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-                txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-                txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalService"].ToString();
-                txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-                txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-                txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-                txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
-                txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
-                txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
-            } catch (Exception)
-            {
-                lblErrorMsg.Text = "No more previous data";
-                current++;
-            }
-        }
-
-        //This method goes forward a record in the table
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblErrorMsg.Text = "";
-                current++;
-                txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-                txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-                txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-                txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalService"].ToString();
-                txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-                txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-                txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-                txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
-                txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
-                txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
-            } catch (Exception)
-            {
-                lblErrorMsg.Text = "No more data left";
-                current--;
-            }
         }
 
         //Fills textboxes on ddlIndexChange
