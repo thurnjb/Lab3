@@ -83,6 +83,7 @@ Our submission of this assignment indicates that we have neither received nor gi
                     {
                         Session["CustLogin"] = txtUserName.Text;
                         Session["UserName"] = txtUserName.Text;
+                        Session["CustLogin"] = txtUserName.Text;
                         Response.Redirect("~/CustomerPortalService.aspx");
                     }
                 }
