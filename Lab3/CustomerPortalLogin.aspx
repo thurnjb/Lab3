@@ -1,9 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerPortal.Master" AutoEventWireup="true" CodeBehind="CustomerPortalLogin.aspx.cs" Inherits="Lab3.CustomerPortalLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerPortalLogin.aspx.cs" Inherits="Lab3.CustomerPortalLogin" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div style="text-align: center">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="text-align: center">
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
         <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
@@ -133,4 +138,6 @@
 
     </asp:Table>
 </div>
-</asp:Content>
+    </form>
+</body>
+</html>

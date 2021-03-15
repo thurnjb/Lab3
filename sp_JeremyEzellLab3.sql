@@ -1,3 +1,5 @@
+USE AUTH;
+GO
 CREATE PROCEDURE sp_JeremyEzellLab3
 @UserName AS NVARCHAR(255),
 @PasswordHash AS NVARCHAR(255)

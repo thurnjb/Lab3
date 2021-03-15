@@ -24,37 +24,45 @@ namespace Lab3
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
         protected void btnViewTicketDetails_Click(object sender, EventArgs e)
         {
-            object pageIndex = grdTickets.SelectedValue;
-            lblErrorMsg.Text = "";
-            String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + pageIndex + "AND T.ServiceID = S.ServiceID";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-            DataSet dsEmployee = new DataSet();
-            sqlAdapter.Fill(dsEmployee);
+            if (grdTickets.SelectedValue == null)
+            {
+                lblErrorMsg.Text = "Please select a service ticket.";
+            }
+            else
+            {
+                lblErrorMsg.Text = "";
+                object pageIndex = grdTickets.SelectedValue;
+                lblErrorMsg.Text = "";
+                String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + pageIndex + "AND T.ServiceID = S.ServiceID";
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                DataSet dsEmployee = new DataSet();
+                sqlAdapter.Fill(dsEmployee);
 
-            DataBindNotes();
+                //DataBindNotes();
 
-            sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + pageIndex + ";";
-            SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + pageIndex + ";";
+                SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-            DataTable dtAuction = new DataTable();
-            Adapter.Fill(dtAuction);
-            grdAuction.DataSource = dtAuction;
-            grdAuction.DataBind();
+                DataTable dtAuction = new DataTable();
+                Adapter.Fill(dtAuction);
+                //grdAuction.DataSource = dtAuction;
+                //grdAuction.DataBind();
 
-            sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + pageIndex;
+                sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + pageIndex;
 
-            SqlDataAdapter sqladapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                SqlDataAdapter sqladapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-            DataTable dt = new DataTable();
-            sqladapter.Fill(dt);
+                DataTable dt = new DataTable();
+                sqladapter.Fill(dt);
 
-            grdSelectedTicketHistory.DataSource = dt;
-            grdSelectedTicketHistory.DataBind();
+                grdSelectedTicketHistory.DataSource = dt;
+                grdSelectedTicketHistory.DataBind();
 
-            Session["ServiceTicketID"] = pageIndex;
-            Session["EmployeeID"] = dsEmployee.Tables[0].Rows[0]["InitiatingEmployeeID"].ToString();
-            Session["ServiceType"] = dsEmployee.Tables[0].Rows[0]["ServiceType"].ToString();
+                Session["ServiceTicketID"] = pageIndex;
+                Session["EmployeeID"] = dsEmployee.Tables[0].Rows[0]["InitiatingEmployeeID"].ToString();
+                Session["ServiceType"] = dsEmployee.Tables[0].Rows[0]["ServiceType"].ToString();
+            }
         }
 
         //This method saved the selected value in the ddl in session and redirects to the notes page
@@ -202,23 +210,9 @@ namespace Lab3
             }
         }
 
-        protected void DataBindNotes()
-        {
-            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + grdTickets.SelectedValue + ";";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-            DataTable dtForGridView = new DataTable();
-            SqlAdapter.Fill(dtForGridView);
-
-            dtlVwTicketNotes.DataSource = dtForGridView;
-            dtlVwTicketNotes.DataBind();
-        }
-
         protected void dtlVwTicketNotes_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
         {
             dtlVwTicketNotes.PageIndex = e.NewPageIndex;
-            DataBindNotes();
         }
 
         protected void dtlVwEditTicket_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
@@ -232,6 +226,19 @@ namespace Lab3
             {
                 Response.Redirect("TicketHistory.aspx");
             }
+        }
+
+        protected void dtlVwTicketNotes_ModeChanging(object sender, DetailsViewModeEventArgs e)
+        {
+            dtlVwTicketNotes.ChangeMode(DetailsViewMode.Edit);
+        }
+
+        protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ServiceTicketID"] = grdTickets.SelectedValue;
+
+            String temp = ((HiddenField)grdTickets.SelectedRow.FindControl("hdnEmployee")).Value;
+            Session["EmployeeID"] = temp;
         }
     }
 }

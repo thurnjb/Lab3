@@ -33,15 +33,8 @@ namespace Lab3
 
             if(Application["NewAdd"] != null)
             {
-                txtCustomerName.Text = Application["CustFName"].ToString() + Application["CustLName"].ToString();
-                if (Application["ServiceType"].ToString() == "1")
-                {
-                    txtServiceType.Text = "Moving";
-                }
-                else
-                {
-                    txtServiceType.Text = "Auction";
-                }
+                txtCustomerName.Text = Application["CustFName"].ToString() + " " + Application["CustLName"].ToString();
+                txtServiceType.Text = Application["CustService"].ToString();
                 txtFromDeadline.Text = "2021-03-05";
                 txtToDeadline.Text = "2021-03-07";
             }
@@ -50,7 +43,7 @@ namespace Lab3
         //Gets count of number of records in ServiceTicket and fills dataset with rows
         protected void connectToData()
         {
-            String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline FROM Customer, Employee, Service, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID";
+            String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline, ServiceTicket.AdditionalServiceID, AdditionalService.AdditionalServiceType, ServiceTicket.LookAt, ServiceTicket.Pickup FROM Customer, Employee, Service, AdditionalService, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID AND ServiceTicket.AdditionalServiceID = AdditionalService.AdditionalServiceID" ;
 
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -93,14 +86,16 @@ namespace Lab3
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";
-            current = 0;
-            txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-            txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-            txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-            txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-            txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-            txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-            txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
+            txtCustomerName.Text = "Jimbo Jam";
+            txtInitiatingEmployee.Text = "Jane Doe";
+            txtServiceType.Text = "Moving";
+            txtAdditionalService.Text = "Trash Removal";
+            txtTicketStatus.Text = "Open";
+            txtTicketOpenDate.Text = "01/01/1999 00:00:00";
+            txtFromDeadline.Text = "01/01/1999 00:00:00";
+            txtToDeadline.Text = "01/01/1999 00:00:00";
+            txtLookAt.Text = "01/01/1999 00:00:00";
+            txtPickup.Text = "01/01/1999 00:00:00";
         }
 
         //This method creates an insert sql statement and executes
@@ -108,8 +103,8 @@ namespace Lab3
         {
             if(txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
-                    ddlService.SelectedValue + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "');";
+                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
+                    ddlService.SelectedValue + ", "+ dataset.Tables[0].Rows[current]["AdditionalServiceID"].ToString() + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "', '"+ txtLookAt.Text+ "', '"+ txtPickup.Text+ "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -151,52 +146,11 @@ namespace Lab3
             txtCustomerName.Text = "";
             txtInitiatingEmployee.Text = "";
             txtServiceType.Text = "";
+            txtAdditionalService.Text = "";
             txtTicketStatus.Text = "";
             txtTicketOpenDate.Text = "";
             txtFromDeadline.Text = "";
             txtToDeadline.Text = "";
-        }
-
-        //This method goes back a record in the table
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblErrorMsg.Text = "";
-                current--;
-                txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-                txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-                txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-                txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-                txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-                txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-                txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
-            } catch (Exception)
-            {
-                lblErrorMsg.Text = "No more previous data";
-                current++;
-            }
-        }
-
-        //This method goes forward a record in the table
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblErrorMsg.Text = "";
-                current++;
-                txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
-                txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
-                txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
-                txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
-                txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
-                txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
-                txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
-            } catch (Exception)
-            {
-                lblErrorMsg.Text = "No more data left";
-                current--;
-            }
         }
 
         //Fills textboxes on ddlIndexChange
