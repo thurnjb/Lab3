@@ -130,7 +130,7 @@ namespace Lab3
             }
             else
             {
-                lblErrorMsg.Text = "Text field cannot be blank";
+                lblErrorMsg.Text = "Text fields cannot be blank";
             }
         }
 

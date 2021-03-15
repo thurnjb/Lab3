@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
+    <div>
+         <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click"/>
     <asp:Table ID="tblContent" runat="server">
         <asp:TableRow>
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
@@ -76,6 +79,15 @@
             <asp:TableCell>
                 <asp:Button ID="btnAuction" runat="server" Text="Schedule Auction" OnClick="btnAuction_Click" />
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnSave" runat="server" Text="Save New Customer" OnClick="btnSave_Click" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblError" runat="server" Text="" ></asp:Label>
+            </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+        </div>
 </asp:Content>
