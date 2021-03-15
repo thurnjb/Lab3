@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Lab3
         private static SqlDataReader queryResults;
         private static int count = 0;
         private static int current = -1;
-        private static String sqlCommitQuery = "";
+        private String sqlCommitQuery = "";
 
         //On page load, connect to data
         protected void Page_Load(object sender, EventArgs e)
@@ -103,8 +104,14 @@ namespace Lab3
         {
             if(txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
-                    ddlService.SelectedValue + ", "+ dataset.Tables[0].Rows[current]["AdditionalServiceID"].ToString() + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "', '"+ txtLookAt.Text+ "', '"+ txtPickup.Text+ "');";
+
+                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)" +
+                    "VALUES (@CustomerID, @InitiatingEmployeeID, @ServiceID, @AdditionalServiceID, @TicketStatus, @TicketOpenDate, @FromDeadline, @ToDeadline, @LookAt, @Pickup)";
+
+                //sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, " +
+                //    "TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)  " +
+                //    "VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
+                //    ddlService.SelectedValue + ", "+ dataset.Tables[0].Rows[current]["AdditionalServiceID"].ToString() + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "', '"+ txtLookAt.Text+ "', '"+ txtPickup.Text+ "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -112,6 +119,16 @@ namespace Lab3
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandText = sqlCommitQuery;
+                sqlCommand.Parameters.AddWithValue("@CustomerID", ddlCustomerList.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@InitiatingEmployeeID", ddlEmployeeList.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@ServiceID", ddlService.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AdditionalServiceID", getAdditionalServiceID(txtAdditionalService.Text));
+                sqlCommand.Parameters.AddWithValue("@TicketStatus", "Open");
+                sqlCommand.Parameters.AddWithValue("@TicketOpenDate", DateTime.Now.ToString());
+                sqlCommand.Parameters.AddWithValue("@FromDeadline", HttpUtility.HtmlEncode(txtFromDeadline.Text));
+                sqlCommand.Parameters.AddWithValue("@ToDeadline", HttpUtility.HtmlEncode(txtToDeadline.Text));
+                sqlCommand.Parameters.AddWithValue("@LookAt", txtLookAt.Text);
+                sqlCommand.Parameters.AddWithValue("@Pickup", txtPickup.Text);
 
                 sqlCommand.ExecuteNonQuery();
 
@@ -229,6 +246,24 @@ namespace Lab3
             {
                 lblNoteErrorMsg.Text = "Title and Content must be filled";
             }
+        }
+
+        protected int getAdditionalServiceID(String serviceType)
+        {
+            String constr = ConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            SqlConnection con = new SqlConnection(constr);
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT AdditionalServiceID FROM AdditionalService WHERE AdditionalServiceType = @ServiceType";
+            cmd.Parameters.AddWithValue("@ServiceType", serviceType);
+            cmd.Connection = con;
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            int serviceID = (int)reader["AdditionalServiceID"];
+            reader.Close();
+            con.Close();
+            return serviceID;
+
         }
     }
 }
