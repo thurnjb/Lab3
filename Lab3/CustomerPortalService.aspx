@@ -32,7 +32,6 @@
                     <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="2">
                     <asp:Label ID="lblDesc" runat="server" Text="Service Decription:"></asp:Label>
