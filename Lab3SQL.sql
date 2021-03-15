@@ -1,17 +1,21 @@
 USE Lab3;
 
---DROP TABLE INVENTORYSERVICE;
---DROP TABLE EQUIPMENTSERVICE;
---DROP TABLE EQUIPMENT;
---DROP TABLE INVENTORYITEM;
---DROP TABLE TICKETHISTORY;
---DROP TABLE NOTES;
---DROP TABLE SERVICETICKET;
---DROP TABLE AUCTION;
---DROP TABLE SERVICE;
---DROP TABLE EMPLOYEE;
---DROP TABLE CUSTOMER;
-
+DROP TABLE NotificationTable_DATES;	
+DROP TABLE NotificationTable;
+DROP TABLE Notifications;
+DROP TABLE INVENTORYSERVICE;
+DROP TABLE EQUIPMENTSERVICE;
+DROP TABLE EQUIPMENT;
+DROP TABLE INVENTORYITEM;
+DROP TABLE TICKETHISTORY;
+DROP TABLE NOTES;
+DROP TABLE SERVICETICKET;
+DROP TABLE AdditionalService;
+DROP TABLE AUCTION;
+DROP TABLE SERVICE;
+DROP TABLE EMPLOYEE;
+DROP TABLE tblFiles;
+DROP TABLE CUSTOMER;
 
 
 --Create tables
@@ -25,6 +29,7 @@ CREATE TABLE Customer
 	Email varchar(255),
 	Address varchar(255),
 	DestAddress varchar(255),
+	RequestedService varchar(255),
 	SaveDate datetime
 	);
 
@@ -163,6 +168,17 @@ CREATE TABLE Notifications
 	
 	);
 
+CREATE TABLE NotificationTable
+	(NotificationID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	CustomerID int REFERENCES Customer(CustomerID)
+	);
+
+CREATE TABLE NotificationTable_Dates
+	(ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	NotificationID int REFERENCES NotificationTable(NotificationID),
+	PotentialDate datetime
+	);
+
 --Insert test records
 	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
 	('Joe', 'Jenkins', 'Phone', 'Web', '1234567890', 'joejoe@joe.com', '123 S. Main St.,Harrisonburg,Virginia,22801', '312 W. Water,Harrisonburg,Virginia,22801',  '2021-02-10');
@@ -190,6 +206,12 @@ CREATE TABLE Notifications
 	('Moving', 'Moving job');
 	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
 	('Auction', 'Auction job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Appraisal', 'Appraisal job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Consignment', 'Consignment job');
+	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
+	('Combination', 'Combination job');
 
 	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
 	('March Fest', '2021-03-15');
@@ -294,4 +316,5 @@ SELECT * FROM INVENTORYITEM;
 SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
-SELECT * FROM Notifications;
+SELECT * FROM NotificationTable;
+SELECT * FROM NotificationTable_Dates;
