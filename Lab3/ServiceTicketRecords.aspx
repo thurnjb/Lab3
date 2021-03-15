@@ -14,6 +14,62 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
+            <asp:TableCell ColumnSpan="3">
+                <asp:Label ID="lblInstructions" runat="server" Text="Please select from the lists below to fill the textboxes" Font-Bold="true"></asp:Label>
+        </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblCustomerDDL" runat="server" Text="Customers:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblEmployeeDDL" runat="server" Text="Employee:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblServiceDDL" runat="server" Text="Service Type:"></asp:Label>
+        </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblAdditionalServiceDDL" runat="server" Text="Additional Service:"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:DropDownList ID="ddlCustomerList" runat="server"
+                    DataSourceID="dtasrcCustomer" 
+                    DataTextField="CustomerName" 
+                    DataValueField="CustomerID" 
+                    AutoPostBack="true" 
+                    OnSelectedIndexChanged="ddlCustomerList_SelectedIndexChanged"></asp:DropDownList>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList ID="ddlEmployeeList" runat="server" 
+                    DataSourceID="dtasrcEmployee" 
+                    DataTextField="EmployeeName" 
+                    DataValueField="EmployeeID" 
+                    AutoPostBack="true" 
+                    OnSelectedIndexChanged="ddlEmployeeList_SelectedIndexChanged">
+                </asp:DropDownList>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList ID="ddlService" runat="server" 
+                    AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlService_SelectedIndexChanged" 
+                    DataSourceID="dtasrcService"
+                    DataTextField="ServiceType"
+                    DataValueField="ServiceID">
+                </asp:DropDownList>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList ID="ddlAdditionalService" runat="server" 
+                    AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlAdditionalService_SelectedIndexChanged" 
+                    DataSourceID="dtasrcAdditionalService"
+                    DataTextField="AdditionalServiceType"
+                    DataValueField="AdditionalServiceID">
+                </asp:DropDownList>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblCustomerName" runat="server" Text="Customer Name:"></asp:Label>
             </asp:TableCell>
@@ -113,50 +169,6 @@
         </asp:TableRow>
     </asp:Table>
     <asp:Table ID="Table1" runat="server">
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="3">
-                <asp:Label ID="lblInstructions" runat="server" Text="Please select from the lists below to fill the textboxes" Font-Bold="true"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblCustomerDDL" runat="server" Text="Customers:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="lblEmployeeDDL" runat="server" Text="Employee:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="lblServiceDDL" runat="server" Text="ServiceType:"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:DropDownList ID="ddlCustomerList" runat="server"
-                    DataSourceID="dtasrcCustomer" 
-                    DataTextField="CustomerName" 
-                    DataValueField="CustomerID" 
-                    AutoPostBack="true" 
-                    OnSelectedIndexChanged="ddlCustomerList_SelectedIndexChanged"></asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList ID="ddlEmployeeList" runat="server" 
-                    DataSourceID="dtasrcEmployee" 
-                    DataTextField="EmployeeName" 
-                    DataValueField="EmployeeID" 
-                    AutoPostBack="true" 
-                    OnSelectedIndexChanged="ddlEmployeeList_SelectedIndexChanged">
-                </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList ID="ddlService" runat="server" 
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="ddlService_SelectedIndexChanged" 
-                    DataSourceID="dtasrcService"
-                    DataTextField="ServiceType"
-                    DataValueField="ServiceID">
-                </asp:DropDownList>
-            </asp:TableCell>
-        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblNoteTitle" runat="server" Text="Note Title:" Visible="false"></asp:Label>

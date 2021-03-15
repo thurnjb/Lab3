@@ -188,6 +188,12 @@ namespace Lab3
             txtInitiatingEmployee.Text = ddlEmployeeList.SelectedItem.Text;
         }
 
+        protected void ddlAdditionalService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblErrorMsg.Text = "";
+            txtAdditionalService.Text = ddlAdditionalService.SelectedItem.Text;
+        }
+
         protected void btnNoteCancel_Click(object sender, EventArgs e)
         {
             lblNoteErrorMsg.Text = "";
