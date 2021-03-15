@@ -82,6 +82,7 @@ Our submission of this assignment indicates that we have neither received nor gi
                     if (PasswordHash.ValidatePassword(txtPassWord.Text, storedHash))
                     {
                         Session["UserName"] = txtUserName.Text;
+                        Session["CustLogin"] = txtUserName.Text;
                         Response.Redirect("~/CustomerPortalService.aspx");
                     }
                 }
