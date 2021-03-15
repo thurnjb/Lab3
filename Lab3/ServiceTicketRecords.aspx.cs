@@ -43,7 +43,7 @@ namespace Lab3
         //Gets count of number of records in ServiceTicket and fills dataset with rows
         protected void connectToData()
         {
-            String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline FROM Customer, Employee, Service, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID";
+            String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline, ServiceTicket.AdditionalServiceID, AdditionalService.AdditionalServiceType, ServiceTicket.LookAt, ServiceTicket.Pickup FROM Customer, Employee, Service, AdditionalService, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID AND ServiceTicket.AdditionalServiceID = AdditionalService.AdditionalServiceID" ;
 
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -90,10 +90,13 @@ namespace Lab3
             txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
             txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
             txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
+            txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalServiceType"].ToString();
             txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
             txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
             txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
             txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
+            txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
+            txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
         }
 
         //This method creates an insert sql statement and executes
@@ -101,8 +104,8 @@ namespace Lab3
         {
             if(txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
             {
-                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
-                    ddlService.SelectedValue + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "');";
+                sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)  VALUES (" + ddlCustomerList.SelectedValue + ", " + ddlEmployeeList.SelectedValue + ", " +
+                    ddlService.SelectedValue + ", "+ dataset.Tables[0].Rows[current]["AdditionalServiceID"].ToString() + ", 'Open', '" + DateTime.Now + "', '" + HttpUtility.HtmlEncode(txtFromDeadline.Text) + "', '" + HttpUtility.HtmlEncode(txtToDeadline.Text) + "', '"+ txtLookAt.Text+ "', '"+ txtPickup.Text+ "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -144,6 +147,7 @@ namespace Lab3
             txtCustomerName.Text = "";
             txtInitiatingEmployee.Text = "";
             txtServiceType.Text = "";
+            txtAdditionalService.Text = "";
             txtTicketStatus.Text = "";
             txtTicketOpenDate.Text = "";
             txtFromDeadline.Text = "";
@@ -160,10 +164,13 @@ namespace Lab3
                 txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
                 txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
                 txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
+                txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalService"].ToString();
                 txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
                 txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
                 txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
                 txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
+                txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
+                txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
             } catch (Exception)
             {
                 lblErrorMsg.Text = "No more previous data";
@@ -181,10 +188,13 @@ namespace Lab3
                 txtCustomerName.Text = dataset.Tables[0].Rows[current]["CustomerName"].ToString();
                 txtInitiatingEmployee.Text = dataset.Tables[0].Rows[current]["EmployeeName"].ToString();
                 txtServiceType.Text = dataset.Tables[0].Rows[current]["ServiceType"].ToString();
+                txtAdditionalService.Text = dataset.Tables[0].Rows[current]["AdditionalService"].ToString();
                 txtTicketStatus.Text = dataset.Tables[0].Rows[current]["TicketStatus"].ToString();
                 txtTicketOpenDate.Text = dataset.Tables[0].Rows[current]["TicketOpenDate"].ToString();
                 txtFromDeadline.Text = dataset.Tables[0].Rows[current]["FromDeadLine"].ToString();
                 txtToDeadline.Text = dataset.Tables[0].Rows[current]["ToDeadline"].ToString();
+                txtLookAt.Text = dataset.Tables[0].Rows[current]["LookAt"].ToString();
+                txtPickup.Text = dataset.Tables[0].Rows[current]["Pickup"].ToString();
             } catch (Exception)
             {
                 lblErrorMsg.Text = "No more data left";

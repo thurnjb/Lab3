@@ -210,23 +210,9 @@ namespace Lab3
             }
         }
 
-        protected void DataBindNotes()
-        {
-            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + grdTickets.SelectedValue + ";";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-            DataTable dtForGridView = new DataTable();
-            SqlAdapter.Fill(dtForGridView);
-
-            dtlVwTicketNotes.DataSource = dtForGridView;
-            dtlVwTicketNotes.DataBind();
-        }
-
         protected void dtlVwTicketNotes_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
         {
             dtlVwTicketNotes.PageIndex = e.NewPageIndex;
-            DataBindNotes();
         }
 
         protected void dtlVwEditTicket_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
@@ -240,6 +226,19 @@ namespace Lab3
             {
                 Response.Redirect("TicketHistory.aspx");
             }
+        }
+
+        protected void dtlVwTicketNotes_ModeChanging(object sender, DetailsViewModeEventArgs e)
+        {
+            dtlVwTicketNotes.ChangeMode(DetailsViewMode.Edit);
+        }
+
+        protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ServiceTicketID"] = grdTickets.SelectedValue;
+
+            String temp = ((HiddenField)grdTickets.SelectedRow.FindControl("hdnEmployee")).Value;
+            Session["EmployeeID"] = temp;
         }
     }
 }

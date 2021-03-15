@@ -13,15 +13,16 @@ USE Lab3;
 --DROP TABLE CUSTOMER;
 
 
+
 --Create tables
 CREATE TABLE Customer
 	(CustomerID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	FirstName varchar(255),
 	LastName varchar(255),
-	Phone varchar(255),
-	Email varchar(255),
 	InitialContact varchar(255),
 	HeardFrom varchar(255),
+	Phone varchar(255),
+	Email varchar(255),
 	Address varchar(255),
 	DestAddress varchar(255),
 	SaveDate datetime
@@ -84,16 +85,26 @@ CREATE TABLE Auction
 	AuctionDate datetime,
 	);
 
+CREATE TABLE AdditionalService
+	(AdditionalServiceID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	AdditionalServiceType varchar(255),
+	AdditionalServiceDate datetime,
+	);
+
 CREATE TABLE ServiceTicket
 	(ServiceTicketID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	CustomerID int REFERENCES Customer(CustomerID),
 	InitiatingEmployeeID int REFERENCES Employee(EmployeeID),
 	ServiceID int REFERENCES Service(ServiceID),
 	AuctionID int REFERENCES Auction(AuctionID),
+	AdditionalServiceID int REFERENCES AdditionalService(AdditionalServiceID),
 	TicketStatus varchar(255),
 	TicketOpenDate datetime,
 	FromDeadline varchar(255),
-	ToDeadline varchar(255)
+	ToDeadline varchar(255),
+	LookAt datetime,
+	Pickup datetime,
+	
 	);
 
 CREATE TABLE Notes
@@ -153,16 +164,16 @@ CREATE TABLE Notifications
 	);
 
 --Insert test records
-	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
-	('Joe', 'Jenkins', '1234567890', 'joejoe@joe.com', 'Phone', 'Web', '123 S. Main St.,Harrisonburg,Virginia,22801', '312 W. Water,Harrisonburg,Virginia,22801',  '2021-02-10');
-	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
-	('Sarah', 'Smiles', '0987654321', 'SarahBear@gmail.com', 'Email', 'Email', '800 S. Main St.,Harrisonburg,Virginia,22801', null, '2021-02-11');
-	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
-	('Terry', 'Thurn', '1112223334', 'TerryRulez@gmail.com', 'Text', 'Web', '321 Boom St.,Nome,Alaska,11111', '1 North St.,Pasadena,California,20101', '2021-02-12');
-	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
-	('Scooby', 'Doo', '1010101010', 'Scoobs@gmail.com', 'Phone', 'Person', '1 Street St.,Crystal Cove,Virginia,12345', null, '2021-02-13');
-	INSERT INTO CUSTOMER(FirstName,LastName,Phone,Email,InitialContact,HeardFrom,Address,DestAddress,SaveDate) VALUES
-	('Andrew', 'Amberson', '7037037037', 'Andypoo@gmail.com', 'Person', 'Email', '2 Court Ct.,Narnia,California,54321', '123 Broken blvd.,New York City,New York,10203', '2021-02-14');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
+	('Joe', 'Jenkins', 'Phone', 'Web', '1234567890', 'joejoe@joe.com', '123 S. Main St.,Harrisonburg,Virginia,22801', '312 W. Water,Harrisonburg,Virginia,22801',  '2021-02-10');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
+	('Sarah', 'Smiles', 'Email', 'Email', '0987654321', 'SarahBear@gmail.com',  '800 S. Main St.,Harrisonburg,Virginia,22801', null, '2021-02-11');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
+	('Terry', 'Thurn', 'Text', 'Web', '1112223334', 'TerryRulez@gmail.com', '321 Boom St.,Nome,Alaska,11111', '1 North St.,Pasadena,California,20101', '2021-02-12');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
+	('Scooby', 'Doo', 'Phone', 'Person', '1010101010', 'Scoobs@gmail.com',  '1 Street St.,Crystal Cove,Virginia,12345', null, '2021-02-13');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
+	('Andrew', 'Amberson', 'Person', 'Email', '7037037037', 'Andypoo@gmail.com', '2 Court Ct.,Narnia,California,54321', '123 Broken blvd.,New York City,New York,10203', '2021-02-14');
 
 	INSERT INTO EMPLOYEE(FirstName,LastName,Position,Phone,Email) VALUES
 	('John', 'Jacob', 'Manager', '18005882300', 'JohnJacob@jingleheimer.com');
@@ -179,12 +190,6 @@ CREATE TABLE Notifications
 	('Moving', 'Moving job');
 	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
 	('Auction', 'Auction job');
-	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
-	('Appraisal', 'Appraisal job');
-	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
-	('Consignment', 'Consignment job');
-	INSERT INTO SERVICE(ServiceType,ServiceDescription) VALUES
-	('Combination', 'Combination job');
 
 	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
 	('March Fest', '2021-03-15');
@@ -192,6 +197,13 @@ CREATE TABLE Notifications
 	('Roman Auction', '2021-04-01');
 	INSERT INTO AUCTION(AuctionName, AuctionDate) VALUES
 	('Chinese Bargain', '2021-05-01');
+
+	INSERT INTO ADDITIONALSERVICE(AdditionalServiceType,AdditionalServiceDate) VALUES
+	('Cleaning','2021-02-01');
+		INSERT INTO AdditionalService(AdditionalServiceType,AdditionalServiceDate) VALUES
+	('Trash Removal','2021-02-01');
+		INSERT INTO AdditionalService(AdditionalServiceType,AdditionalServiceDate) VALUES
+	('Storage','2021-02-01');
 
 	INSERT INTO EQUIPMENT(EquipmentName,EquipmentDesc,PurchaseCost,PurchaseDate) VALUES
 	('Moving truck1', '3 ton limit moving truck', 200000.00, '2021-02-05');
@@ -215,16 +227,16 @@ CREATE TABLE Notifications
 	INSERT INTO INVENTORYITEM(ItemName,ItemDesc,ItemCost,InventoryDate) VALUES
 	('Roman Gold Coin', 'Roman currency from ~1100 AD', 300.00, '2021-03-15');
 
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(1, 1, 1, 'Open', '2021-02-14', '2021-02-14', '2021-02-14');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(2, 2, 2, 3, 'Open', '2021-02-15', '2021-02-18', '2021-02-20');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(3, 3, 1, 'Open', '2021-02-16', '2021-02-19', '2021-02-20');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(4, 4, 2, 2, 'Open', '2021-02-18', '2021-02-20', '2021-02-20');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline) VALUES
-	(5, 5, 1, 'Open',  '2021-02-19', '2021-02-21', '2021-02-25');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AdditionalServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline,LookAt, PickUp) VALUES
+	(1, 1, 1, 1, 'Open', '2021-02-14', '2021-02-14', '2021-02-14', '2021-02-14','2021-02-14');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,AdditionalServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline,LookAt, PickUp) VALUES
+	(2, 2, 2, 3, 3, 'Open', '2021-02-15', '2021-02-18', '2021-02-14', '2021-02-18','2021-02-18');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline,LookAt, PickUp) VALUES
+	(3, 3, 1, 'Open', '2021-02-16', '2021-02-19', '2021-02-20', '2021-02-19','2021-02-19');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AuctionID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline,LookAt, PickUp) VALUES
+	(4, 4, 2, 2, 'Open', '2021-02-18', '2021-02-20', '2021-02-20', '2021-02-20','2021-02-20');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,ServiceID,AdditionalServiceID,TicketStatus,TicketOpenDate,FromDeadline,ToDeadline,LookAt, PickUp) VALUES
+	(5, 5, 1, 2, 'Open',  '2021-02-19', '2021-02-21', '2021-02-25', '2021-02-23','2021-02-23');
 
 	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
 	(1, 'Ticket Created', 'Ticket Created');
@@ -274,6 +286,7 @@ SELECT * FROM CUSTOMER;
 SELECT * FROM EMPLOYEE;
 SELECT * FROM SERVICE;
 SELECT * FROM AUCTION;
+SELECT * FROM ADDITIONALSERVICE;
 SELECT * FROM SERVICETICKET;
 SELECT * FROM NOTES;
 SELECT * FROM TICKETHISTORY;

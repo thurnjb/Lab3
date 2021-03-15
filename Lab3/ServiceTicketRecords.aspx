@@ -37,6 +37,14 @@
                 <asp:TextBox ID="txtServiceType" runat="server" Enabled="false"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblAdditionalService" runat="server" Text="Addtional Service:"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtAdditionalService" runat="server" Enabled="false"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblTicketStatus" runat="server" Text="Ticket Status:"></asp:Label>
@@ -67,6 +75,22 @@
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtToDeadline" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblLookAt" runat="server" Text="Look At Date:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtLookAt" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblPickup" runat="server" Text="Pick Up Date:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtPickup" runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
@@ -181,5 +205,9 @@
     <asp:SqlDataSource ID="dtasrcService" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
         SelectCommand="SELECT * FROM Service">
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="dtasrcAdditionalService" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>" 
+        SelectCommand="SELECT * FROM AdditionalService">
     </asp:SqlDataSource>
 </asp:Content>

@@ -83,9 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssignAuction.aspx" />
+    <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerList.aspx" />
-    <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerPortalService.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
@@ -110,6 +110,13 @@
       <DependentUpon>AssignAuction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerPortalLogin.aspx.cs">
+      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortalLogin.aspx.designer.cs">
+      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerSearch.aspx.cs">
       <DependentUpon>CustomerSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -130,13 +137,6 @@
     </Compile>
     <Compile Include="CustomerPortal.Master.designer.cs">
       <DependentUpon>CustomerPortal.Master</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerPortalLogin.aspx.cs">
-      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerPortalLogin.aspx.designer.cs">
-      <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerPortalService.aspx.cs">
       <DependentUpon>CustomerPortalService.aspx</DependentUpon>
