@@ -83,16 +83,16 @@ namespace Lab3
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";
-            current = 0;
-            txtFirstName.Text = dataset.Tables[0].Rows[current]["FirstName"].ToString();
-            txtLastName.Text = dataset.Tables[0].Rows[current]["LastName"].ToString();
-            txtInitialContact.Text = dataset.Tables[0].Rows[current]["InitialContact"].ToString();
-            txtHeardFrom.Text = dataset.Tables[0].Rows[current]["HeardFrom"].ToString();
-            txtPhone.Text = dataset.Tables[0].Rows[current]["Phone"].ToString();
-            txtEmail.Text = dataset.Tables[0].Rows[current]["Email"].ToString();
-            txtAddress.Text = dataset.Tables[0].Rows[current]["Address"].ToString();
-            txtDestAddress.Text = dataset.Tables[0].Rows[current]["DestAddress"].ToString();
-            txtSaveDate.Text = dataset.Tables[0].Rows[current]["SaveDate"].ToString();
+            current = -1;
+            txtFirstName.Text = "Jimbo";
+            txtLastName.Text = "Jam";
+            txtInitialContact.Text = "Phone";
+            txtHeardFrom.Text = "Email";
+            txtPhone.Text = "1234567890";
+            txtEmail.Text = "JimJam99@aol.com";
+            txtAddress.Text = "99 Jimbob Ln.,Harrisonburg,Virginia,22801";
+            txtDestAddress.Text = "800 S Main St.,Harrisonburg,Virginia,22801";
+            txtSaveDate.Text = "01/01/1999";
         }
 
         //btnSave_Click method saves the data in the textboxes to a sql String and executes the query
