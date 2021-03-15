@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -30,15 +31,21 @@ namespace Lab3
 
             if(Application["NewAdd"] != null)
             {
+                String[] info = getCustomerInfo(Application["CustUsername"].ToString());
                 txtFirstName.Text = Application["CustFName"].ToString();
                 txtLastName.Text = Application["CustLName"].ToString();
                 txtInitialContact.Text = "Web App";
-                txtHeardFrom.Text = Application["CustHear"].ToString();
-                txtPhone.Text = Application["CustPhone"].ToString();
+                txtHeardFrom.Text = info[0];
+                txtPhone.Text = info[1];
                 txtEmail.Text = Application["CustUsername"].ToString();
                 txtAddress.Text = Application["CustAddress"].ToString();
-                txtDestAddress.Text = "";
                 txtSaveDate.Text = "";
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+                String Username = Application["CustUsername"].ToString();
+                SqlCommand cmd = new SqlCommand("DELETE FROM Notifications WHERE Username='" + Username + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
         }
 
@@ -141,6 +148,74 @@ namespace Lab3
             txtDestAddress.Text = "";
             txtSaveDate.Text = "";
             current = -1;
+        }
+
+        //btnPrevious_Click method goes back one record in the dataset on Previous button click
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblErrorMsg.Text = "";
+                current--;
+                txtFirstName.Text = dataset.Tables[0].Rows[current]["FirstName"].ToString();
+                txtLastName.Text = dataset.Tables[0].Rows[current]["LastName"].ToString();
+                txtInitialContact.Text = dataset.Tables[0].Rows[current]["InitialContact"].ToString();
+                txtHeardFrom.Text = dataset.Tables[0].Rows[current]["HeardFrom"].ToString();
+                txtPhone.Text = dataset.Tables[0].Rows[current]["Phone"].ToString();
+                txtEmail.Text = dataset.Tables[0].Rows[current]["Email"].ToString();
+                txtAddress.Text = dataset.Tables[0].Rows[current]["Address"].ToString();
+                txtDestAddress.Text = dataset.Tables[0].Rows[current]["DestAddress"].ToString();
+                txtSaveDate.Text = dataset.Tables[0].Rows[current]["SaveDate"].ToString();
+            }
+            catch (Exception)
+            {
+                lblErrorMsg.Text = "No more previous data";
+                current++;
+            }
+        }
+
+        //btnNext_Click method goes forward one record in the dataset on Next button click
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblErrorMsg.Text = "";
+                current++;
+                txtFirstName.Text = dataset.Tables[0].Rows[current]["FirstName"].ToString();
+                txtLastName.Text = dataset.Tables[0].Rows[current]["LastName"].ToString();
+                txtInitialContact.Text = dataset.Tables[0].Rows[current]["InitialContact"].ToString();
+                txtHeardFrom.Text = dataset.Tables[0].Rows[current]["HeardFrom"].ToString();
+                txtPhone.Text = dataset.Tables[0].Rows[current]["Phone"].ToString();
+                txtEmail.Text = dataset.Tables[0].Rows[current]["Email"].ToString();
+                txtAddress.Text = dataset.Tables[0].Rows[current]["Address"].ToString();
+                txtDestAddress.Text = dataset.Tables[0].Rows[current]["DestAddress"].ToString();
+                txtSaveDate.Text = dataset.Tables[0].Rows[current]["SaveDate"].ToString();
+            }
+            catch (Exception)
+            {
+                lblErrorMsg.Text = "No more data left";
+                current--;
+            }
+        }
+        protected String[] getCustomerInfo(String userName)
+        {
+            String[] info = new String[2];
+            String constr = ConfigurationManager.ConnectionStrings["AUTH"].ConnectionString;
+            SqlConnection con = new SqlConnection(constr);
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT CustHear, CustPhone FROM Person WHERE Username = @Username";
+            cmd.Parameters.AddWithValue("@Username", userName);
+            cmd.Connection = con;
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            info[0] = reader["CustHear"].ToString();
+            info[1] = reader["CustPhone"].ToString();
+            reader.Close();
+            con.Close();
+            return info;
+            //txtHeardFrom.Text = Application["CustHear"].ToString();
+            //txtPhone.Text = Application["CustPhone"].ToString();
         }
     }
 }

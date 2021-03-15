@@ -5,7 +5,11 @@ CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
 FirstName varchar(20) NOT NULL,
 LastName varchar(30) NOT NULL,
-Username varchar (20) NOT NULL,
+Username varchar (80) NOT NULL,
+Employee bit NOT NULL,
+CustHear varchar(255),
+CustAddress varchar(255),
+CustPhone varchar(255),
 PRIMARY KEY (UserID));
 
 CREATE TABLE Pass(
@@ -16,14 +20,14 @@ PRIMARY KEY (UserID));
 
 GO
 
-INSERT INTO Person(FirstName, LastName, Username) VALUES
-	('Jay', 'Thurn', 'Thurnjb');
-INSERT INTO Person(FirstName, LastName, Username) VALUES
-	('John', 'Lee', 'Lee8jh');
-INSERT INTO Person(FirstName, LastName, Username) VALUES
-	('Ryan', 'Booth', 'Boothrr');
-INSERT INTO Person(FirstName, LastName, Username) VALUES
-	('Test', 'Person', 'admin');
+INSERT INTO Person(FirstName, LastName, Username, Employee) VALUES
+	('Jay', 'Thurn', 'Thurnjb', 1);
+INSERT INTO Person(FirstName, LastName, Username, Employee) VALUES
+	('John', 'Lee', 'Lee8jh', 1);
+INSERT INTO Person(FirstName, LastName, Username, Employee) VALUES
+	('Ryan', 'Booth', 'Boothrr', 1);
+INSERT INTO Person(FirstName, LastName, Username, Employee) VALUES
+	('Test', 'Person', 'admin', 1);
 
 INSERT INTO Pass VALUES
 	(1, 'Thurnjb', '1000:UGmNEIloWB3dtxN9qa+pphTqgS+XQTrF:/kXMIc+QN8aQT5a2NLu4lpNsCzs=');
@@ -33,3 +37,6 @@ INSERT INTO Pass VALUES
 	(3, 'Boothrr', '1000:hVQ5apmx8Kp836Ip8L6ws+ze3RVyox+Q:YJRcDEsKW25IVSoaTUO62LEzaT4=');
 INSERT INTO Pass VALUES
 	(4, 'admin', '1000:hVQ5apmx8Kp836Ip8L6ws+ze3RVyox+Q:YJRcDEsKW25IVSoaTUO62LEzaT4=');
+
+Select * from person;
+Select * from pass;
