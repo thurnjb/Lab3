@@ -68,7 +68,13 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+
     <asp:Table ID="tblButtons" runat="server">
+        <asp:TableRow HorizontalAlign="Center">
+            <asp:TableCell >
+                <asp:Button ID="btnSave" runat="server" Text="Save New Customer" OnClick="btnSave_Click"/>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnLookAt" runat="server" Text="Schedule Look At" OnClick="btnLookAt_Click" />
@@ -78,9 +84,6 @@
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Button ID="btnAuction" runat="server" Text="Schedule Auction" OnClick="btnAuction_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnSave" runat="server" Text="Save New Customer" OnClick="btnSave_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
