@@ -11,8 +11,26 @@ namespace Lab3
 {
 
 
-    public partial class HomePageV2
+    public partial class Notifications
     {
+
+        /// <summary>
+        /// btnHomePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHomePage;
+
+        /// <summary>
+        /// grdNotifications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdNotifications;
 
         /// <summary>
         /// Table1 control.
@@ -24,93 +42,57 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// lblCompany control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompany;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// lblHomePage control.
+        /// txtCalendarDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomePage;
+        protected global::System.Web.UI.WebControls.TextBox txtCalendarDate;
 
         /// <summary>
-        /// btnGregNotifications control.
+        /// btnConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGregNotifications;
+        protected global::System.Web.UI.WebControls.Button btnConfirm;
 
         /// <summary>
-        /// btnNotifications control.
+        /// lstbxPotentialDates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNotifications;
+        protected global::System.Web.UI.WebControls.ListBox lstbxPotentialDates;
 
         /// <summary>
-        /// btnCustomerSearch control.
+        /// btnSendRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCustomerSearch;
+        protected global::System.Web.UI.WebControls.Button btnSendRequest;
 
         /// <summary>
-        /// btnViewCustomerRecord control.
+        /// dtasrcNotifications control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewCustomerRecord;
-
-        /// <summary>
-        /// btnViewServiceTicket control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewServiceTicket;
-
-        /// <summary>
-        /// btnViewCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewCustomerList;
-
-        /// <summary>
-        /// btnViewTicketHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewTicketHistory;
-
-        /// <summary>
-        /// btnInitialContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInitialContact;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcNotifications;
     }
 }

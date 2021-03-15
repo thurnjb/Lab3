@@ -94,6 +94,7 @@
     <Content Include="LookAtScheduling.aspx" />
     <Content Include="NotificationPage.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Notifications.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="NotificationPage.aspx.designer.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

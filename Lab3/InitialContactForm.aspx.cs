@@ -18,7 +18,30 @@ namespace Lab3
 
         protected void btnLookAt_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LookAtScheduling.aspx");
+            String sqlQuery = "SELECT CustomerID FROM Customer WHERE CustomerID=(SELECT max(CustomerID) FROM Customer)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            sqlConnect.Open();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandText = sqlQuery;
+
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            while (queryResults.Read())
+            {
+                Session["Notification"] = queryResults["CustomerID"].ToString();
+            }
+
+            sqlConnect.Close();
+            sqlQuery = "INSERT INTO NotificationTable(CustomerID) VALUES (" + Session["Notification"] + ")";
+            sqlConnect.Open();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.Connection = sqlConnect;
+            sqlcommand.CommandText = sqlQuery;
+            sqlcommand.ExecuteNonQuery();
+
+            Response.Redirect("HomePageV2.aspx");
         }
 
         protected void btnTicket_Click(object sender, EventArgs e)
@@ -37,9 +60,9 @@ namespace Lab3
 
             if (txtFirstName.Text != "" & txtLastName.Text != "" &
                 txtInitialContact.Text != "" & txtHeardFrom.Text != "" & txtPhone.Text != "" &
-                txtEmail.Text != "" & txtAddress.Text != "")
+                txtEmail.Text != "" & txtAddress.Text != "" & txtRequestedService.Text != "")
             {
-                String sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES (@FirstName, @LastName, @InitialContact, @HeardFrom, @Phone, @Email, @Address,  '" + DateTime.Now + "');";
+                String sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,RequestedService,SaveDate) VALUES (@FirstName, @LastName, @InitialContact, @HeardFrom, @Phone, @Email, @Address,@RequestedService, '" + DateTime.Now + "');";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -54,6 +77,7 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("Phone", HttpUtility.HtmlEncode(txtPhone.Text));
                 sqlCommand.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
                 sqlCommand.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
+                sqlCommand.Parameters.AddWithValue("@RequestedService", HttpUtility.HtmlEncode(txtRequestedService.Text));
                 
 
                 sqlCommand.ExecuteNonQuery();

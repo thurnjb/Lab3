@@ -168,6 +168,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
+        /// lblRequestedService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRequestedService;
+
+        /// <summary>
+        /// txtRequestedService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRequestedService;
+
+        /// <summary>
         /// tblButtons control.
         /// </summary>
         /// <remarks>

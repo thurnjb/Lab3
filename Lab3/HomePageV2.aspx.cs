@@ -41,9 +41,9 @@ namespace Lab3
             Response.Redirect("TicketHistory.aspx");
         }
 
-        protected void btnNotifications_Click(object sender, EventArgs e)
+        protected void btnGregNotifications_Click(object sender, EventArgs e)
         {
-            Response.Redirect("NotificationPage.aspx");
+            Response.Redirect("Notifications.aspx");
         }
 
         protected void btnCustomerSearch_Click(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace Lab3
         protected void btnInitialContact_Click(object sender, EventArgs e)
         {
             Response.Redirect("InitialContactForm.aspx");
+        }
+
+        protected void btnNotifications_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("NotificationPage.aspx");
         }
     }
 }

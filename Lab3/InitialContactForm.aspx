@@ -67,6 +67,14 @@
                 <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblRequestedService" runat="server" Text="Requested Service:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtRequestedService" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
     </asp:Table>
 
     <asp:Table ID="tblButtons" runat="server">
