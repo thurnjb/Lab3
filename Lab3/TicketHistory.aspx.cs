@@ -21,50 +21,6 @@ namespace Lab3
            
         }
 
-        //This method fills the SelectedTicket and SelectedTicketHistory gridviews
-        protected void btnViewTicketDetails_Click(object sender, EventArgs e)
-        {
-            if (grdTickets.SelectedValue == null)
-            {
-                lblErrorMsg.Text = "Please select a service ticket.";
-            }
-            else
-            {
-                lblErrorMsg.Text = "";
-                object pageIndex = grdTickets.SelectedValue;
-                lblErrorMsg.Text = "";
-                String sqlQuery = "SELECT T.InitiatingEmployeeID, S.ServiceType FROM ServiceTicket T, Service S WHERE T.ServiceTicketID = " + pageIndex + "AND T.ServiceID = S.ServiceID";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-                DataSet dsEmployee = new DataSet();
-                sqlAdapter.Fill(dsEmployee);
-
-                DataBindNotes();
-
-                sqlQuery = "SELECT A.AuctionName FROM Auction A, ServiceTicket T WHERE T.AuctionID = A.AuctionID AND T.ServiceTicketID = " + pageIndex + ";";
-                SqlDataAdapter Adapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                DataTable dtAuction = new DataTable();
-                Adapter.Fill(dtAuction);
-                grdAuction.DataSource = dtAuction;
-                grdAuction.DataBind();
-
-                sqlQuery = "SELECT Employee.FirstName + ' ' + Employee.LastName as EmployeeContact, TicketChangeDate, DetailsNote FROM TicketHistory, Employee WHERE TicketHistory.EmployeeID = Employee.EmployeeID AND ServiceTicketID = " + pageIndex;
-
-                SqlDataAdapter sqladapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                DataTable dt = new DataTable();
-                sqladapter.Fill(dt);
-
-                grdSelectedTicketHistory.DataSource = dt;
-                grdSelectedTicketHistory.DataBind();
-
-                Session["ServiceTicketID"] = pageIndex;
-                Session["EmployeeID"] = dsEmployee.Tables[0].Rows[0]["InitiatingEmployeeID"].ToString();
-                Session["ServiceType"] = dsEmployee.Tables[0].Rows[0]["ServiceType"].ToString();
-            }
-        }
-
         //This method saved the selected value in the ddl in session and redirects to the notes page
         protected void btnAddNote_Click(object sender, EventArgs e)
         {
