@@ -120,6 +120,9 @@
             <asp:TableCell>
                 <asp:TextBox ID="tbHearCreate" runat="server"></asp:TextBox>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click"/>
+            </asp:TableCell>
         </asp:TableRow>
 
         <asp:TableRow>
@@ -139,9 +142,6 @@
                 <asp:Button ID="btnEmpLogin" runat="server" Text="EMPLOYEE LOGIN PORTAL" OnClick="btnEmpLogin_Click" />
             </asp:TableCell>
         </asp:TableRow>
-
-
-
     </asp:Table>
 </div>
     </form>

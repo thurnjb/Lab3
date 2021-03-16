@@ -84,7 +84,7 @@ Our submission of this assignment indicates that we have neither received nor gi
                         Session["CustLogin"] = txtUserName.Text;
                         Session["UserName"] = txtUserName.Text;
                         Session["CustLogin"] = txtUserName.Text;
-                        Response.Redirect("~/CustomerPortalService.aspx");
+                        Response.Redirect("~/CustomerPortalHome.aspx");
                     }
                 }
             }
@@ -160,5 +160,15 @@ Our submission of this assignment indicates that we have neither received nor gi
             return userID;
         }
 
+        protected void btnPopulate_Click(object sender, EventArgs e)
+        {
+            tbFirstNameCreate.Text = "Jimbo";
+            tbLastNameCreate.Text = "Jam";
+            tbUsernameCreate.Text = "JimboJam";
+            tbPasswordCreate.Text = "password";
+            tbAddressCreate.Text = "99 Jimbob Ln.,Harrisonburg,Virginia,22801";
+            tbPhoneCreate.Text = "1234567890";
+            tbHearCreate.Text = "Phone";
+        }
     }
 }

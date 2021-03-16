@@ -14,8 +14,10 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUser.Text = Session["UserName"].ToString();
-            BindGrid(getCustID(Session["UserName"].ToString()));
+            if(Session["UserName"] != null)
+            {
+                BindGrid(getCustID(Session["UserName"].ToString()));
+            }
         }
 
         protected void btn_Upload(object sender, EventArgs e)

@@ -6,12 +6,12 @@
         <asp:Label ID="lblWelcome" runat="server" Text="Green Valley Auctions Customer Portal" Align="Left"></asp:Label>
         <asp:Table ID="tblStructure" runat="server">
             <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblWelcomeUser" runat="server" Text="Welcome, "></asp:Label><asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+                <asp:TableCell HorizontalAlign="Left">
+                    <asp:Label ID="lblWelcomeUser" runat="server" Text="Welcome! You can upload files here"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell HorizontalAlign="Left">
                     <asp:Label ID="lblFiles" runat="server" Text="My Files"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>

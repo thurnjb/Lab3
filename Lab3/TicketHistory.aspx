@@ -32,6 +32,8 @@
                             <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
                             <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
                             <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
+                            <asp:BoundField HeaderText="LookAt" DataField="LookAt" SortExpression="LookAt" />
+                            <asp:BoundField HeaderText="PickUp" DataField="PickUp" SortExpression="PickUp" />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:HiddenField ID="hdnEmployee" runat="server" Value='<%#Eval("InitiatingEmployeeID")%>' />
@@ -61,6 +63,8 @@
                             <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
                             <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
                             <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
+                            <asp:BoundField HeaderText="LookAt" DataField="LookAt" SortExpression="LookAt" />
+                            <asp:BoundField HeaderText="PickUp" DataField="PickUp" SortExpression="PickUp" />
                         </Fields>
                     </asp:DetailsView>
                 </asp:TableCell>
@@ -169,19 +173,21 @@
 
     <asp:SqlDataSource ID="dtasrcServiceTicketID" runat="server"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline, T.InitiatingEmployeeID FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID"></asp:SqlDataSource>
+        SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline, T.InitiatingEmployeeID, T.LookAt, T.PickUp FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID"></asp:SqlDataSource>
     <asp:SqlDataSource ID="dtasrcUpdateTicket" runat="server"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.ServiceTicketID=@ServiceTicketID"
-        UpdateCommand="UPDATE ServiceTicket SET TicketStatus=@TicketStatus, TicketOpenDate=@TicketOpenDate, FromDeadline=@FromDeadline, ToDeadline=@ToDeadline WHERE ServiceTicketID=@ServiceTicketID">
+        SelectCommand="SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline, T.InitiatingEmployeeID, T.LookAt, T.PickUp FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.ServiceTicketID=@ServiceTicketID"
+        UpdateCommand="UPDATE ServiceTicket SET TicketStatus=@TicketStatus, TicketOpenDate=@TicketOpenDate, FromDeadline=@FromDeadline, ToDeadline=@ToDeadline, LookAt=@LookAt, PickUp=@PickUp WHERE ServiceTicketID=@ServiceTicketID">
         <SelectParameters>
             <asp:ControlParameter Name="ServiceTicketID" ControlID="grdTickets" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Type="String" Name="TicketStatus" />
             <asp:Parameter Type="DateTime" Name="TicketOpenDate" />
-            <asp:Parameter Type="String" Name="FromDeadline" />
-            <asp:Parameter Type="String" Name="ToDeadline" />
+            <asp:Parameter Type="DateTime" Name="FromDeadline" />
+            <asp:Parameter Type="DateTime" Name="ToDeadline" />
+            <asp:Parameter Type="DateTime" Name="LookAt" />
+            <asp:Parameter Type="DateTime" Name="PickUp" />
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="dtasrcNotes" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>"

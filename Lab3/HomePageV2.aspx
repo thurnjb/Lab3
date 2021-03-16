@@ -23,11 +23,6 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                    <asp:Button ID="btnNotifications" runat="server" Text="Customer Notifications" OnClick="btnNotifications_Click1" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
                 <asp:TableCell>
                     <asp:Button ID="btnInitialContact" runat="server" Text="Initial Contact Form" OnClick="btnInitialContact_Click" />
                 </asp:TableCell>

@@ -22,42 +22,12 @@ namespace Lab3
         //On page load, connect to data
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                connectToData();
-            }
-
             if(Application["NewAdd"] != null)
             {
                 txtCustomerName.Text = Application["CustFName"].ToString() + " " + Application["CustLName"].ToString();
                 txtServiceType.Text = Application["CustService"].ToString();
                 txtFromDeadline.Text = "2021-03-05";
                 txtToDeadline.Text = "2021-03-07";
-            }
-        }
-
-        //Gets count of number of records in ServiceTicket and fills dataset with rows
-        protected void connectToData()
-        {
-            String sqlQuery = "Select Employee.FirstName + ' ' + Employee.LastName as EmployeeName, Customer.FirstName + ' ' + Customer.LastName as CustomerName, Service.ServiceType, ServiceTicket.TicketStatus, ServiceTicket.TicketOpenDate, ServiceTicket.FromDeadline, ServiceTicket.ToDeadline, ServiceTicket.AdditionalServiceID, AdditionalService.AdditionalServiceType, ServiceTicket.LookAt, ServiceTicket.Pickup FROM Customer, Employee, Service, AdditionalService, ServiceTicket WHERE ServiceTicket.CustomerID = Customer.CustomerID AND ServiceTicket.InitiatingEmployeeID = Employee.EmployeeID AND ServiceTicket.ServiceID = Service.ServiceID AND ServiceTicket.AdditionalServiceID = AdditionalService.AdditionalServiceID" ;
-
-            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
-            adapter.TableMappings.Add("Table", "ServiceTicket");
-
-            connection.Open();
-
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandType = CommandType.Text;
-            command.CommandText = sqlQuery;
-
-            adapter.SelectCommand = command;
-            if (dataset.Tables.Count == 0)
-            {
-                adapter.Fill(dataset);
             }
         }
 
@@ -106,13 +76,13 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("@CustomerID", ddlCustomerList.SelectedValue);
                 sqlCommand.Parameters.AddWithValue("@InitiatingEmployeeID", ddlEmployeeList.SelectedValue);
                 sqlCommand.Parameters.AddWithValue("@ServiceID", ddlService.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@AdditionalServiceID", getAdditionalServiceID(txtAdditionalService.Text));
+                sqlCommand.Parameters.AddWithValue("@AdditionalServiceID", getAdditionalServiceID(HttpUtility.HtmlEncode(txtAdditionalService.Text)));
                 sqlCommand.Parameters.AddWithValue("@TicketStatus", "Open");
                 sqlCommand.Parameters.AddWithValue("@TicketOpenDate", DateTime.Now.ToString());
                 sqlCommand.Parameters.AddWithValue("@FromDeadline", HttpUtility.HtmlEncode(txtFromDeadline.Text));
                 sqlCommand.Parameters.AddWithValue("@ToDeadline", HttpUtility.HtmlEncode(txtToDeadline.Text));
-                sqlCommand.Parameters.AddWithValue("@LookAt", txtLookAt.Text);
-                sqlCommand.Parameters.AddWithValue("@Pickup", txtPickup.Text);
+                sqlCommand.Parameters.AddWithValue("@LookAt", HttpUtility.HtmlEncode(txtLookAt.Text));
+                sqlCommand.Parameters.AddWithValue("@Pickup", HttpUtility.HtmlEncode(txtPickup.Text));
 
                 sqlCommand.ExecuteNonQuery();
 
@@ -151,6 +121,8 @@ namespace Lab3
             txtTicketOpenDate.Text = "";
             txtFromDeadline.Text = "";
             txtToDeadline.Text = "";
+            txtLookAt.Text = "";
+            txtPickup.Text = "";
         }
 
         //Fills textboxes on ddlIndexChange

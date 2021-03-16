@@ -28,19 +28,21 @@ namespace Lab3
             lblErrorMsg.Text = "";
         }
 
+        //
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             txtCalendarDate.Text = Calendar1.SelectedDate.Date.ToString();
             lblErrorMsg.Text = "";
         }
 
+        //This method adds the selected date in the textbox to the listbox
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             lstbxPotentialDates.Items.Add(txtCalendarDate.Text);
             txtCalendarDate.Text = "";
             lblErrorMsg.Text = "";
         }
-
+        //This method takes the dates in the listbox and makes new records in the notificationstable_dates table for each date
         protected void btnSendRequest_Click(object sender, EventArgs e)
         {
             int lstbxCount = lstbxPotentialDates.Items.Count;

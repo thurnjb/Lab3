@@ -51,15 +51,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnGregNotifications;
 
         /// <summary>
-        /// btnNotifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNotifications;
-
-        /// <summary>
         /// btnInitialContact control.
         /// </summary>
         /// <remarks>

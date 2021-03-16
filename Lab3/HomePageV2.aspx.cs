@@ -55,10 +55,5 @@ namespace Lab3
         {
             Response.Redirect("InitialContactForm.aspx");
         }
-
-        protected void btnNotifications_Click1(object sender, EventArgs e)
-        {
-            Response.Redirect("NotificationPage.aspx");
-        }
     }
 }
