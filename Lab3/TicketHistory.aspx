@@ -135,9 +135,6 @@
             <asp:TableCell>
                 <asp:Button ID="btnAssignEmployee" runat="server" Text="Assign New Employee" OnClick="btnAssignEmployee_Click" />
             </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnAssignAuction" runat="server" Text="Assign to Auction:" OnClick="btnAssignAuction_Click1" />
-            </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>

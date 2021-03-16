@@ -17,9 +17,6 @@ namespace Lab3
     public partial class ServiceTicketRecords : System.Web.UI.Page
     {
         private static DataSet dataset = new DataSet("ServiceTicket");
-        private static SqlDataReader queryResults;
-        private static int count = 0;
-        private static int current = -1;
         private String sqlCommitQuery = "";
 
         //On page load, connect to data
@@ -27,8 +24,6 @@ namespace Lab3
         {
             if (!IsPostBack)
             {
-                current = -1;
-                count = 0;
                 connectToData();
             }
 
@@ -53,17 +48,6 @@ namespace Lab3
             adapter.TableMappings.Add("Table", "ServiceTicket");
 
             connection.Open();
-
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = connection;
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = sqlQuery;
-            queryResults = sqlCommand.ExecuteReader();
-            while (queryResults.Read())
-            {
-                count++;
-            }
-            queryResults.Close();
 
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
@@ -132,7 +116,7 @@ namespace Lab3
 
                 sqlCommand.ExecuteNonQuery();
 
-                Session["ServiceTicketID"] = ++count;
+                Session["EmployeeID"] = ddlEmployeeList.SelectedValue;
 
                 btnNoteCancel.Visible = true;
                 btnNoteSave.Visible = true;
@@ -159,7 +143,6 @@ namespace Lab3
         protected void btnClear_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";
-            current = -1;
             txtCustomerName.Text = "";
             txtInitiatingEmployee.Text = "";
             txtServiceType.Text = "";
@@ -209,44 +192,52 @@ namespace Lab3
         {
             if (txtNoteContent.Text != "" & txtNoteTitle.Text != "")
             {
-                if (Session["ServiceTicketID"] != null)
+                String sqlQuery = "SELECT ServiceTicketID FROM ServiceTicket WHERE ServiceTicketID=(SELECT max(ServiceTicketID) FROM ServiceTicket)";
+
+                SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = sqlQuery;
+                SqlDataReader queryResults = command.ExecuteReader();
+
+                while (queryResults.Read())
                 {
-                    String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
-
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                    sqlConnect.Open();
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandText = sqlCommitQuery;
-                    sqlCommand.Parameters.AddWithValue("@NoteTitle", HttpUtility.HtmlEncode(txtNoteTitle.Text));
-                    sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
-
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
-
-                    if (Session["EditTicketPage"] != null)
-                    {
-                        sqlCommitQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'Note was added');";
-
-                        SqlCommand sqlcommand = new SqlCommand();
-                        sqlConnect.Open();
-                        sqlcommand.Connection = sqlConnect;
-                        sqlcommand.CommandText = sqlCommitQuery;
-                        sqlcommand.ExecuteNonQuery();
-                    }
-                    lblNoteErrorMsg.Text = "Note was successfully added!";
-                    btnNoteCancel.Visible = false;
-                    btnNoteSave.Visible = false;
-                    lblNoteContent.Visible = false;
-                    lblNoteTitle.Visible = false;
-                    txtNoteContent.Visible = false;
-                    txtNoteTitle.Visible = false;
+                    Session["ServiceTicketID"] = queryResults["ServiceTicketID"].ToString();
                 }
-                else
-                {
-                    lblNoteErrorMsg.Text = "No ticket was selected";
-                }
+                
+
+
+                String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
+
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                sqlConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandText = sqlCommitQuery;
+                sqlCommand.Parameters.AddWithValue("@NoteTitle", HttpUtility.HtmlEncode(txtNoteTitle.Text));
+                sqlCommand.Parameters.AddWithValue("@NoteContent", HttpUtility.HtmlEncode(txtNoteContent.Text));
+
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                sqlCommitQuery = "INSERT INTO TicketHistory(ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (" + Session["ServiceTicketID"] + ", " + Session["EmployeeID"] + ", '" + DateTime.Now + "', 'Ticket Created');";
+
+                SqlCommand sqlcommand = new SqlCommand();
+                sqlConnect.Open();
+                sqlcommand.Connection = sqlConnect;
+                sqlcommand.CommandText = sqlCommitQuery;
+                sqlcommand.ExecuteNonQuery();
+                
+                lblNoteErrorMsg.Text = "Note was successfully added!";
+                btnNoteCancel.Visible = false;
+                btnNoteSave.Visible = false;
+                lblNoteContent.Visible = false;
+                lblNoteTitle.Visible = false;
+                txtNoteContent.Visible = false;
+                txtNoteTitle.Visible = false;
             }
             else
             {

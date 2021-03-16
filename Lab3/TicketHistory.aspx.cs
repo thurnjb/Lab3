@@ -96,12 +96,6 @@ namespace Lab3
             Response.Redirect("TicketHistory.aspx");
         }
 
-        protected void btnAssignAuction_Click1(object sender, EventArgs e)
-        {
-            string s = "window.open('AssignAuction.aspx', 'popup_window', 'width=500, height=500, resizable=yes')";
-            ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
-        }
-
         protected void btnEmployeeCancel_Click(object sender, EventArgs e)
         {
             lblErrorMsg.Text = "";
