@@ -105,8 +105,8 @@ CREATE TABLE ServiceTicket
 	AdditionalServiceID int REFERENCES AdditionalService(AdditionalServiceID),
 	TicketStatus varchar(255),
 	TicketOpenDate datetime,
-	FromDeadline varchar(255),
-	ToDeadline varchar(255),
+	FromDeadline datetime,
+	ToDeadline datetime,
 	LookAt datetime,
 	Pickup datetime,
 	
