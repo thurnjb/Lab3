@@ -16,6 +16,15 @@ CustAddress varchar(255),
 CustPhone varchar(255),
 PRIMARY KEY (UserID));
 
+CREATE TABLE tblFiles
+(
+	id int IDENTITY(1,1) NOT NULL,
+	CustomerID int REFERENCES Person(UserID),
+	Name varchar(50) NOT NULL,
+	ContentType nvarchar(200) NOT NULL,
+	Data varbinary(max) NOT NULL,
+)	ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
 CREATE TABLE Pass(
 UserID int FOREIGN KEY references Person(UserID) NOT NULL,
 Username varchar(30) NOT NULL,

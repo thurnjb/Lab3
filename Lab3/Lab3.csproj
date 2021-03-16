@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerPortalHome.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerList.aspx" />
@@ -104,6 +105,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerPortalHome.aspx.cs">
+      <DependentUpon>CustomerPortalHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortalHome.aspx.designer.cs">
+      <DependentUpon>CustomerPortalHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerPortalLogin.aspx.cs">
       <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
