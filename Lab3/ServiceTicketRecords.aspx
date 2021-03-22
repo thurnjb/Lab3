@@ -10,7 +10,7 @@
     <asp:Table ID="tblServiceInfo" runat="server">
         <asp:TableRow Height="100px">
             <asp:TableCell ColumnSpan="3">
-                <asp:Label ID="lblServiceTicketRecords" runat="server" Text="Service Ticket Records"></asp:Label>
+                <asp:Label ID="lblServiceTicketRecords" runat="server" Text="Service Ticket Records" Font-Bold="true"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

@@ -14,7 +14,7 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                    <asp:Label ID="lblHomePage" runat="server" Text="Home Page"></asp:Label>
+                    <asp:Label ID="lblHomePage" runat="server" Text="Home Page" Font-Bold="true"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>

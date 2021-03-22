@@ -4,7 +4,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click" />
-    <asp:GridView ID="grdNotifications" runat="server" 
+    <asp:Table ID="Table2" runat="server">
+        <asp:TableRow>
+            <asp:TableCell HorizontalAlign="Center">
+                <asp:Label ID="lblAdminNotifications" runat="server" Text="Admin Notification Page" Font-Bold="true"></asp:Label>
+                <br />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell HorizontalAlign="Left">
+                <asp:Label ID="lblNotifications" runat="server" Text="Notifications:"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:GridView ID="grdNotifications" runat="server" 
         EmptyDataText="There are no notifications!"
         AutoGenerateColumns="false"
         DataSourceID="dtasrcNotifications" 
@@ -21,11 +35,14 @@
             <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
         </Columns>
     </asp:GridView>
-    
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     <asp:Table ID="Table1" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblSuccessMsg" runat="server" Text="" ></asp:Label>
+                <br />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

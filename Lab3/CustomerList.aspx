@@ -7,6 +7,11 @@
     <br />
     <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page"  OnClick="btnViewHomePage_Click"/>
     <asp:Table ID="Table1" runat="server">
+        <asp:TableRow Height="100px">
+            <asp:TableCell HorizontalAlign="Center">
+                <asp:Label ID="lblCustomerEditPage" runat="server" Text="Customer Editing Page" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:GridView ID="grdCustomers" runat="server" 

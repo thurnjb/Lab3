@@ -24,6 +24,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnViewHomePage;
 
         /// <summary>
+        /// Table3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table3;
+
+        /// <summary>
+        /// lblEditTicketPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditTicketPage;
+
+        /// <summary>
         /// Table2 control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Table2;
+
+        /// <summary>
+        /// lblTickets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTickets;
 
         /// <summary>
         /// btnRefresh control.
@@ -51,6 +78,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdTickets;
 
         /// <summary>
+        /// lblEditTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditTicket;
+
+        /// <summary>
         /// dtlVwEditTicket control.
         /// </summary>
         /// <remarks>
@@ -60,6 +96,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DetailsView dtlVwEditTicket;
 
         /// <summary>
+        /// lblEditNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditNotes;
+
+        /// <summary>
         /// dtlVwTicketNotes control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView dtlVwTicketNotes;
+
+        /// <summary>
+        /// lblHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHistory;
 
         /// <summary>
         /// grdSelectedTicketHistory control.

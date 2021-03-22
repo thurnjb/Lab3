@@ -6,9 +6,9 @@
     <div>
          <asp:Button ID="btnHomePage" runat="server" Text="View Home Page" OnClick="btnHomePage_Click"/>
     <asp:Table ID="tblContent" runat="server">
-        <asp:TableRow>
+        <asp:TableRow Height="100px">
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:Label ID="lblContactForm" runat="server" Text="Initial Contact Form"></asp:Label>
+                <asp:Label ID="lblContactForm" runat="server" Text="Initial Contact Form" Font-Bold="true"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

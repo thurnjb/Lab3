@@ -7,9 +7,19 @@
     We have neither given nor received any unauthorized assistance on this assignment-->
     <br />
     <asp:Button ID="btnViewHomePage" runat="server" Text="View Home Page" OnClick="btnViewHomePage_Click" />
-    <fieldset>
-        <legend>All Tickets</legend>
+    <asp:Table ID="Table3" runat="server" HorizontalAlign="Center">
+        <asp:TableRow>
+            <asp:TableCell HorizontalAlign="Center">
+                <asp:Label ID="lblEditTicketPage" runat="server" Text="Ticket Editing Page" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
         <asp:Table ID="Table2" runat="server" HorizontalAlign="Left">
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Left" ColumnSpan="2">
+                    <asp:Label ID="lblTickets" runat="server" Text="All Tickets:"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Button ID="btnRefresh" runat="server" Text="Refresh" OnClick="btnRefresh_Click" />
@@ -41,6 +51,12 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
+                    <br />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Left" ColumnSpan="2">
+                    <asp:Label ID="lblEditTicket" runat="server" Text="Edit selected ticket:"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -70,6 +86,11 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Left" ColumnSpan="2">
+                    <asp:Label ID="lblEditNotes" runat="server" Text="Edit notes:"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
                 <asp:TableCell>
                     <asp:DetailsView ID="dtlVwTicketNotes" runat="server" Height="50px" Width="250px"
                         AllowPaging="true"
@@ -83,6 +104,11 @@
                             <asp:BoundField HeaderText="NoteContent" DataField="NoteContent" />
                         </Fields>
                     </asp:DetailsView>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Left" ColumnSpan="2">
+                    <asp:Label ID="lblHistory" runat="server" Text="Ticket History:"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -101,7 +127,6 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-    </fieldset>
     <asp:Table ID="Table1" runat="server" Height="100px">
         <asp:TableRow>
             
