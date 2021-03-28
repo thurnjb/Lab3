@@ -10,12 +10,6 @@
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            .form-group {
-                color:black;
-                 }
-            
-        </style>
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -25,47 +19,28 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html">CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html"> CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
                         </li>
-                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
+                           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-        
-                <h1> Add New Customer </h1>
-
-                <h1 class="masthead-heading mb-0"></h1>
-                <div class="row">
-                       </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="name" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="address" placeholder="Address">
-            </div>
-              <div class="form-group">
-                <input type="text" class="form-control item" id="service" placeholder="Service Notes">
-
-         
-<div class="form-group">
-<form action="/action_page.php">
-  <input type="checkbox" id="move" >
-  <label for="move"> Move</label><br>
-  <input type="checkbox" id="auction">
-  <label for="auction"> Auction</label><br>
-  <input type="checkbox" id="storage" >
-  <label for="storage"> Storage</label><br><br>
-  <input type="submit" value="Submit">
+            <form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
 </form>
+<div style="width:500px;height:200px;border:1px solid #000;">Search Results</div>
+
 </div>
+                
+                            <div class="form-group">
+            <a href="newcustomer.html"> <button type="submit" class="btn btn-block create-account">Add New Customer</button> </div></a>
              
         </header>
       
