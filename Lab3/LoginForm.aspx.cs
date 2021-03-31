@@ -131,6 +131,7 @@ namespace Lab3
             }
             else
             {
+                lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = "Username/Password incorrect.";
             }
         }
