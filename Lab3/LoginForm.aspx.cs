@@ -104,7 +104,7 @@ namespace Lab3
             SqlCommand LoginCommand = new SqlCommand();
             LoginCommand.Connection = dbConnection;
             LoginCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            LoginCommand.CommandText = "sp_JeremyEzellLab3";
+            LoginCommand.CommandText = "JeremyEzellLab3";
             LoginCommand.Parameters.AddWithValue("@Username", txtUserName.Text);
 
             dbConnection.Open();
