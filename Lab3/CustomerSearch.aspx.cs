@@ -33,15 +33,11 @@ namespace Lab3
         {
             CustomerGridView.Clear();
             
-            grdTickets.Visible = false;
-            grdNotes.Visible = false;
-            grdTicketHistory.Visible = false;
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + txtCustomerSearch.Text + "' OR LastName='" + txtCustomerSearch.Text + "';";
             SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
             connection.Open();
-
             
             SqlAdapter.Fill(CustomerGridView);
 
@@ -52,53 +48,9 @@ namespace Lab3
 
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TicketGridView.Clear();
+            Session["CustomerID"] = grdCustomers.SelectedValue;
+            Response.Redirect("CustomerDetails.aspx");
 
-            grdTickets.DataSource = null;
-            grdTickets.DataBind();
-
-            grdNotes.Visible = false;
-            grdTicketHistory.Visible = false;
-            SqlConnection sqlConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-            String sqlQuery = "SELECT T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.TicketOpenDate, T.FromDeadline, T.ToDeadline FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.CustomerID = " + grdCustomers.SelectedValue;
-
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnection);
-            sqlConnection.Open();
-
-            sqlAdapter.Fill(TicketGridView);
-
-            grdTickets.DataSource = TicketGridView;
-            grdTickets.DataBind();
-            grdTickets.Visible = true;
-        }
-
-        protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            NotesGridView.Clear();
-
-            String sqlQuery = "SELECT  N.NoteID, N.NoteTitle, N.NoteContent FROM ServiceTicket T, Notes N WHERE T.ServiceTicketID = N.ServiceTicketID AND T.ServiceTicketID = " + grdTickets.SelectedValue + ";";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-            
-            SqlAdapter.Fill(NotesGridView);
-
-            grdNotes.DataSource = NotesGridView;
-            grdNotes.DataBind();
-
-            HistoryGridView.Clear();
-
-            sqlQuery = "SELECT T.TicketHistoryID, E.FirstName + ' ' + E.LastName as EmployeeContact, T.TicketChangeDate, T.DetailsNote FROM TicketHistory T, Employee E WHERE T.EmployeeID = E.EmployeeID AND T.ServiceTicketID = " + grdTickets.SelectedValue + ";";
-
-            SqlDataAdapter sqladapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-            sqladapter.Fill(HistoryGridView);
-
-            grdTicketHistory.DataSource = HistoryGridView;
-            grdTicketHistory.DataBind();
-            grdNotes.Visible = true;
-            grdTicketHistory.Visible = true;
         }
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
@@ -131,38 +83,6 @@ namespace Lab3
 
             grdCustomers.DataSource = CustomerGridView;
             grdCustomers.DataBind();
-        }
-
-        protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
-        {
-            if (ViewState["TicketSort"] == null)
-            {
-                ViewState["TicketSort"] = e.SortExpression + " " + e.SortDirection;
-            }
-
-            String[] sortData = ViewState["TicketSort"].ToString().Trim().Split(' ');
-
-            if (e.SortExpression == sortData[0])
-            {
-                if (sortData[1] == "Ascending")
-                {
-                    TicketGridView.DefaultView.Sort = e.SortExpression + " DESC";
-                    this.ViewState["TicketSort"] = e.SortExpression + " Descending";
-                }
-                else
-                {
-                    TicketGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                    this.ViewState["TicketSort"] = e.SortExpression + " Ascending";
-                }
-            }
-            else
-            {
-                TicketGridView.DefaultView.Sort = e.SortExpression + " ASC";
-                this.ViewState["TicketSort"] = e.SortExpression + " Ascending";
-            }
-
-            grdTickets.DataSource = TicketGridView;
-            grdTickets.DataBind();
         }
     }
 }
