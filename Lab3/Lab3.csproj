@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerPortalHome.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerSearch.aspx" />
@@ -102,10 +103,18 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="ServiceTicketRecords.aspx" />
     <Content Include="TicketHistory.aspx" />
+    <Content Include="Ticket.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerPortalHome.aspx.cs">
       <DependentUpon>CustomerPortalHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,6 +230,13 @@
     <Compile Include="TicketHistory.aspx.designer.cs">
       <DependentUpon>TicketHistory.aspx</DependentUpon>
     </Compile>
+	  <Compile Include="Ticket.aspx.cs">
+		  <DependentUpon>Ticket.aspx</DependentUpon>
+		  <SubType>ASPXCodeBehind</SubType>
+	  </Compile>
+	  <Compile Include="Ticket.aspx.designer.cs">
+		  <DependentUpon>Ticket.aspx</DependentUpon>
+	  </Compile>
     <Compile Include="Move.aspx.cs">
       <DependentUpon>Move.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
