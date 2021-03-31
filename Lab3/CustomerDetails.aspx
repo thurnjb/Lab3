@@ -1,12 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"
-    AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs"
-    Inherits="Lab3.CustomerDetails1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="Lab3.CustomerDetails1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1"
-    runat="server">
-
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--Customer Data View (viewable and editable)--%>
     <asp:GridView ID="grdCustomers" runat="server"
         EmptyDataText="No customer with that name!"

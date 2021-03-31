@@ -13,7 +13,6 @@ namespace Lab3
         {
 
         }
-
         protected void btnCreateMove_Click(object sender, EventArgs e)
         {
 
@@ -25,6 +24,26 @@ namespace Lab3
         }
 
         protected void btnCreateStorage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
+
+        protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
         {
 
         }
