@@ -93,6 +93,7 @@
     <Content Include="LoginForm.aspx" />
     <Content Include="LookAtScheduling.aspx" />
     <Content Include="NotificationPage.aspx" />
+    <Content Include="Move.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Notifications.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="TicketHistory.aspx.designer.cs">
       <DependentUpon>TicketHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Move.aspx.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Move.aspx.designer.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

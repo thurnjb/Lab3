@@ -54,6 +54,7 @@
 
                     </Fields>
                 </asp:DetailsView>
+
                 <asp:Panel ID="Panel1" runat="server" Visible="false" HorizontalAlign="Left">
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                     <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btn_Upload" />
