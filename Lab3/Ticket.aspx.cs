@@ -190,5 +190,10 @@ namespace Lab3
         {
 
         }
+
+        protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
     }
 }

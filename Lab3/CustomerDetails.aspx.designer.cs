@@ -15,6 +15,15 @@ namespace Lab3
     {
 
         /// <summary>
+        /// lblCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomers;
+
+        /// <summary>
         /// grdCustomers control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCustomers;
+
+        /// <summary>
+        /// lblTickets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTickets;
 
         /// <summary>
         /// grdTickets control.

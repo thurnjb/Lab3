@@ -40,6 +40,7 @@
         <header class="masthead bg-primary text-black text-center">
             <div class="container d-flex align-items-center flex-column">
             <form class="example" action="action_page.php">
+                <asp:Label ID="lblCustomers" runat="server" Text="Customers"></asp:Label>
 <asp:GridView ID="grdCustomers" runat="server"
         HeaderStyle-BackColor="#000000"
         EmptyDataText="No customer with that name!"
@@ -62,6 +63,7 @@
         </Columns>
     </asp:GridView>
    <form class="example" action="action_page.php">
+       <asp:Label ID="lblTickets" runat="server" Text="Tickets"></asp:Label>
        <asp:GridView ID="grdTickets" runat="server"
         HeaderStyle-BackColor="#000000"
         EmptyDataText="This customer has no tickets!"
@@ -83,7 +85,7 @@
     </asp:GridView>
 
 <button class="btn move"> Create Move </button>
-<button class="btn auction">Auction</button></a>
+<button class="btn auction">Auction</button>
 <a href="storage.html"> <button class="btn storage">Storage</button></a>
 
 
