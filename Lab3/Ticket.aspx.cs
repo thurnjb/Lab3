@@ -24,6 +24,8 @@ namespace Lab3
 
         public void BindData()
         {
+            grdVwTicket.Clear();
+
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             String sqlQuery = "Select T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.FromDeadline, T.ToDeadline, T.TicketOpenDate FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.ServiceTicketID = " + Session["TicketID"];
 
