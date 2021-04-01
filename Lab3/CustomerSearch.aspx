@@ -23,11 +23,11 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html"> CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="CustomerSearch.aspx"> CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
                         </li>
-                           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
+                           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="Ticket.aspx">TICKETS</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
 </div>
                 
                             <div class="form-group">
-            <a href="newcustomer.html"> <button type="submit" class="btn btn-block create-account">Add New Customer</button></a></div>
+            <a href="InitialContactForm.aspx" <button type="submit" class="btn btn-block create-account">Add New Customer</button></a></div>
              
         </header>
       

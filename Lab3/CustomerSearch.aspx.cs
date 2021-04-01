@@ -81,5 +81,10 @@ namespace Lab3
             grdCustomers.DataSource = CustomerGridView;
             grdCustomers.DataBind();
         }
+
+        protected void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InitialContactForm.aspx");
+        }
     }
 }

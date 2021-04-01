@@ -2,18 +2,54 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--Customer Data View (viewable and editable)--%>
-    <asp:GridView ID="grdCustomers" runat="server"
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Customer Database</title>
+        <link href="css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/heading.css">
+        <link rel="stylesheet" href="css/body.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .form-control {
+            border-color: white;
+            background-color:#daac00;
+            text-align: center;
+            color:white;
+</style>
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
+                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="CustomerSearch.aspx">CUSTOMER INFO</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">CALENDAR</a>
+                        </li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="Ticket.aspx">TICKETS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+            <form class="example" action="action_page.php">
+<asp:GridView ID="grdCustomers" runat="server"
         EmptyDataText="No customer with that name!"
-        AutoGenerateEditButton="true"
-        SelectedIndex="1"
+        AutoGenerateSelectButton="true"
         OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
         AllowSorting="true"
         OnSorting="grdCustomers_Sorting"
         DataKeyNames="CustomerID"
-        AutoGenerateColumns="false"
-        OnRowEditing="grdCustomers_RowEditing"
-        OnRowUpdating="grdCustomers_RowUpdating">
+        AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
             <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
@@ -26,16 +62,11 @@
             <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
         </Columns>
     </asp:GridView>
-
-    <%--SQL data source for customer data--%>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-
-    <%--Customer current and historical job summaries (viewable and clickable)--%>
-    <asp:GridView ID="grdTickets" runat="server"
+   <form class="example" action="action_page.php">
+       <asp:GridView ID="grdTickets" runat="server"
         EmptyDataText="This customer has no tickets!"
         AutoGenerateColumns="false"
         AutoGenerateSelectButton="true"
-        SelectedIndex="1"
         AllowSorting="true"
         DataKeyNames="ServiceTicketID"
         OnSelectedIndexChanged="grdTickets_SelectedIndexChanged"
@@ -51,21 +82,17 @@
         </Columns>
     </asp:GridView>
 
-    <%--SQL data source for customer job data--%>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+<button class="btn move"> Create Move </button>
+<button class="btn auction">Auction</button></a>
+<a href="storage.html"> <button class="btn storage">Storage</button></a>
 
-    <%-- Row of action buttons to create new jobs--%>
-    <asp:Table ID="tblActionButtons" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="btnCreateMove" runat="server" Text="Move" OnClick="btnCreateMove_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnCreateAuction" runat="server" Text="Auction" OnClick="btnCreateAuction_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnCreateStorage" runat="server" Text="Storage" OnClick="btnCreateStorage_Click" />
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
+
+</div>
+
+             
+        </header>
+      
+          
+    </body>
+</html>
 </asp:Content>
