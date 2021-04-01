@@ -9,6 +9,13 @@
         <link href="css/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .form-group {
+                color:black;
+                 }
+            
+        </style>
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -16,20 +23,22 @@
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">HOME</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html">CUSTOMER INFO</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">TICKETS</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
                         </li>
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
                     </ul>
                 </div>
             </div>
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-            
+        
                 <h1> Add New Customer </h1>
+
                 <h1 class="masthead-heading mb-0"></h1>
                 <div class="row">
                        </div>
@@ -44,9 +53,19 @@
             </div>
               <div class="form-group">
                 <input type="text" class="form-control item" id="service" placeholder="Service Notes">
-            </div>
-             <div class="form-group">
-             <button type="button" class="btn btn-block create-account">Submit</button> </div>
+
+         
+<div class="form-group">
+<form action="/action_page.php">
+  <input type="checkbox" id="move" >
+  <label for="move"> Move</label><br>
+  <input type="checkbox" id="auction">
+  <label for="auction"> Auction</label><br>
+  <input type="checkbox" id="storage" >
+  <label for="storage"> Storage</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
              
         </header>
       
