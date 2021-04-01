@@ -45,7 +45,6 @@
             <form class="example" action="action_page.php">
                   <h1> OPEN TICKETS </h1>
                 <asp:GridView ID="grdTickets" runat="server" 
-                    DataSourceID="dtasrcServiceTicketID" 
                     DataKeyNames="ServiceTicketID" 
                     AutoGenerateSelectButton="true" 
                     AllowSorting="true" 
