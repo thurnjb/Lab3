@@ -13,9 +13,6 @@ namespace Lab3
     public partial class CustomerDetails : System.Web.UI.Page
     {
         private static DataTable CustomerGridView = new DataTable();
-        private static DataTable TicketGridView = new DataTable();
-        private static DataTable NotesGridView = new DataTable();
-        private static DataTable HistoryGridView = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {

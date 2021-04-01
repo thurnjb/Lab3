@@ -5,13 +5,15 @@
     <%--Customer Data View (viewable and editable)--%>
     <asp:GridView ID="grdCustomers" runat="server"
         EmptyDataText="No customer with that name!"
-        AutoGenerateSelectButton="true"
+        AutoGenerateEditButton="true"
         SelectedIndex="1"
         OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
         AllowSorting="true"
         OnSorting="grdCustomers_Sorting"
         DataKeyNames="CustomerID"
-        AutoGenerateColumns="false">
+        AutoGenerateColumns="false"
+        OnRowEditing="grdCustomers_RowEditing"
+        OnRowUpdating="grdCustomers_RowUpdating">
         <Columns>
             <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
             <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
