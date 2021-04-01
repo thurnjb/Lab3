@@ -85,8 +85,8 @@
     </asp:GridView>
 
 <button class="btn move"> Create Move </button>
-<button class="btn auction">Auction</button>
-<a href="storage.html"> <button class="btn storage">Storage</button></a>
+<button class="btn auction">Auction</button></a>
+
 
 
 </div>

@@ -34,7 +34,7 @@ namespace Lab3
         //This method goes to the home page
         protected void btnHomePage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePageV2.aspx");
+            Response.Redirect("customerdatabase.html");
         }
 
         //This method fills the textboxes with the first data entry in the table
