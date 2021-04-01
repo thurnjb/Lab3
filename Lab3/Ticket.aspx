@@ -40,11 +40,12 @@
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
+        <header class="masthead bg-primary text-black text-center">
             <div class="container d-flex align-items-center flex-column">
             <form class="example" action="action_page.php">
                   <h1> OPEN TICKETS </h1>
                 <asp:GridView ID="grdTickets" runat="server" 
+                    HeaderStyle-BackColor="#000000"
                     DataKeyNames="ServiceTicketID" 
                     AutoGenerateSelectButton="true" 
                     AllowSorting="true" 
