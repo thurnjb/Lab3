@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,7 +21,7 @@
             color:white;
 </style>
     </head>
-    <body id="page-top">
+    <body>
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
             <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
@@ -37,10 +37,11 @@
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
+        <header class="masthead bg-primary text-black text-center">
             <div class="container d-flex align-items-center flex-column">
             <form class="example" action="action_page.php">
 <asp:GridView ID="grdCustomers" runat="server"
+        HeaderStyle-BackColor="#000000"
         EmptyDataText="No customer with that name!"
         AutoGenerateSelectButton="true"
         OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
@@ -62,6 +63,7 @@
     </asp:GridView>
    <form class="example" action="action_page.php">
        <asp:GridView ID="grdTickets" runat="server"
+        HeaderStyle-BackColor="#000000"
         EmptyDataText="This customer has no tickets!"
         AutoGenerateColumns="false"
         AutoGenerateSelectButton="true"
