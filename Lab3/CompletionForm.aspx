@@ -31,7 +31,7 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblAdditiolExpenses" runat="server" Text="Additional Expenses Incurred:"></asp:Label>
+                        <asp:Label ID="lblAdditionalExpenses" runat="server" Text="Additional Expenses Incurred:"></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
