@@ -99,5 +99,15 @@ namespace Lab3
             GridViewRow row = grdCustomers.Rows[rowIndex];
 
         }
+
+        protected void btnMove_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ServiceTicketRecords.aspx");
+        }
+
+        protected void btnAuction_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ServiceTicketRecords.aspx");
+        }
     }
 }

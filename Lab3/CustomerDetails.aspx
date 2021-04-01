@@ -82,10 +82,8 @@
         </Columns>
     </asp:GridView>
 
-<button class="btn move"> Create Move </button>
-<button class="btn auction">Auction</button></a>
-<a href="storage.html"> <button class="btn storage">Storage</button></a>
-
+    <asp:Button ID="btnMove" runat="server" Text="Create Move" OnClick="btnMove_Click"/>
+    <asp:Button ID="btnAuction" runat="server" Text="Create Auction" OnClick="btnAuction_Click" />
 
 </div>
 
