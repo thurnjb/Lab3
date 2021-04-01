@@ -11,142 +11,151 @@ namespace Lab3
 {
 
 
-    public partial class InitialContactForm
+    public partial class CompletionForm
     {
 
         /// <summary>
-        /// txtFirstName control.
+        /// btnHomePage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.Button btnHomePage;
 
         /// <summary>
-        /// txtLastName control.
+        /// tblCustomerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.Table tblCustomerInfo;
 
         /// <summary>
-        /// txtPhone control.
+        /// lblCompletionPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+        protected global::System.Web.UI.WebControls.Label lblCompletionPage;
 
         /// <summary>
-        /// txtEmail control.
+        /// lblFinalCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label lblFinalCost;
 
         /// <summary>
-        /// txtInitialContact control.
+        /// lblPayRecieved control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInitialContact;
+        protected global::System.Web.UI.WebControls.Label lblPayRecieved;
 
         /// <summary>
-        /// txtHeardFrom control.
+        /// lblExperience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHeardFrom;
+        protected global::System.Web.UI.WebControls.Label lblExperience;
 
         /// <summary>
-        /// txtAddress control.
+        /// txtExperience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtExperience;
 
         /// <summary>
-        /// txtRequestedService control.
+        /// lblAdditiolExpenses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRequestedService;
+        protected global::System.Web.UI.WebControls.Label lblAdditiolExpenses;
 
         /// <summary>
-        /// tblButtons control.
+        /// lblReviewFollowUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblButtons;
+        protected global::System.Web.UI.WebControls.Label lblReviewFollowUp;
 
         /// <summary>
-        /// btnPopulate control.
+        /// txtFollowUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPopulate;
+        protected global::System.Web.UI.WebControls.TextBox txtFollowUp;
 
         /// <summary>
-        /// btnSave control.
+        /// lblMoveEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label lblMoveEmployees;
 
         /// <summary>
-        /// btnLookAt control.
+        /// lblAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLookAt;
+        protected global::System.Web.UI.WebControls.Label lblAddress;
 
         /// <summary>
-        /// btnMove control.
+        /// lblMileage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMove;
+        protected global::System.Web.UI.WebControls.Label lblMileage;
 
         /// <summary>
-        /// btnAuction control.
+        /// lblTrucks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAuction;
+        protected global::System.Web.UI.WebControls.Label lblTrucks;
 
         /// <summary>
-        /// lblError control.
+        /// lblNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Label lblNotes;
+
+        /// <summary>
+        /// btnConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirm;
     }
 }
