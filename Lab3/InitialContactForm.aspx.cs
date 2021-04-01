@@ -46,7 +46,7 @@ namespace Lab3
 
         protected void btnTicket_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Move.aspx");
         }
 
         protected void btnAuction_Click(object sender, EventArgs e)

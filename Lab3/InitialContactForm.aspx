@@ -76,16 +76,21 @@
             </asp:TableCell>
             <asp:TableCell >
                 <asp:Button ID="btnSave" runat="server" Text="Save New Customer" OnClick="btnSave_Click"/>
+                
             </asp:TableCell>
         </asp:TableRow>
+    
         <asp:TableRow>
             <asp:TableCell>
+                <br />
                 <asp:Button ID="btnLookAt" runat="server" Text="Schedule Look At" OnClick="btnLookAt_Click" />
             </asp:TableCell>
             <asp:TableCell>
+                <br />
                 <asp:Button ID="btnMove" runat="server" Text="Schedule Move" OnClick="btnTicket_Click" />
             </asp:TableCell>
             <asp:TableCell>
+                <br />
                 <asp:Button ID="btnAuction" runat="server" Text="Schedule Auction" OnClick="btnAuction_Click" />
             </asp:TableCell>
         </asp:TableRow>
