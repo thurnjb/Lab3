@@ -34,11 +34,13 @@ namespace Lab3
             }
 
             sqlConnect.Close();
-            sqlQuery = "INSERT INTO NotificationTable(CustomerID) VALUES (" + Session["Notification"] + ")";
+            sqlQuery = "INSERT INTO LookAtNotification(CustomerID, SaveDate) VALUES (@CustomerID,@SaveDate)";
             sqlConnect.Open();
             SqlCommand sqlcommand = new SqlCommand();
             sqlcommand.Connection = sqlConnect;
             sqlcommand.CommandText = sqlQuery;
+            sqlcommand.Parameters.AddWithValue("@CustomerID", Session["Notification"]);
+            sqlcommand.Parameters.AddWithValue("@SaveDate", DateTime.Now.ToString());
             sqlcommand.ExecuteNonQuery();
 
             Response.Redirect("HomePageV2.aspx");

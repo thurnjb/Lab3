@@ -21,7 +21,7 @@
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="HomePageV2.aspx">HOME</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="CustomerSearch.aspx"> CUSTOMER INFO</a>
                         </li>
@@ -37,8 +37,9 @@
                 <asp:TextBox ID="txtCustomerSearch" runat="server"></asp:TextBox>
                 <asp:Button ID="btnView" runat="server" Text="Search" CssClass="fa fa-search" OnClick="btnView_Click" />
 </form>
-<div style="width:auto;height:auto;color:black;border:1px solid #000;">Customer Results</div>
-                <asp:GridView ID="grdCustomers" runat="server"
+<div style="width:auto;height:auto;color:black;border:1px solid #000;">
+    Customer Results
+    <asp:GridView ID="grdCustomers" runat="server"
                         HeaderStyle-BackColor="#000000"
                         EmptyDataText="No customer with that name!"
                         AutoGenerateSelectButton="true"
@@ -60,6 +61,8 @@
                             <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
                         </Columns>
                     </asp:GridView>
+</div>
+                
 </div>
                 
                             <div class="form-group">
