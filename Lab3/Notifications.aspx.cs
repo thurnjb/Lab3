@@ -28,7 +28,6 @@ namespace Lab3
             lblErrorMsg.Text = "";
         }
 
-        //
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             txtCalendarDate.Text = Calendar1.SelectedDate.Date.ToString();
@@ -72,7 +71,5 @@ namespace Lab3
             }
             lblSuccessMsg.Text = "";
         }
-
-        
     }
 }

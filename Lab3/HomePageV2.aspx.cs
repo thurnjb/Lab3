@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,48 +15,40 @@ namespace Lab3
 {
     public partial class HomePageV2 : System.Web.UI.Page
     {
+
+        private static DataTable grdVwLookAt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+
+            }
+            BindData();
         }
 
-        //This method goes to the Customer Records page
-        protected void btnViewCustomerRecord_Click(object sender, EventArgs e)
+        protected void BindData()
         {
-            Response.Redirect("CustomerRecordsV2.aspx");
+            grdVwLookAt.Clear();
+
+            String sqlQuery = "SELECT N.CustomerID, C.FirstName, C.LastName, C.Address, N.SaveDate FROM Customer C, LookAtNotification N WHERE N.CustomerID = C.CustomerID ORDER BY N.SaveDate";
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+            sqlConnect.Open();
+
+            sqlAdapter.Fill(grdVwLookAt);
+
+            grdNotification.DataSource = grdVwLookAt;
+            grdNotification.DataBind();
         }
 
-        //This method goes to the Service Ticket Records page
-        protected void btnViewServiceTicket_Click(object sender, EventArgs e)
+        protected void btnLookAtConfirm_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ServiceTicketRecords.aspx");
-        }
 
-        //This method goes to the Customer List page
-        protected void btnViewCustomerList_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CustomerList.aspx");
-        }
-
-        //This method goes to the Ticket History Page
-        protected void btnViewTicketHistory_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("TicketHistory.aspx");
-        }
-
-        protected void btnGregNotifications_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Notifications.aspx");
-        }
-
-        protected void btnCustomerSearch_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CustomerSearch.aspx");
-        }
-
-        protected void btnInitialContact_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("InitialContactForm.aspx");
+            Session["LookAtID"] = ((GridViewRow)((Control)sender).NamingContainer).RowIndex + 1;
+            Response.Redirect("LookAtScheduling.aspx");
         }
     }
 }
