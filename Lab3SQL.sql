@@ -1,6 +1,27 @@
 USE Lab3;
 
 
+DROP TABLE INVENTORYSERVICE;
+DROP TABLE EQUIPMENTSERVICE;
+DROP TABLE EQUIPMENT;
+DROP TABLE NOTES;
+DROP TABLE TICKETHISTORY;
+DROP TABLE SERVICETICKET;
+DROP TABLE NOTIFICATIONS;
+DROP TABLE INVENTORYITEM;
+DROP TABLE ADDITIONALSERVICE;
+DROP TABLE AUCTION;
+DROP TABLE SERVICE;
+DROP TABLE EMPLOYEE;
+DROP TABLE TBLFILES;
+DROP TABLE NotificationTable_Dates;
+DROP TABLE LOOKATNOTIFICATION;
+DROP TABLE CUSTOMER;
+
+
+
+
+
 --Create tables
 CREATE TABLE Customer
 	(CustomerID int NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -148,17 +169,17 @@ CREATE TABLE Notifications
 	DateNeeded varchar(80),
 	NoteDescription varchar(255),
 	CustAddress varchar(80),
-	
 	);
 
-CREATE TABLE NotificationTable
+CREATE TABLE LookAtNotification
 	(NotificationID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	CustomerID int REFERENCES Customer(CustomerID)
+	CustomerID int REFERENCES Customer(CustomerID),
+	SaveDate datetime
 	);
 
 CREATE TABLE NotificationTable_Dates
 	(ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	NotificationID int REFERENCES NotificationTable(NotificationID),
+	NotificationID int REFERENCES LookAtNotification(NotificationID),
 	PotentialDate datetime
 	);
 
@@ -299,5 +320,5 @@ SELECT * FROM INVENTORYITEM;
 SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
-SELECT * FROM NotificationTable;
+SELECT * FROM LookAtNotification;
 SELECT * FROM NotificationTable_Dates;
