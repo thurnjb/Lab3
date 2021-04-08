@@ -1,6 +1,9 @@
 USE [AUTH]
 GO
 
+DROP TABLE Pass;
+DROP TABLE tblFiles;
+DROP TABLE Person;
 
 CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
