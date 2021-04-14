@@ -14,7 +14,7 @@ DROP TABLE AUCTION;
 DROP TABLE SERVICE;
 DROP TABLE EMPLOYEE;
 DROP TABLE TBLFILES;
-DROP TABLE NotificationTable_Dates;
+DROP TABLE LookAtNotifConfirm;
 DROP TABLE LOOKATNOTIFICATION;
 DROP TABLE CUSTOMER;
 
@@ -174,13 +174,16 @@ CREATE TABLE Notifications
 CREATE TABLE LookAtNotification
 	(NotificationID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	CustomerID int REFERENCES Customer(CustomerID),
-	SaveDate datetime
+	SaveDate datetime,
+	Archived varchar(255)
 	);
 
-CREATE TABLE NotificationTable_Dates
+CREATE TABLE LookAtNotifConfirm
 	(ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	NotificationID int REFERENCES LookAtNotification(NotificationID),
-	PotentialDate datetime
+	PotentialDates varchar(255),
+	SaveDate datetime,
+	Archived varchar(255)
 	);
 
 --Insert test records
@@ -308,6 +311,8 @@ CREATE TABLE NotificationTable_Dates
 	INSERT INTO EQUIPMENTSERVICE(ServiceTicketID,EquipmentID) VALUES
 	(5, 3);
 	
+
+
 SELECT * FROM CUSTOMER;
 SELECT * FROM EMPLOYEE;
 SELECT * FROM SERVICE;
@@ -321,4 +326,4 @@ SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
 SELECT * FROM LookAtNotification;
-SELECT * FROM NotificationTable_Dates;
+SELECT * FROM LookAtNotifConfirm;
