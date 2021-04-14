@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 
 	</head>
-	<body class="img js-fullheight"
+	<body class="img js-fullheight">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">

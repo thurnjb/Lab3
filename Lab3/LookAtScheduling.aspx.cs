@@ -56,42 +56,35 @@ namespace Lab3
 
         protected void btnSendRequest_Click(object sender, EventArgs e)
         {
+            string DateString = lstbxPotentialDates.Items[0].ToString();
             int lstbxCount = lstbxPotentialDates.Items.Count;
             if (lstbxPotentialDates.Items.Count != 0)
             {
-                for (int i = 0; i < lstbxCount; i++)
+                for (int i = 1; i < lstbxCount; i++)
                 {
-                    String sqlQuery = "INSERT INTO NotificationTable_Dates(NotificationID, PotentialDate) VALUES (" + Session["LookAtID"] + ", '" + lstbxPotentialDates.Items[i].ToString() + "')";
-
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                    sqlConnect.Open();
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandText = sqlQuery;
-
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    DateString += ", " + lstbxPotentialDates.Items[i].ToString();
                 }
                 for (int k = lstbxCount - 1; k >= 0; k--)
                 {
                     lstbxPotentialDates.Items.RemoveAt(k);
                 }
-                //String deleteQuery = "DELETE FROM LookAtNotification WHERE NotificationID = " + Session["LookAtID"];
-                //SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                String sqlQuery = "INSERT INTO LookAtNotifConfirm(NotificationID, PotentialDates, SaveDate) VALUES (" + Session["LookAtID"] + ", '" + DateString + "', '" + DateTime.Now + "')";
 
-                //connection.Open();
-                //SqlCommand command = new SqlCommand();
-                //command.Connection = connection;
-                //command.CommandText = deleteQuery;
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                //command.ExecuteNonQuery();
-                //connection.Close();
+                sqlConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandText = sqlQuery;
+
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
             }
             else
             {
                 lblErrorMsg.Text = "Must select a notification and dates!";
             }
+            
         }
     }
 }

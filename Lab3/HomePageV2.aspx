@@ -77,12 +77,21 @@
           <br />
           <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:"></asp:Label>
           <br />
-
+          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" AllowSorting="true">
+              <Columns>
+                  <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
+                  <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" />
+                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
+                  <asp:TemplateField>
+                      <ItemTemplate>
+                          <asp:Button ID="btnLookAtConfConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfConfirm_Click" />
+                      </ItemTemplate>
+                  </asp:TemplateField>
+              </Columns>
+          </asp:GridView>
          <h1>Calendar </h1>
-
          <div class="menu-toggle">
             <div>
-            
                <span></span>
                <span></span>
                <span></span>
@@ -90,21 +99,17 @@
          </div>
       </div>
    </header>
-
    <section class="today-box" id="today-box">
       <span class="breadcrumb">Today</span>
       <h3 class="date-title">March 30, 2021</h3>
-
       <div class="plus-icon">
          <i class="ion ion-ios-add"></i>
       </div>
    </section>
-
    <section class="upcoming-events">
       <div class="container">
          <h3>
             This Morning's Events
-
          </h3>
          <div class="events-wrapper">
             <div class="event">
@@ -146,20 +151,15 @@
          </div>
          <button class="add-event-button">
             <span class="add-event-button__title">Add Event</span>
-
             <span class="add-event-button__icon">
                <i class="ion ion-ios-star-outline"></i>
             </span> 
-
-
          </button>
       </div>
    </section>
 </div>
         </header>
-      
-          
     </body>
 </html>
-
+    <asp:SqlDataSource ID="dtasrcLookAtConf" runat="server" ConnectionString="<%$ConnectionStrings:Lab3 %>" SelectCommand="SELECT * FROM NotificationTable_Dates"></asp:SqlDataSource>
 </asp:Content>
