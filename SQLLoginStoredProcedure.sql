@@ -1,4 +1,4 @@
-ALTER PROCEDURE [dbo].[JeremyEzellLab3] @Username AS NVARCHAR(50)
+CREATE PROCEDURE [dbo].[JeremyEzellLab3] @Username AS NVARCHAR(50)
 AS 
 BEGIN
 SET NOCOUNT ON;
