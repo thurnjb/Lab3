@@ -85,7 +85,7 @@
     </asp:GridView>
 
 <a href="MoveAssessmentForm.aspx" <button class="btn move">Create Move</button></a>
-<a href="AuctionAssessmentForm.aspx" <button class="btn auction">Create Auction</button></a>
+<a href="AuctionAssessment.aspx" <button class="btn auction">Create Auction</button></a>
 
 
 

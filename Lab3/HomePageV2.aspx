@@ -61,15 +61,14 @@
       <div class="container">
           <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:"></asp:Label>
           <br />
-          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="CustomerID" >
+          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" >
                 <Columns>
                     <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
-                    <asp:BoundField HeaderText="FirstName" DataField="FirstName" />
-                    <asp:BoundField HeaderText="LastName" DataField="LastName" />
+                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
                     <asp:BoundField HeaderText="Address" DataField="Address" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" CommandName="Select" OnClick="btnLookAtConfirm_Click"/>
+                            <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" onclick="btnLookAtConfirm_Click"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -77,11 +76,11 @@
           <br />
           <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:"></asp:Label>
           <br />
-          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" AllowSorting="true">
+          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID">
               <Columns>
                   <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
                   <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" />
-                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
+                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate"/>
                   <asp:TemplateField>
                       <ItemTemplate>
                           <asp:Button ID="btnLookAtConfConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfConfirm_Click" />

@@ -116,7 +116,7 @@ namespace Lab3
                     String testemp = loginResults["Employee"].ToString();
                     if (testemp.Equals("False"))
                     {
-                        lblStatus.Text = "Invalid Login.";
+                        lblStatus.Text = "Username/Password incorrect";
                         break;
                     }
 
@@ -126,6 +126,11 @@ namespace Lab3
                     {
                         Session["UserName"] = txtUserName.Text;
                         Response.Redirect("HomePageV2.aspx");
+                    }
+                    else
+                    {
+                        lblStatus.ForeColor = Color.Red;
+                        lblStatus.Text = "Username/Password incorrect";
                     }
                 }
             }

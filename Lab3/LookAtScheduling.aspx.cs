@@ -79,12 +79,25 @@ namespace Lab3
 
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();
+
+                String sqlquery = "UPDATE LookAtNotification SET Archived = 'True' WHERE NotificationID = " + Session["LookAtID"];
+
+                SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                connection.Open();
+                SqlCommand sqlcommand = new SqlCommand();
+                sqlcommand.Connection = connection;
+                sqlcommand.CommandText = sqlquery;
+
+                sqlcommand.ExecuteNonQuery();
+                connection.Close();
+
+                Response.Redirect("HomePageV2.aspx");
             }
             else
             {
                 lblErrorMsg.Text = "Must select a notification and dates!";
             }
-            
         }
     }
 }
