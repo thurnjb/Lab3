@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -50,7 +52,17 @@ namespace Lab3
 
         protected void ButtonConfirm_Click(object sender, EventArgs e)
         {
+            //String sqlCommitQuery = "INSERT INTO";
 
+            //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            //sqlConnect.Open();
+            //SqlCommand sqlCommand = new SqlCommand();
+            //sqlCommand.Connection = sqlConnect;
+            //sqlCommand.CommandText = sqlCommitQuery;
+            //sqlCommand.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+
+            //sqlCommand.ExecuteNonQuery();
         }
 
         protected void btnPreviousPanel_Click(object sender, EventArgs e)
@@ -61,6 +73,11 @@ namespace Lab3
         protected void btnNextPanel_Click(object sender, EventArgs e)
         {
             ChangePanelVisible(true);
+        }
+
+        protected void btnPopulate_Click(object sender, EventArgs e)
+        {
+            //eek I don't want to do this
         }
     }
 
