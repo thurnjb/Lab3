@@ -17,7 +17,6 @@
         <style>
             .mobile-wrapper{
                 color:black;
- 
 }
         </style>
     </head>
