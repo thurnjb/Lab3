@@ -59,6 +59,42 @@
              <div class="mobile-wrapper">
    <header class="header">
       <div class="container">
+          <br />
+          <asp:Label ID="searchTitle" runat="server" Text="Customer Search"></asp:Label>
+          <br />
+          <asp:TextBox ID="hpCustomerSearch" runat="server" CssClass="form-control"></asp:TextBox>
+          <br />
+          <asp:Button ID="searchBtn" runat="server" Text="Search" CssClass="fa fa-search" OnClick="searchBtn_Click" />
+          <br />
+          <br />
+         <div style="width:auto;height:auto;color:black;border:1px solid #000;">
+    Customer Results
+    <asp:GridView ID="grdCustomers" runat="server"
+                        HeaderStyle-BackColor="#000000"
+                        EmptyDataText="No Customer with that name!"
+                        AutoGenerateSelectButton="true"
+                        SelectedIndex="1"
+                        OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
+                        AllowSorting="true"
+                        OnSorting="grdCustomers_Sorting"
+                        DataKeyNames="CustomerID"
+                        AutoGenerateColumns="false">
+                        <columns>
+                            <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
+                            <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
+                            <asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />
+                            <asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />
+                            <asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />
+                            <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
+                            <asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />
+                            <asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />
+                            <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
+                        </columns>
+        </asp:GridView>
+        </div>
+          <br />
+          <br />
+
           <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:"></asp:Label>
           <br />
           <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" >

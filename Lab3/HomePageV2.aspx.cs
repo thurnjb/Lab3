@@ -15,6 +15,7 @@ namespace Lab3
 {
     public partial class HomePageV2 : System.Web.UI.Page
     {
+        private static DataTable CustomerGridView = new DataTable();
 
         private static DataTable grdVwLookAt = new DataTable();
         private static DataTable grdVwLookAtConf = new DataTable();
@@ -78,6 +79,65 @@ namespace Lab3
         protected void btnLookAtConfConfirm_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        protected void searchBtn_Click(object sender, EventArgs e)
+        {
+            
+                CustomerGridView.Clear();
+
+                SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
+                SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
+                connection.Open();
+
+                SqlAdapter.Fill(CustomerGridView);
+
+                grdCustomers.DataSource = CustomerGridView;
+                grdCustomers.DataBind();
+
+            
+        }
+
+        protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["CustomerID"] = grdCustomers.SelectedValue;
+            Response.Redirect("CustomerDetails.aspx");
+
+        }
+
+        protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            if (ViewState["CustomerSort"] == null)
+            {
+                ViewState["CustomerSort"] = e.SortExpression + " " + e.SortDirection;
+            }
+
+            String[] sortData = ViewState["CustomerSort"].ToString().Trim().Split(' ');
+
+            if (e.SortExpression == sortData[0])
+            {
+                if (sortData[1] == "Ascending")
+                {
+                    CustomerGridView.DefaultView.Sort = e.SortExpression + " DESC";
+                    this.ViewState["CustomerSort"] = e.SortExpression + " Descending";
+                }
+                else
+                {
+                    CustomerGridView.DefaultView.Sort = e.SortExpression + " ASC";
+                    this.ViewState["CustomerSort"] = e.SortExpression + " Ascending";
+                }
+            }
+            else
+            {
+                CustomerGridView.DefaultView.Sort = e.SortExpression + " ASC";
+                this.ViewState["CustomerSort"] = e.SortExpression + " Ascending";
+            }
+
+            grdCustomers.DataSource = CustomerGridView;
+            grdCustomers.DataBind();
         }
     }
 }
