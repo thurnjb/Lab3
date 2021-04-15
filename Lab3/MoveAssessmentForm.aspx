@@ -435,6 +435,7 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Button ID="ButtonConfirm" runat="server" Text="Confirm" OnClick="ButtonConfirm_Click" />
+                    <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

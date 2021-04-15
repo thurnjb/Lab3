@@ -15,10 +15,9 @@
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
         <style>
-            .mobile-wrapper{
-                color:black;
- 
-}
+            .mobile-wrapper {
+                color: black;
+            }
         </style>
     </head>
     <body>
@@ -68,7 +67,7 @@
           <br />
           <br />
          <div style="width:auto;height:auto;color:black;border:1px solid #000;">
-    Customer Results
+        Customer Results
     <asp:GridView ID="grdCustomers" runat="server"
                         HeaderStyle-BackColor="#000000"
                         EmptyDataText="No Customer with that name!"
@@ -82,13 +81,13 @@
                         <columns>
                             <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
                             <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
-                            <asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />
-                            <asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />
-                            <asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />
+                            <%--<asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />--%>
+                            <%--<asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />--%>
+                            <%--<asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />--%>
                             <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
-                            <asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />
-                            <asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />
-                            <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />
+                            <%--<asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />--%>
+                            <%--<asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />--%>
+                            <%--<asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />--%>
                         </columns>
         </asp:GridView>
         </div>
