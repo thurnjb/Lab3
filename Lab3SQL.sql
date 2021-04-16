@@ -13,6 +13,7 @@ DROP TABLE AUCTION;
 DROP TABLE SERVICE;
 DROP TABLE EMPLOYEE;
 DROP TABLE TBLFILES;
+DROP TABLE LOOKAT;
 DROP TABLE LookAtNotifConfirm;
 DROP TABLE LOOKATNOTIFICATION;
 DROP TABLE CUSTOMER;
@@ -164,6 +165,15 @@ CREATE TABLE Notifications
 	DateNeeded varchar(80),
 	NoteDescription varchar(255),
 	CustAddress varchar(80),
+	);
+
+CREATE TABLE LookAt
+	(LookAtID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	CustomerID int REFERENCES Customer(CustomerID),
+	Address varchar(255),
+	Date varchar(255),
+	SaveDate datetime,
+	Archived varchar(255)
 	);
 
 CREATE TABLE LookAtNotification
@@ -318,5 +328,6 @@ SELECT * FROM INVENTORYITEM;
 SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
+SELECT * FROM LOOKAT;
 SELECT * FROM LookAtNotification;
 SELECT * FROM LookAtNotifConfirm;
