@@ -33,7 +33,7 @@ namespace Lab3
             grdVwLookAt.Clear();
             grdVwLookAtConf.Clear();
 
-            String sqlQuery = "SELECT N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, C.Address, N.SaveDate FROM Customer C, LookAtNotification N WHERE N.CustomerID = C.CustomerID AND Archived IS NULL ORDER BY N.SaveDate";
+            String sqlQuery = "SELECT N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, C.Address, N.SaveDate FROM Customer C, LookAtNotification N WHERE N.CustomerID = C.CustomerID AND N.Archived IS NULL ORDER BY N.SaveDate";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -46,7 +46,7 @@ namespace Lab3
             grdNotification.DataSource = grdVwLookAt;
             grdNotification.DataBind();
 
-            String sqlquery = "SELECT N.ID, N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, N.PotentialDates, N.SaveDate FROM Customer C, LookAtNotification L, LookAtNotifConfirm N WHERE L.CustomerID = C.CustomerID AND N.NotificationID = L.NotificationID";
+            String sqlquery = "SELECT N.ID, N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, N.PotentialDates, N.SaveDate FROM Customer C, LookAtNotification L, LookAtNotifConfirm N WHERE L.CustomerID = C.CustomerID AND N.NotificationID = L.NotificationID AND N.Archived IS NULL";
 
             SqlConnection sqlconnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -78,7 +78,12 @@ namespace Lab3
 
         protected void btnLookAtConfConfirm_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = grdLookAtConf.DataKeys[row.RowIndex].Values[0].ToString();
 
+            Session["LookAtConfID"] = Convert.ToInt32(pk);
+            Response.Redirect("LookAtConfirmation.aspx");
         }
 
 
