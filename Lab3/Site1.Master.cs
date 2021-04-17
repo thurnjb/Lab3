@@ -37,5 +37,11 @@ namespace Lab3
             Session.Abandon();
             Response.Redirect("LoginForm.aspx?loggedout=true");
         }
+
+        protected void btnLogout_Click1(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("LoginForm.aspx?loggedout=true");
+        }
     }
 }

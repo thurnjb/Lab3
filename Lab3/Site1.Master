@@ -16,8 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <div style="text-align: right">
-            <asp:Label ID="lblUserLoggedIn" runat="server" Text="" ></asp:Label>
-            <asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click"/>
+            
             <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
             <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
@@ -31,6 +30,8 @@
                         </li>
                     </ul>
                 </div>
+                <asp:Label ID="lblUserLoggedIn" runat="server" Text="" ></asp:Label>
+                <asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogout_Click1" />
             </div>
         </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
