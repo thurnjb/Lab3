@@ -5,16 +5,39 @@
 <html>
 <head runat="server">
     <title></title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/heading.css">
+    <link rel="stylesheet" href="css/body.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
     <!-- Jay Thurn, Ryan Booth, John Lee
     We have neither given nor received any unauthorized assistance on this assignment-->
 <body>
-    <form id="form1" runat="server">
-        <div style="text-align: right">
-            <asp:Label ID="lblUserLoggedIn" runat="server" Text="" ></asp:Label>
-            <asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click"/>
+    <style type ="text/css">
+        body{
+            padding-top:150px;
+        }
+    </style>
+    <form id="form1" runat="server" >
+        <div style="text-align: right" >
+            <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+            <div class="container" ><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
+                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  <a href="HomePageV2.aspx">HOME</a> 
+                        </li>
+                      <li class="nav-item mx-0 mx-lg-1>"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="CustomerSearch.aspx">CUSTOMER INFO </a></li></a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" >CALENDAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <asp:Label ID="lblUserLoggedIn" runat="server" Text="" ></asp:Label>
+                <asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogout_Click1" />
+            </div>
+        </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

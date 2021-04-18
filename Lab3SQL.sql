@@ -1,5 +1,23 @@
 USE Lab3;
 
+DROP TABLE INVENTORYSERVICE;
+DROP TABLE EQUIPMENTSERVICE;
+DROP TABLE EQUIPMENT;
+DROP TABLE NOTES;
+DROP TABLE TICKETHISTORY;
+DROP TABLE SERVICETICKET;
+DROP TABLE NOTIFICATIONS;
+DROP TABLE INVENTORYITEM;
+DROP TABLE ADDITIONALSERVICE;
+DROP TABLE AUCTION;
+DROP TABLE SERVICE;
+DROP TABLE EMPLOYEE;
+DROP TABLE TBLFILES;
+DROP TABLE LOOKAT;
+DROP TABLE LookAtNotifConfirm;
+DROP TABLE LOOKATNOTIFICATION;
+DROP TABLE MOVEASSESSMENT
+DROP TABLE CUSTOMER;
 
 --Create tables
 CREATE TABLE Customer
@@ -148,18 +166,62 @@ CREATE TABLE Notifications
 	DateNeeded varchar(80),
 	NoteDescription varchar(255),
 	CustAddress varchar(80),
-	
 	);
 
-CREATE TABLE NotificationTable
+CREATE TABLE LookAt
+	(LookAtID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	CustomerID int REFERENCES Customer(CustomerID),
+	Address varchar(255),
+	Date varchar(255),
+	SaveDate datetime,
+	Archived varchar(255)
+	);
+
+CREATE TABLE LookAtNotification
 	(NotificationID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	CustomerID int REFERENCES Customer(CustomerID)
+	CustomerID int REFERENCES Customer(CustomerID),
+	SaveDate datetime,
+	Archived varchar(255)
 	);
 
-CREATE TABLE NotificationTable_Dates
+CREATE TABLE LookAtNotifConfirm
 	(ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	NotificationID int REFERENCES NotificationTable(NotificationID),
-	PotentialDate datetime
+	NotificationID int REFERENCES LookAtNotification(NotificationID),
+	PotentialDates varchar(255),
+	SaveDate datetime,
+	Archived varchar(255)
+	);
+
+Create Table MoveAssessment 
+	(MoveAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	outDate varChar(255),
+	windowDays varChar(255),
+	address varChar(255),
+	mls varChar(255),
+	photo varChar(255),
+	additionalServices varChar(255),
+	auctionServices varChar(255),
+	room varChar(255),
+	furnitureList varChar(255),
+	roomFloor varChar(255),
+	appFloor varChar(255),
+	elevator varChar(255),
+	walk varChar(255),
+	house varChar(255),
+	climateStorage varChar(255),
+	outdoorStorage varChar(255),
+	businessPlace varChar(255),
+	truckAccessable varChar(255),
+	doorWalk varChar(255),
+	stepsWalk varChar(255),
+	equipNeeded varChar(255),
+	trucksRequired varChar(255),
+	moveEstimate varChar(255),
+	fixedRates varChar(255),
+	packingFees varChar(255),
+	storeageFees varChar(255),
+	trashRemoval varChar(255),
+	CustomerID int References Customer(CustomerID)
 	);
 
 --Insert test records
@@ -286,7 +348,7 @@ CREATE TABLE NotificationTable_Dates
 	(5, 2);
 	INSERT INTO EQUIPMENTSERVICE(ServiceTicketID,EquipmentID) VALUES
 	(5, 3);
-	
+
 SELECT * FROM CUSTOMER;
 SELECT * FROM EMPLOYEE;
 SELECT * FROM SERVICE;
@@ -299,5 +361,6 @@ SELECT * FROM INVENTORYITEM;
 SELECT * FROM EQUIPMENT;
 SELECT * FROM EQUIPMENTSERVICE;
 SELECT * FROM INVENTORYSERVICE;
-SELECT * FROM NotificationTable;
-SELECT * FROM NotificationTable_Dates;
+SELECT * FROM LOOKAT;
+SELECT * FROM LookAtNotification;
+SELECT * FROM LookAtNotifConfirm;

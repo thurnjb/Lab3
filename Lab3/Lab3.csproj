@@ -120,6 +120,7 @@
     <Content Include="InitialContactForm.aspx" />
     <Content Include="login.html" />
     <Content Include="LoginForm.aspx" />
+    <Content Include="LookAtConfirmation.aspx" />
     <Content Include="LookAtScheduling.aspx" />
     <Content Include="move.html" />
     <Content Include="MoveAssessmentForm.aspx" />
@@ -337,6 +338,13 @@
     </Compile>
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LookAtConfirmation.aspx.cs">
+      <DependentUpon>LookAtConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LookAtConfirmation.aspx.designer.cs">
+      <DependentUpon>LookAtConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="LookAtScheduling.aspx.cs">
       <DependentUpon>LookAtScheduling.aspx</DependentUpon>

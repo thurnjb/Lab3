@@ -17,26 +17,10 @@
         <style>
             .mobile-wrapper{
                 color:black;
- 
-}
+            }
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
-            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
-                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a href="HomePageV2.aspx"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" >HOME</a> 
-                        </li>
-                      <li class="nav-item mx-0 mx-lg-1>"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="CustomerSearch.aspx">CUSTOMER INFO </a></li></a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" >CALENDAR</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <img class="masthead-avatar mb-5" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions Logo" width="300">
@@ -59,17 +43,52 @@
              <div class="mobile-wrapper">
    <header class="header">
       <div class="container">
+          <br />
+          <asp:Label ID="searchTitle" runat="server" Text="Customer Search"></asp:Label>
+          <br />
+          <asp:TextBox ID="hpCustomerSearch" runat="server" CssClass="form-control"></asp:TextBox>
+          <br />
+          <asp:Button ID="searchBtn" runat="server" Text="Search" CssClass="fa fa-search" OnClick="searchBtn_Click" />
+          <br />
+          <br />
+         <div style="width:auto;height:auto;color:black;border:1px solid #000;">
+        Customer Results
+    <asp:GridView ID="grdCustomers" runat="server"
+                        HeaderStyle-BackColor="#000000"
+                        EmptyDataText="No Customer with that name!"
+                        AutoGenerateSelectButton="true"
+                        SelectedIndex="1"
+                        OnSelectedIndexChanged="grdCustomers_SelectedIndexChanged"
+                        AllowSorting="true"
+                        OnSorting="grdCustomers_Sorting"
+                        DataKeyNames="CustomerID"
+                        AutoGenerateColumns="false">
+                        <columns>
+                            <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
+                            <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
+                            <%--<asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />--%>
+                            <%--<asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />--%>
+                            <%--<asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />--%>
+                            <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
+                            <%--<asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />--%>
+                            <%--<asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />--%>
+                            <%--<asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />--%>
+                        </columns>
+        </asp:GridView>
+        </div>
+          <br />
+          <br />
+
           <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:"></asp:Label>
           <br />
-          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="CustomerID" >
+          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" >
                 <Columns>
                     <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
-                    <asp:BoundField HeaderText="FirstName" DataField="FirstName" />
-                    <asp:BoundField HeaderText="LastName" DataField="LastName" />
+                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
                     <asp:BoundField HeaderText="Address" DataField="Address" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" CommandName="Select" OnClick="btnLookAtConfirm_Click"/>
+                            <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" onclick="btnLookAtConfirm_Click"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -77,12 +96,21 @@
           <br />
           <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:"></asp:Label>
           <br />
-
+          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID">
+              <Columns>
+                  <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
+                  <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" />
+                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate"/>
+                  <asp:TemplateField>
+                      <ItemTemplate>
+                          <asp:Button ID="btnLookAtConfConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfConfirm_Click" />
+                      </ItemTemplate>
+                  </asp:TemplateField>
+              </Columns>
+          </asp:GridView>
          <h1>Calendar </h1>
-
          <div class="menu-toggle">
             <div>
-            
                <span></span>
                <span></span>
                <span></span>
@@ -90,21 +118,17 @@
          </div>
       </div>
    </header>
-
    <section class="today-box" id="today-box">
       <span class="breadcrumb">Today</span>
       <h3 class="date-title">March 30, 2021</h3>
-
       <div class="plus-icon">
          <i class="ion ion-ios-add"></i>
       </div>
    </section>
-
    <section class="upcoming-events">
       <div class="container">
          <h3>
             This Morning's Events
-
          </h3>
          <div class="events-wrapper">
             <div class="event">
@@ -146,20 +170,15 @@
          </div>
          <button class="add-event-button">
             <span class="add-event-button__title">Add Event</span>
-
             <span class="add-event-button__icon">
                <i class="ion ion-ios-star-outline"></i>
             </span> 
-
-
          </button>
       </div>
    </section>
-</div>
+</div> 
         </header>
-      
-          
     </body>
 </html>
-
+    <asp:SqlDataSource ID="dtasrcLookAtConf" runat="server" ConnectionString="<%$ConnectionStrings:Lab3 %>" SelectCommand="SELECT * FROM NotificationTable_Dates"></asp:SqlDataSource>
 </asp:Content>
