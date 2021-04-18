@@ -62,17 +62,12 @@
                         AllowSorting="true"
                         OnSorting="grdCustomers_Sorting"
                         DataKeyNames="CustomerID"
-                        AutoGenerateColumns="false">
+                        AutoGenerateColumns="false"
+                        HorizontalAlign="Center">
                         <columns>
                             <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
                             <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
-                            <%--<asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />--%>
-                            <%--<asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />--%>
-                            <%--<asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />--%>
                             <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
-                            <%--<asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />--%>
-                            <%--<asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />--%>
-                            <%--<asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />--%>
                         </columns>
         </asp:GridView>
         </div>
