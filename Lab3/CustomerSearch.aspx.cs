@@ -86,5 +86,10 @@ namespace Lab3
         {
             Response.Redirect("InitialContactForm.aspx");
         }
+
+        protected void btnNew_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InitialContactForm.aspx");
+        }
     }
 }

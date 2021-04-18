@@ -51,7 +51,7 @@
 </div>
                 
                             <div class="form-group">
-            <a href="InitialContactForm.aspx" <button type="submit" class="btn btn-block create-account">Add New Customer</button></a></div>
+                                <asp:Button ID="btnNew" runat="server" Text="Add New Customer" OnClick="btnNew_Click" />
              
         </header>
       
