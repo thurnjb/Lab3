@@ -16,6 +16,7 @@ DROP TABLE TBLFILES;
 DROP TABLE LOOKAT;
 DROP TABLE LookAtNotifConfirm;
 DROP TABLE LOOKATNOTIFICATION;
+DROP TABLE MOVEASSESSMENT
 DROP TABLE CUSTOMER;
 
 --Create tables
@@ -189,6 +190,38 @@ CREATE TABLE LookAtNotifConfirm
 	PotentialDates varchar(255),
 	SaveDate datetime,
 	Archived varchar(255)
+	);
+
+Create Table MoveAssessment 
+	(MoveAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	outDate varChar(255),
+	windowDays varChar(255),
+	address varChar(255),
+	mls varChar(255),
+	photo varChar(255),
+	additionalServices varChar(255),
+	auctionServices varChar(255),
+	room varChar(255),
+	furnitureList varChar(255),
+	roomFloor varChar(255),
+	appFloor varChar(255),
+	elevator varChar(255),
+	walk varChar(255),
+	house varChar(255),
+	climateStorage varChar(255),
+	outdoorStorage varChar(255),
+	businessPlace varChar(255),
+	truckAccessable varChar(255),
+	doorWalk varChar(255),
+	stepsWalk varChar(255),
+	equipNeeded varChar(255),
+	trucksRequired varChar(255),
+	moveEstimate varChar(255),
+	fixedRates varChar(255),
+	packingFees varChar(255),
+	storeageFees varChar(255),
+	trashRemoval varChar(255),
+	CustomerID int References Customer(CustomerID)
 	);
 
 --Insert test records
