@@ -103,7 +103,6 @@
     <Content Include="customerdetails.html" />
     <Content Include="CustomerPortalHome.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
-    <Content Include="CustomerProfile.aspx" />
     <Content Include="customers.html" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerList.aspx" />
@@ -274,13 +273,6 @@
     </Compile>
     <Compile Include="CustomerPortalLogin.aspx.designer.cs">
       <DependentUpon>CustomerPortalLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerProfile.aspx.cs">
-      <DependentUpon>CustomerProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerProfile.aspx.designer.cs">
-      <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerSearch.aspx.cs">
       <DependentUpon>CustomerSearch.aspx</DependentUpon>
