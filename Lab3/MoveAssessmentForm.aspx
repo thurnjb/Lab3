@@ -4,12 +4,25 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Table ID="Table1" runat="server">
+    &nbsp;<asp:Table ID="Table1" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <%--Navigation buttons--%>
+
+                <asp:DropDownList ID="ddlSkipToSection" runat="server" OnSelectedIndexChanged="ddlSkipToSection_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Selected="True" Text="Select" Value="0"></asp:ListItem>
+                    <asp:ListItem Text="Customer Questions" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Room Info" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="Notes" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Home Info" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="Storage Info" Value="5"></asp:ListItem>
+                    <asp:ListItem Text="Logistics Info" Value="6"></asp:ListItem>
+                    <asp:ListItem Text="Equipment Needed" Value="7"></asp:ListItem>
+                    <asp:ListItem Text="Estimate Cost" Value="8"></asp:ListItem>
+                </asp:DropDownList>
                 <asp:Button ID="btnPreviousPanel" runat="server" Text="Back" OnClick="btnPreviousPanel_Click" />
                 <asp:Button ID="btnNextPanel" runat="server" Text="Next" OnClick="btnNextPanel_Click" />
+                <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
@@ -61,16 +74,6 @@
                     <asp:TextBox ID="TextBoxPhotos" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
-    </asp:Panel>
-    <%--Panel 2 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel2" runat="server" Visible="false">
-        <asp:Table ID="Table2" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblPanel2Header" runat="server" Text="Panel 2"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="LabelAddService" runat="server" Text="Do you need add on services?"></asp:Label>
@@ -92,12 +95,12 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 3 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel3" runat="server" Visible="false">
-        <asp:Table ID="Table3" runat="server">
+    <%--Panel 2 (Room Info)--%>
+    <asp:Panel ID="Panel2" runat="server" Visible="false">
+        <asp:Table ID="Table2" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel3Header" runat="server" Text="Panel 3"></asp:Label>
+                    <asp:Label ID="lblPanel2Header" runat="server" Text="Room Info"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -129,16 +132,6 @@
                     <asp:ListBox ID="ListBoxEachRoomFurniture" Width="200" runat="server"></asp:ListBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
-    </asp:Panel>
-    <%--Panel 4 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel4" runat="server" Visible="false">
-        <asp:Table ID="Table4" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblPanel4Header" runat="server" Text="Panel 4"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="LabelRoomFloor" runat="server" Text="Select Room Floor"></asp:Label>
@@ -168,16 +161,16 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 5 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel5" runat="server" Visible="false">
-        <asp:Table ID="Table5" runat="server">
+    <%--Panel 3 (Notes)--%>
+    <asp:Panel ID="Panel3" runat="server" Visible="false">
+        <asp:Table ID="Table3" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel5Header" runat="server" Text="Panel 5"></asp:Label>
+                    <asp:Label ID="lblPanel3Header" runat="server" Text="Notes"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableHeaderRow>
-                <%--            IMPORTANT NOTE: The info below (PANEL 5-x) needs to populate on the service ticket that is attached with this move. --%>
+                <%--            IMPORTANT NOTE: The info below (PANEL 3 through end) needs to populate on the service ticket that is attached with this move. --%>
                 <asp:TableCell>
                     <asp:Label ID="LabelNotesTitle" runat="server" Width="150" Text="Notes Title: "></asp:Label>
                 </asp:TableCell>
@@ -195,12 +188,12 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 6 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel6" runat="server" Visible="false">
-        <asp:Table ID="Table6" runat="server">
+    <%--Panel 4 (Home Info)--%>
+    <asp:Panel ID="Panel4" runat="server" Visible="false">
+        <asp:Table ID="Table4" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel6Header" runat="server" Text="Panel 6"></asp:Label>
+                    <asp:Label ID="lblPanel4Header" runat="server" Text="Home Info"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -247,12 +240,12 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 7 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel7" runat="server" Visible="false">
-        <asp:Table ID="Table7" runat="server">
+    <%--Panel 5 (Storage Info)--%>
+    <asp:Panel ID="Panel5" runat="server" Visible="false">
+        <asp:Table ID="Table5" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel7Header" runat="server" Text="Panel 7"></asp:Label>
+                    <asp:Label ID="lblPanel5Header" runat="server" Text="Storage Info"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -286,12 +279,12 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 8 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel8" runat="server" Visible="false">
-        <asp:Table ID="Table8" runat="server">
+    <%--Panel 6 (Logistics Info)--%>
+    <asp:Panel ID="Panel6" runat="server" Visible="false">
+        <asp:Table ID="Table6" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel8Header" runat="server" Text="Panel 8"></asp:Label>
+                    <asp:Label ID="lblPanel8Header" runat="server" Text="Logistics Info"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableHeaderRow>
@@ -325,12 +318,12 @@
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 9 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel9" runat="server" Visible="false">
-        <asp:Table ID="Table9" runat="server">
+    <%--Panel 7 (Equipment Needed)--%>
+    <asp:Panel ID="Panel7" runat="server" Visible="false">
+        <asp:Table ID="Table7" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel9Header" runat="server" Text="Panel 9"></asp:Label>
+                    <asp:Label ID="lblPanel9Header" runat="server" Text="Equipment Needed"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -341,22 +334,12 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:CheckBoxList ID="CheckBoxListSpecialEquipment" runat="server">
-                        <asp:ListItem> Appliance Cart </asp:ListItem>
-                        <asp:ListItem> Piano Dolly </asp:ListItem>
-                        <asp:ListItem> Piano Board </asp:ListItem>
-                        <asp:ListItem> Gun Safe Cart </asp:ListItem>
-                        <asp:ListItem> Extra Blankets </asp:ListItem>
+                        <asp:ListItem Value="0"> Appliance Cart </asp:ListItem>
+                        <asp:ListItem Value="1"> Piano Dolly </asp:ListItem>
+                        <asp:ListItem Value="2"> Piano Board </asp:ListItem>
+                        <asp:ListItem Value="3"> Gun Safe Cart </asp:ListItem>
+                        <asp:ListItem Value="4"> Extra Blankets </asp:ListItem>
                     </asp:CheckBoxList>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-    </asp:Panel>
-    <%--Panel 10 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel10" runat="server" Visible="false">
-        <asp:Table ID="Table10" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblPanel10Header" runat="server" Text="Panel 10"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -367,24 +350,24 @@
             <asp:TableHeaderRow>
                 <asp:TableCell>
                     <asp:CheckBoxList ID="CheckBoxListTrucksRequired" runat="server">
-                        <asp:ListItem>2015</asp:ListItem>
-                        <asp:ListItem>2011</asp:ListItem>
-                        <asp:ListItem>Cube</asp:ListItem>
-                        <asp:ListItem>Enclosed Trailor</asp:ListItem>
-                        <asp:ListItem>Open Trailor</asp:ListItem>
-                        <asp:ListItem>Van</asp:ListItem>
+                        <asp:ListItem Value="0">2015</asp:ListItem>
+                        <asp:ListItem Value="1">2011</asp:ListItem>
+                        <asp:ListItem Value="2">Cube</asp:ListItem>
+                        <asp:ListItem Value="3">Enclosed Trailor</asp:ListItem>
+                        <asp:ListItem Value="4">Open Trailor</asp:ListItem>
+                        <asp:ListItem Value="5">Van</asp:ListItem>
 
                     </asp:CheckBoxList>
                 </asp:TableCell>
             </asp:TableHeaderRow>
         </asp:Table>
     </asp:Panel>
-    <%--Panel 11 (ENTER NAME HERE)--%>
-    <asp:Panel ID="Panel11" runat="server" Visible="false">
-        <asp:Table ID="Table11" runat="server">
+    <%--Panel 8 (Cost Estimate)--%>
+    <asp:Panel ID="Panel8" runat="server" Visible="false">
+        <asp:Table ID="Table8" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblPanel11Header" runat="server" Text="Panel 11"></asp:Label>
+                    <asp:Label ID="lblPanel11Header" runat="server" Text="Cost Estimate"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -435,14 +418,27 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Button ID="ButtonConfirm" runat="server" Text="Confirm" OnClick="ButtonConfirm_Click" />
-                    <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
     </asp:Panel>
 
-
-
+    <%--Panel 9 (ENTER NAME HERE)--%>
+    <%--<asp:Panel ID="Panel9" runat="server" Visible="false">
+        <asp:Table ID="Table9" runat="server">
+        </asp:Table>
+    </asp:Panel>--%>
+    <%--Panel 10 (ENTER NAME HERE)--%>
+    <%-- <asp:Panel ID="Panel10" runat="server" Visible="false">
+        <asp:Table ID="Table10" runat="server">
+        </asp:Table>
+    </asp:Panel>--%>
+    <%--Panel 11 (ENTER NAME HERE)--%>
+    <%-- <asp:Panel ID="Panel11" runat="server" Visible="false">
+        <asp:Table ID="Table11" runat="server">
+        </asp:Table>
+    </asp:Panel>--%>
 </asp:Content>
 
 

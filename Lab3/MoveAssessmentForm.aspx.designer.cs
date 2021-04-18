@@ -24,6 +24,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
+        /// ddlSkipToSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSkipToSection;
+
+        /// <summary>
         /// btnPreviousPanel control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNextPanel;
+
+        /// <summary>
+        /// btnPopulate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPopulate;
 
         /// <summary>
         /// Panel1 control.
@@ -159,33 +177,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxPhotos;
 
         /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
-
-        /// <summary>
-        /// Table2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
-
-        /// <summary>
-        /// lblPanel2Header control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel2Header;
-
-        /// <summary>
         /// LabelAddService control.
         /// </summary>
         /// <remarks>
@@ -222,31 +213,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxAuctionServices;
 
         /// <summary>
-        /// Panel3 control.
+        /// Panel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel3;
+        protected global::System.Web.UI.WebControls.Panel Panel2;
 
         /// <summary>
-        /// Table3 control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
+        protected global::System.Web.UI.WebControls.Table Table2;
 
         /// <summary>
-        /// lblPanel3Header control.
+        /// lblPanel2Header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel3Header;
+        protected global::System.Web.UI.WebControls.Label lblPanel2Header;
 
         /// <summary>
         /// LabelOrderOfRooms control.
@@ -285,33 +276,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.ListBox ListBoxEachRoomFurniture;
 
         /// <summary>
-        /// Panel4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel4;
-
-        /// <summary>
-        /// Table4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table4;
-
-        /// <summary>
-        /// lblPanel4Header control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel4Header;
-
-        /// <summary>
         /// LabelRoomFloor control.
         /// </summary>
         /// <remarks>
@@ -348,31 +312,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
 
         /// <summary>
-        /// Panel5 control.
+        /// Panel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel5;
+        protected global::System.Web.UI.WebControls.Panel Panel3;
 
         /// <summary>
-        /// Table5 control.
+        /// Table3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table5;
+        protected global::System.Web.UI.WebControls.Table Table3;
 
         /// <summary>
-        /// lblPanel5Header control.
+        /// lblPanel3Header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel5Header;
+        protected global::System.Web.UI.WebControls.Label lblPanel3Header;
 
         /// <summary>
         /// LabelNotesTitle control.
@@ -411,31 +375,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxNotesMove;
 
         /// <summary>
-        /// Panel6 control.
+        /// Panel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel6;
+        protected global::System.Web.UI.WebControls.Panel Panel4;
 
         /// <summary>
-        /// Table6 control.
+        /// Table4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table6;
+        protected global::System.Web.UI.WebControls.Table Table4;
 
         /// <summary>
-        /// lblPanel6Header control.
+        /// lblPanel4Header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel6Header;
+        protected global::System.Web.UI.WebControls.Label lblPanel4Header;
 
         /// <summary>
         /// LabelTypeOfHome control.
@@ -528,31 +492,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxHouse;
 
         /// <summary>
-        /// Panel7 control.
+        /// Panel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel7;
+        protected global::System.Web.UI.WebControls.Panel Panel5;
 
         /// <summary>
-        /// Table7 control.
+        /// Table5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table7;
+        protected global::System.Web.UI.WebControls.Table Table5;
 
         /// <summary>
-        /// lblPanel7Header control.
+        /// lblPanel5Header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel7Header;
+        protected global::System.Web.UI.WebControls.Label lblPanel5Header;
 
         /// <summary>
         /// LabelStorage control.
@@ -618,22 +582,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxBusiness;
 
         /// <summary>
-        /// Panel8 control.
+        /// Panel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel8;
+        protected global::System.Web.UI.WebControls.Panel Panel6;
 
         /// <summary>
-        /// Table8 control.
+        /// Table6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table8;
+        protected global::System.Web.UI.WebControls.Table Table6;
 
         /// <summary>
         /// lblPanel8Header control.
@@ -708,22 +672,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TextBoxSteps;
 
         /// <summary>
-        /// Panel9 control.
+        /// Panel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel9;
+        protected global::System.Web.UI.WebControls.Panel Panel7;
 
         /// <summary>
-        /// Table9 control.
+        /// Table7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table9;
+        protected global::System.Web.UI.WebControls.Table Table7;
 
         /// <summary>
         /// lblPanel9Header control.
@@ -753,33 +717,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListSpecialEquipment;
 
         /// <summary>
-        /// Panel10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel10;
-
-        /// <summary>
-        /// Table10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table10;
-
-        /// <summary>
-        /// lblPanel10Header control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanel10Header;
-
-        /// <summary>
         /// LabelTrucksUsed control.
         /// </summary>
         /// <remarks>
@@ -798,22 +735,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListTrucksRequired;
 
         /// <summary>
-        /// Panel11 control.
+        /// Panel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel11;
+        protected global::System.Web.UI.WebControls.Panel Panel8;
 
         /// <summary>
-        /// Table11 control.
+        /// Table8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table11;
+        protected global::System.Web.UI.WebControls.Table Table8;
 
         /// <summary>
         /// lblPanel11Header control.
@@ -931,14 +868,5 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonConfirm;
-
-        /// <summary>
-        /// btnPopulate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPopulate;
     }
 }
