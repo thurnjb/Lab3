@@ -19,5 +19,10 @@ namespace Lab3
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
