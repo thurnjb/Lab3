@@ -204,6 +204,7 @@ Create Table MoveAssessment
 	room varChar(255),
 	furnitureList varChar(255),
 	roomFloor varChar(255),
+	boxes varChar(255),
 	appFloor varChar(255),
 	elevator varChar(255),
 	walk varChar(255),
