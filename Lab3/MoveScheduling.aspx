@@ -22,7 +22,6 @@
         <header class="masthead bg-primary text-black text-center">
             <div class="container d-flex align-items-center flex-column">
                 <img class="masthead-avatar mb-5" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions Logo" width="300">
-
     <asp:Table ID="Table1" runat="server">
         <asp:TableRow>
             <asp:TableCell>
