@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44357</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuctionAssessment.aspx" />
+    <Content Include="AuctionServiceOrder.aspx" />
     <Content Include="CompletionForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -136,6 +137,8 @@
     <Content Include="images\moving.jpeg" />
     <Content Include="images\typing.jpeg" />
     <Content Include="InitialContactForm.aspx" />
+    <Content Include="Inventory.aspx" />
+    <Content Include="login.html" />
     <Content Include="LoginForm.aspx" />
     <Content Include="LookAtConfirmation.aspx" />
     <Content Include="LookAtScheduling.aspx" />
@@ -257,6 +260,13 @@
     </Compile>
     <Compile Include="AuctionAssessment.aspx.designer.cs">
       <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.designer.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="CompletionForm.aspx.cs">
       <DependentUpon>CompletionForm.aspx</DependentUpon>

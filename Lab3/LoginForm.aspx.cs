@@ -19,13 +19,13 @@ namespace Lab3
         //On page load, if the page loads with loggedout=true, display user logged out. If user tries to access application without logging in, displays invaliduse session string
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString.Get("loggedout") == "true")
+            if (Request.QueryString.Get("loggedout") == "true")
             {
                 lblStatus.ForeColor = Color.Green;
                 lblStatus.Text = "User has successfully logged out";
             }
 
-            if(Session["InvalidUse"] != null)
+            if (Session["InvalidUse"] != null)
             {
                 lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = Session["InvalidUse"].ToString();

@@ -20,7 +20,7 @@ namespace Lab3
             if(Session["UserName"] != null)
             {
                 btnLogOut.Visible = true;
-                lblUserLoggedIn.ForeColor = Color.Green;
+                lblUserLoggedIn.ForeColor = Color.Gray;
                 lblUserLoggedIn.Text = Session["UserName"].ToString() + " logged in.";
             }
             else

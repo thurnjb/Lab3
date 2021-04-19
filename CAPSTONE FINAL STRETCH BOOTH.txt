@@ -1,0 +1,41 @@
+HIGH PRIORITY THINGS TO DO
+scheduling process for move and auction (sql and code probably almost identical to "look at" ones)
+inventory registration (I made some of the basics of the inventoryregistration.aspx page | wyatt currently working on sql) 
+(i think inventory should have a FK of CustomerID so that from a customer page we could view 
+their inventory items that are registered)
+completetion page / close a ticket page (currently a very basic completetion page somewhere in the solution)
+style all remaining pages, doesnt need to be perfect. we just cant have any default elements IMO
+
+how i envision the workflows:
+AUCTION
+Customer page -> create auction 
+-> inventory registration (fill out text boxes and hit 'add', allows you to fill out again for more items)
+-> scheduling auction page (similar to schedule look-at process that jay created) -> ticket completion
+
+MOVE
+Customer page -> create move -> scheduling move page (similar to schedule look-at process that jay created)
+-> ticket completion
+
+
+15 min demo vid IDEAS (i think if were at least like 12mins were fine):
+- login (maybe mention secuirty aspects of the login / accessing)
+- view home page breifly
+- add new customer
+- go back home and show off searchbar feature, searching customers and showing that the new added customer will show up
+- select the new customer that was added earlier 
+- go to customer profile and maybe edit a detail
+- create an move for the customer
+- probably use populate button and dont spend too much time on each sceen because some of the boxes and stuff dont make much sense
+- show off kestons navigation bar on the page as well
+- confirm and start the scheduling sequence
+- complete the scheduling sequence 
+- select either the same or another existing customer
+- create an auction
+- populate and confirm
+- register inventory items 
+- complete auction scheduling process
+- view customer inventory items from customer profite (if thats possible)
+- complete ticket(s) (ticket completetion page)
+- show calandar even if it doesnt work ?
+Make sure you really highlight new additions from the previous sprint / additions the client
+hasnt seen yet - ezell said thats important

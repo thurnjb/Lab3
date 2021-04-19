@@ -13,48 +13,38 @@ namespace Lab3
 {
     public partial class CustomerProfile : System.Web.UI.Page
     {
+
+        private static SqlDataReader queryResults;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-           if (txtCustomerFirstName.Text != "" & txtCustomerLastName.Text !="" &
-                txtEmail.Text != "" & txtHeardFrom.Text != "" & txtInitialContact.Text != "" &
-                txtPhone.Text != "" & txtAddress.Text != "")
+            if (!IsPostBack)
             {
-                String sqlCommitQuery = "INSERT INTO Customer(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address) VALUES (@FirstName, @LastName, @InitialContact, @HeardFrom, @Phone, @Email, @Address);";
-
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                sqlConnect.Open();
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnect;
-                sqlCommand.CommandText = sqlCommitQuery;
-                sqlCommand.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtCustomerFirstName.Text));
-                sqlCommand.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtCustomerLastName.Text));
-                sqlCommand.Parameters.AddWithValue("@InitialContact", HttpUtility.HtmlEncode(txtInitialContact.Text));
-                sqlCommand.Parameters.AddWithValue("@HeardFrom", HttpUtility.HtmlEncode(txtHeardFrom.Text));
-                sqlCommand.Parameters.AddWithValue("@Phone", HttpUtility.HtmlEncode(txtPhone.Text));
-                sqlCommand.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
-                sqlCommand.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
-                
-
-
-                sqlCommand.ExecuteNonQuery();
+                BindData();
             }
         }
 
-        protected void lnkbtnAuctionForm_Click(object sender, EventArgs e)
+        protected void BindData()
         {
-            Response.Redirect("ServiceTicketRecords.aspx");
-        }
+            String sqlQuery = "SELECT * FROM CUSTOMER WHERE CustomerID = " + Session["CustomerID"];
 
-        protected void lnkbtnMoveForm_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ServiceTicketRecords.aspx");
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandText = sqlQuery;
+
+            queryResults = sqlCommand.ExecuteReader();
+
+            if (queryResults.Read())
+            {
+                txtCustomerFirstName.Text = queryResults["FirstName"].ToString();
+                txtCustomerLastName.Text = queryResults["LastName"].ToString();
+                txtEmail.Text = queryResults["Email"].ToString();
+                txtHeardFrom.Text = queryResults["HeardFrom"].ToString();
+                txtInitialContact.Text = queryResults["InitialContact"].ToString();
+                txtPhone.Text = queryResults["Phone"].ToString();
+                txtAddress.Text = queryResults["Address"].ToString();
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -91,6 +81,55 @@ namespace Lab3
             }
             //// Display the result of the upload.
             //frmConfirmation.Visible = true;
+        }
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtCustomerFirstName.Text != "" & txtCustomerLastName.Text != "" &
+                txtEmail.Text != "" & txtHeardFrom.Text != "" & txtInitialContact.Text != "" &
+                txtPhone.Text != "" & txtAddress.Text != "")
+            {
+                String sqlQuery = "UPDATE Customer SET FirstName = '" + txtCustomerFirstName.Text + "', LastName = '" + 
+                    txtCustomerLastName.Text + "', Email = '" + txtEmail.Text + "',Phone = '" + txtPhone.Text + "', HeardFrom = '" + 
+                    txtHeardFrom.Text + "', InitialContact = '" + txtInitialContact.Text + "', Address = '" + txtAddress.Text + "' WHERE CustomerID = " + Session["CustomerID"] + ";";
+
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandText = sqlQuery;
+
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        protected void btnViewTickets_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Ticket.aspx");
+        }
+
+        protected void btnScheduleLookAt_Click(object sender, EventArgs e)
+        {
+            String sqlQuery = "INSERT INTO LookAtNotification(CustomerID, SaveDate) VALUES (@CustomerID,@SaveDate)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand sqlcommand = new SqlCommand();
+            sqlcommand.Connection = sqlConnect;
+            sqlcommand.CommandText = sqlQuery;
+            sqlcommand.Parameters.AddWithValue("@CustomerID", Session["CustomerID"]);
+            sqlcommand.Parameters.AddWithValue("@SaveDate", DateTime.Now.ToString());
+            sqlcommand.ExecuteNonQuery();
+
+            Response.Redirect("HomePageV2.aspx");
+        }
+
+        protected void btnCreateMove_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MoveAssessmentForm.aspx");
+        }
+
+        protected void btnCreateAuction_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AuctionAssessment.aspx");
         }
     }
 }
