@@ -14,12 +14,22 @@
             .form-group {
                 color:black;
                  }
-            
+            .profile {
+                color:#2b613d;
+                text-align: center;
+            }
+            h1 {
+                text-align: center;
+                padding: 10px;
+            }
+            hr {
+                color:black;
+            }
         </style>
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
-            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/headerlogo.png" alt="Green Valley Auctions logo"> </a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
@@ -29,42 +39,33 @@
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
                         </li>
-                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
+                    
                     </ul>
                 </div>
             </div>
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-        
-                <h1> Add New Customer </h1>
-
-                <h1 class="masthead-heading mb-0"></h1>
-                <div class="row">
+        </div>
+                <h1> Create Customer Profile</h1>
+                <hr>
+            
                        </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="name" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="address" placeholder="Address">
-            </div>
-              <div class="form-group">
-                <input type="text" class="form-control item" id="service" placeholder="Service Notes">
+                   <div class=profile>
+                       <label for="fname"> <strong> Customer Name:</strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname"> <strong>Phone:  </strong></label>
+  <input type="text" id="lname" name="lname"><br><br>
+   <label for="fname"><strong>Address: </strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+    <label for="fname"><strong>Email:   </strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+</div>
 
-         
-<div class="form-group">
-<form action="/action_page.php">
-  <input type="checkbox" id="move" >
-  <label for="move"> Move</label><br>
-  <input type="checkbox" id="auction">
-  <label for="auction"> Auction</label><br>
-  <input type="checkbox" id="storage" >
-  <label for="storage"> Storage</label><br><br>
+          
+
   <input type="submit" value="Submit">
-</form>
+
 </div>
              
         </header>
