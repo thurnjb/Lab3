@@ -30,7 +30,7 @@ body {
 }
 
 .table, .tableheader, td {
-    border: 3px solid black;
+    border: 0px solid black;
     border-collapse: collapse;
 }
 
