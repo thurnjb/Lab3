@@ -102,15 +102,12 @@ namespace Lab3
 
                 grdCustomers.DataSource = CustomerGridView;
                 grdCustomers.DataBind();
-
-            
         }
 
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["CustomerID"] = grdCustomers.SelectedValue;
-            //Response.Redirect("CustomerDetails.aspx");
-
+            Response.Redirect("CustomerDetails.aspx");
         }
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
