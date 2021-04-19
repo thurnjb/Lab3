@@ -5,17 +5,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Auction</title>
+        <title>Move</title>
         <link href="css/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    label {
+        color:#2b613d;
+    }
     .form-control {
             border-color: white;
             background-color:#daac00;
             text-align: center;
-            color:white;
+            color:white;}
+            p {
+                color:#2b613d;
+            }
+            a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+  border:solid .02em black;
+  padding: 5px
+}
+
+.next {
+  background-color: #2b613d;
+  color: white;
+  padding:5px;
+}
+
+.round {
+  border-radius: 50%;
+}
 </style>
     </head>
     <body id="page-top">
@@ -29,33 +62,33 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
-                              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
                         </li>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-            <form class="example" action="action_page.php"> 
-   <form class="example" action="action_page.php">
-<h1> AUCTION </h1>
-
+            <form class="example" action="action_page.php">
+<h1> Move Form</h1>
+<hr><br>
   <h1 class="masthead-heading mb-0"></h1>
                 <div class="row">
                        </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="date" placeholder="Requested Date">
-            </div>
-         
-              <div class="form-group">
-                <input type="text" class="form-control item" id="service" placeholder="Service Notes">
-            </div>
-              <div class="form-group">
-                <input type="text" class="form-control item" id="pictures" placeholder="Attach Pictures">
-            </div>
-            <input type="submit" value="Submit">
+
+
+<label for="fname"> <strong> Notes Title: </strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname"> <strong>Notes Sections:</strong></label>
+  <input type="text" id="lname" name="lname"><br><br>
+
+
+ <a href="movetwo.html" class="previous">Previous</a>
+<a href="movefour.html" class="next">Next </a>
+
+
+
 
 
 </div>
