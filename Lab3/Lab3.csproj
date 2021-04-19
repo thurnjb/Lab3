@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44357</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -117,6 +117,7 @@
     <Content Include="images\typing.jpeg" />
     <Content Include="index.html" />
     <Content Include="InitialContactForm.aspx" />
+    <Content Include="Inventory.aspx" />
     <Content Include="login.html" />
     <Content Include="LoginForm.aspx" />
     <Content Include="LookAtConfirmation.aspx" />
@@ -323,6 +324,13 @@
     </Compile>
     <Compile Include="InitialContactForm.aspx.designer.cs">
       <DependentUpon>InitialContactForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>

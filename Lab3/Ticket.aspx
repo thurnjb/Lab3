@@ -20,6 +20,7 @@
         background-color: #daac00;
         text-align: center;
         color: white;
+    }
 </style>
     </head>
     <body>
@@ -45,12 +46,45 @@
                         <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
                     </Columns>
                 </asp:GridView>
+                <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
+ <button type="button" class="form-control btn btn-primary submit px-3" runat="server" OnServerClick="btn_addNote">Add Note</button> 
+                <asp:Panel ID="pnlNotes" runat="server" Visible="false">
+                    <asp:Label ID="lblNoteTitle" runat="server" Text="Title:"></asp:Label>
+                    <asp:TextBox ID="txtNoteTitle" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="txtNotes" Rows="10" runat="server"></asp:TextBox>
+                    <button type="button" runat="server" OnServerClick="fn_add">Add</button>
+                </asp:Panel>
+   <form class="example" action="action_page.php">
+ <button type="button" class="form-control btn btn-primary submit px-3" runat="server" OnServerClick="btn_editInventory">Edit Inventory</button> 
+<%--                <asp:Panel ID="pnlInv" runat="server" Visible="false">
+                   <asp:GridView ID="grdInventory" runat="server" 
+                    HeaderStyle-BackColor="#000000"
+                    DataKeyNames="InventoryItemID" 
+                    AutoGenerateSelectButton="true" 
+                    AllowSorting="true" 
+                    AutoGenerateColumns="false">
 
- <button type="submit" class="form-control btn btn-primary submit px-3">Add Note</button> 
+                       
+                    <Columns>
+                        <asp:BoundField HeaderText="Item Name" DataField="ItemName" SortExpression="ItemName" />
+                        <asp:BoundField HeaderText="Item Description" DataField="ItemDesc" SortExpression="ItemDesc" />
+                        <asp:BoundField HeaderText="Cost" DataField="ItemCost" SortExpression="ItemCost" />
+                        <asp:BoundField HeaderText="Date Inventoried" DataField="InventoryDate" SortExpression="InventoryDate" />
+                    </Columns>
+                </asp:GridView>
+                </asp:Panel>--%>
    <form class="example" action="action_page.php">
- <button type="submit" class="form-control btn btn-primary submit px-3">Assign Employee</button> 
+ <button type="submit" class="form-control btn btn-primary submit px-3" onclick="btn_assignEmp">Assign Employee</button> 
+<%--                <asp:Panel ID="Panel3" runat="server" Visible="false">
+                    <asp:TextBox ID="" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox6" Rows="10" runat="server"></asp:TextBox>
+                </asp:Panel>--%>
    <form class="example" action="action_page.php">
- <button type="submit" class="form-control btn btn-primary submit px-3">Close Ticket</button> 
+ <button type="button" class="form-control btn btn-primary submit px-3" onclick="btn_closeTicket">Close Ticket</button> 
+<%--                <asp:Panel ID="Panel4" runat="server" Visible="false">
+                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox8" Rows="10" runat="server"></asp:TextBox>
+                </asp:Panel>--%>
 
 
 
@@ -85,6 +119,16 @@
     <asp:SqlDataSource ID="dtasrcEmployee" runat="server"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
         SelectCommand="SELECT EmployeeID, FirstName + ' ' + LastName + ' ' + Position AS NamePosition FROM Employee">
+    </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="sqlInventory" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT Ii.ItemName, Ii.ItemDesc, Ii.ItemCost, Ii.InventoryDate FROM InventoryItem as Ii WHERE InventoryService INNER JOIN InventoryService ON Ii.InventoryItemID = InventoryService.InventoryItemID"
+        InsertCommand="INSERT INTO InventoryItem (ItemName, ItemDesc, ItemCost, InventoryDate) VALUES (@ItemName, @ItemDesc, @ItemCost, @InventoryDate)"
+        UpdateCommand="UPDATE InventoryItem SET ItemName=@ItemName, ItemDesc=@ItemDesc, InventoryDate=@InventoryDate WHERE InventoryItemID=@InventoryItemID">
+        <SelectParameters>
+<%--            <asp:ControlParameter Name=""--%>
+        </SelectParameters>
     </asp:SqlDataSource>
 
 
