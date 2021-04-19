@@ -19,5 +19,18 @@ namespace Lab3
         {
 
         }
+
+        protected void btnPopulate_Click(object sender, EventArgs e)
+        {
+            txtSellItem.Text = "Dresser";
+            ddlAuctionServ.SelectedValue = "1";
+            chkBoxConfirm.Checked = true;
+            chkBoxDeny.Checked = false;
+            txtDeadline.Text = "6/12/21";
+            chkBoxListSchedule.SelectedValue = "Value1";
+            chkBoxPhoto.Checked = true;
+            chkBoxItemList.Checked = true;
+            chkBoxAddistionalServ.SelectedValue = "4";
+        }
     }
 }
