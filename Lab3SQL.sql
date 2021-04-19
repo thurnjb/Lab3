@@ -330,16 +330,16 @@ CREATE TABLE MoveNotifConfirm
 	INSERT INTO INVENTORYITEM(ItemName,ItemDesc,ItemCost,InventoryDate) VALUES
 	('Roman Gold Coin', 'Roman currency from ~1100 AD', 300.00, '2021-03-15');
 
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,TicketStatus,TicketOpenDate) VALUES
-	(1, 1, 'Open', '2021-02-14');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,TicketStatus,TicketOpenDate) VALUES
-	(2, 2, 'Open', '2021-02-15');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,TicketStatus,TicketOpenDate) VALUES
-	(3, 3, 'Open', '2021-02-16');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,TicketStatus,TicketOpenDate) VALUES
-	(4, 4, 'Open', '2021-02-18');
-	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,TicketStatus,TicketOpenDate) VALUES
-	(5, 5, 'Open',  '2021-02-19');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,Service,TicketStatus,TicketOpenDate) VALUES
+	(1, 1, 'Move', 'Open', '2021-02-14');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,Service,TicketStatus,TicketOpenDate) VALUES
+	(2, 2, 'Auction', 'Open', '2021-02-15');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,Service,TicketStatus,TicketOpenDate) VALUES
+	(3, 3, 'Auction', 'Open', '2021-02-16');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,Service,TicketStatus,TicketOpenDate) VALUES
+	(4, 4, 'Move', 'Open', '2021-02-18');
+	INSERT INTO SERVICETICKET(CustomerID,InitiatingEmployeeID,Service,TicketStatus,TicketOpenDate) VALUES
+	(5, 5, 'Move', 'Open',  '2021-02-19');
 
 	INSERT INTO NOTES(ServiceTicketID,NoteTitle,NoteContent) VALUES
 	(1, 'Ticket Created', 'Ticket Created');
@@ -411,3 +411,10 @@ SELECT * FROM INVENTORYSERVICE;
 SELECT * FROM LOOKAT;
 SELECT * FROM LookAtNotification;
 SELECT * FROM LookAtNotifConfirm;
+
+Select T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName,
+                T.Service, T.TicketStatus, T.TicketOpenDate
+                FROM Customer C, Employee E, ServiceTicket T
+                WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.Archived IS NULL AND T.CustomerID = 1
+
+SELECT Ii.ItemName, Ii.ItemDesc, Ii.ItemCost, Ii.InventoryDate FROM InventoryItem as Ii INNER JOIN InventoryService ON Ii.InventoryServiceID = InventoryService.InventoryServiceID WHERE InventoryService.InventoryServiceID = 1 AND ServiceTicket.Archived = null
