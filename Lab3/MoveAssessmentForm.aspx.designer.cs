@@ -267,13 +267,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label LabelEachRoomFurniture;
 
         /// <summary>
-        /// ListBoxEachRoomFurniture control.
+        /// txtRoomFurniture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxEachRoomFurniture;
+        protected global::System.Web.UI.WebControls.TextBox txtRoomFurniture;
 
         /// <summary>
         /// LabelRoomFloor control.
@@ -411,15 +411,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label LabelTypeOfHome;
 
         /// <summary>
-        /// LabelApartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelApartment;
-
-        /// <summary>
         /// LabelAptFloor control.
         /// </summary>
         /// <remarks>
@@ -519,15 +510,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblPanel5Header;
 
         /// <summary>
-        /// LabelStorage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelStorage;
-
-        /// <summary>
         /// LabelClimateC control.
         /// </summary>
         /// <remarks>
@@ -607,15 +589,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPanel8Header;
-
-        /// <summary>
-        /// LabelTruckInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTruckInfo;
 
         /// <summary>
         /// LabelTruckAccess control.

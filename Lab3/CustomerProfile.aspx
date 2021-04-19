@@ -11,7 +11,7 @@
                 <asp:Label ID="lblImageUpload" runat="server" Text=""></asp:Label>       
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnUpload" runat="server" Text="Add Pofile Picture" OnClick="btnUpload_Click" />
+                <asp:Button ID="btnUpload" runat="server" Text="Add Profile Picture" OnClick="btnUpload_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

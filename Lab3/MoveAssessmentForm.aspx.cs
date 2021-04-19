@@ -90,7 +90,6 @@ namespace Lab3
 
             //Room Info
             CheckBoxListOrderOfRooms.SelectedValue = "Den";
-            ListBoxEachRoomFurniture.Text = "Couch and dresser";
             CheckBoxFloor.SelectedValue = "Basement";
             CheckBoxList1.SelectedValue = "Large";
 

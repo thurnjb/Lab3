@@ -18,10 +18,21 @@
             .mobile-wrapper{
                 color:black;
             }
+            .table, .tableheader, td {
+  border: 3px solid black;
+  border-collapse: collapse;;
+}
+.tableheader {
+  text-align: center;
+  color: #2b613d;
+}
+.tableheader, td {
+  padding: 15px;
+}
         </style>
     </head>
     <body>
-        <header class="masthead bg-primary text-white text-center">
+        <header class="masthead bg-primary text-center">
             <div class="container d-flex align-items-center flex-column">
                 <img class="masthead-avatar mb-5" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions Logo" width="300">
                 <h1> Customer Database </h1>
@@ -54,7 +65,6 @@
          <div style="width:auto;height:auto;color:black;border:1px solid #000;">
         Customer Results
     <asp:GridView ID="grdCustomers" runat="server"
-                        HeaderStyle-BackColor="#000000"
                         EmptyDataText="No Customer with that name!"
                         AutoGenerateSelectButton="true"
                         SelectedIndex="1"
@@ -62,31 +72,26 @@
                         AllowSorting="true"
                         OnSorting="grdCustomers_Sorting"
                         DataKeyNames="CustomerID"
-                        AutoGenerateColumns="false">
+                        AutoGenerateColumns="false" 
+                        CssClass="table">
                         <columns>
-                            <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" />
-                            <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" />
-                            <%--<asp:BoundField HeaderText="InitialContact" DataField="InitialContact" SortExpression="InitialContact" />--%>
-                            <%--<asp:BoundField HeaderText="HeardFrom" DataField="HeardFrom" SortExpression="HeardFrom" />--%>
-                            <%--<asp:BoundField HeaderText="Phone" DataField="Phone" SortExpression="Phone" />--%>
-                            <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" />
-                            <%--<asp:BoundField HeaderText="Address" DataField="Address" SortExpression="Address" />--%>
-                            <%--<asp:BoundField HeaderText="DestAddress" DataField="DestAddress" SortExpression="DestAddress" />--%>
-                            <%--<asp:BoundField HeaderText="SaveDate" DataField="SaveDate" SortExpression="SaveDate" />--%>
+                            <asp:BoundField HeaderText="FirstName" DataField="FirstName" SortExpression="FirstName" HeaderStyle-CssClass="tableheader" />
+                            <asp:BoundField HeaderText="LastName" DataField="LastName" SortExpression="LastName" HeaderStyle-CssClass="tableheader" />
+                            <asp:BoundField HeaderText="Email" DataField="Email" SortExpression="Email" HeaderStyle-CssClass="tableheader" />
                         </columns>
         </asp:GridView>
         </div>
           <br />
           <br />
 
-          <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:"></asp:Label>
+          <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:" CssClass="label"></asp:Label>
           <br />
-          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" >
+          <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" CssClass="table" >
                 <Columns>
-                    <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
-                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
-                    <asp:BoundField HeaderText="Address" DataField="Address" />
-                    <asp:TemplateField>
+                    <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
+                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
+                    <asp:BoundField HeaderText="Address" DataField="Address" HeaderStyle-CssClass="tableheader" />
+                    <asp:TemplateField HeaderStyle-CssClass="tableheader">
                         <ItemTemplate>
                             <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" onclick="btnLookAtConfirm_Click"/>
                         </ItemTemplate>
@@ -94,14 +99,14 @@
                 </Columns>
             </asp:GridView>
           <br />
-          <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:"></asp:Label>
+          <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:" CssClass="label"></asp:Label>
           <br />
-          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID">
+          <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="table">
               <Columns>
-                  <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
-                  <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" />
-                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate"/>
-                  <asp:TemplateField>
+                  <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
+                  <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" HeaderStyle-CssClass="tableheader" />
+                  <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader"/>
+                  <asp:TemplateField HeaderStyle-CssClass="tableheader">
                       <ItemTemplate>
                           <asp:Button ID="btnLookAtConfConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfConfirm_Click" />
                       </ItemTemplate>
