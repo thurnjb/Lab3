@@ -99,7 +99,9 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@searchKey", hpCustomerSearch.Text);
             cmd.Connection = con;
 
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(cmd);
+            String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
+            connection.Open();
 
             SqlAdapter.Fill(CustomerGridView);
 
@@ -112,7 +114,7 @@ namespace Lab3
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["CustomerID"] = grdCustomers.SelectedValue;
-            Response.Redirect("CustomerDetails.aspx");
+            Response.Redirect("CustomerProfile.aspx");
         }
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)

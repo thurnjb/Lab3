@@ -16,7 +16,8 @@ DROP TABLE TBLFILES;
 DROP TABLE LOOKAT;
 DROP TABLE LookAtNotifConfirm;
 DROP TABLE LOOKATNOTIFICATION;
-DROP TABLE MOVEASSESSMENT
+DROP TABLE MOVEASSESSMENT;
+DROP TABLE AUCTIONASSESSMENT;
 DROP TABLE CUSTOMER;
 
 --Create tables
@@ -222,6 +223,22 @@ Create Table MoveAssessment
 	packingFees varChar(255),
 	storageFees varChar(255),
 	trashRemoval varChar(255),
+	CustomerID int References Customer(CustomerID)
+	);
+	
+	Create Table AuctionAssessment
+	(AuctionAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	whatSell varChar(255),
+	whyAuction varChar(255),
+	deadline varChar(255),
+	deadlineDate varChar(255),
+	bringIn varChar(255),
+	walkThrough varChar(255),
+	pickUp varChar(255),
+	trashHaul varChar(255),
+	photos varChar(255),
+	moving varChar(255),
+	appraisal varChar(255),
 	CustomerID int References Customer(CustomerID)
 	);
 

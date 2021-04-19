@@ -177,30 +177,48 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtHeardFrom;
 
         /// <summary>
-        /// lnkbtnMoveForm control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnMoveForm;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// lnkbtnAuctionForm control.
+        /// btnViewTickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnAuctionForm;
+        protected global::System.Web.UI.WebControls.Button btnViewTickets;
 
         /// <summary>
-        /// btnSubmit control.
+        /// btnScheduleLookAt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnScheduleLookAt;
+
+        /// <summary>
+        /// btnCreateMove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateMove;
+
+        /// <summary>
+        /// btnCreateAuction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateAuction;
     }
 }
