@@ -19,9 +19,9 @@
             </asp:TableCell>
             <asp:TableCell>
                 <asp:DropDownList ID="ddlAuctionServ" runat="server" Width="165px">
-                    <asp:ListItem Value="1">I am cleaning house</asp:ListItem>
-                    <asp:ListItem Value="2">I want the best price</asp:ListItem>
-                    <asp:ListItem Value="3">Other</asp:ListItem>
+                    <asp:ListItem Value="Cleaning House">I am cleaning house</asp:ListItem>
+                    <asp:ListItem Value="Best Price">I want the best price</asp:ListItem>
+                    <asp:ListItem Value="Other">Other</asp:ListItem>
                 </asp:DropDownList>
             </asp:TableCell>
         </asp:TableRow>
@@ -30,10 +30,11 @@
                 <asp:Label ID="lblDeadline" runat="server" Text="Is there a deadline?"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:CheckBox ID="chkBoxConfirm" runat="server" Text="Yes" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBox ID="chkBoxDeny" runat="server" Text="No" />
+                <asp:RadioButtonList ID="rblDeadline" runat="server">
+                    <asp:ListItem Value="Yes">Yes</asp:ListItem>
+                    <asp:ListItem Value="No">No</asp:ListItem>
+
+                </asp:RadioButtonList>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -57,10 +58,10 @@
                     RepeatLayout="Flow"
                     TextAlign="Right"
                     OnSelectedIndexChanged="chkBoxListSchedule_SelectedIndexChanged">
-                    <asp:ListItem Value="Value1">Bring In</asp:ListItem>
-                    <asp:ListItem Value="Value2">Auction Walk Through</asp:ListItem>
-                    <asp:ListItem Value="Value3">Pick Up</asp:ListItem>
-                    <asp:ListItem Value="Value4">Trash Removal &  Donation Hauling</asp:ListItem>
+                    <asp:ListItem Value="Bring In">Bring In</asp:ListItem>
+                    <asp:ListItem Value="Auction Walk Though">Auction Walk Through</asp:ListItem>
+                    <asp:ListItem Value="Pick Up">Pick Up</asp:ListItem>
+                    <asp:ListItem Value="Trash Removal">Trash Removal &  Donation Hauling</asp:ListItem>
                 </asp:CheckBoxList>
             </asp:TableCell>
         </asp:TableRow>
@@ -74,22 +75,13 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblItemList" runat="server" Text="List of Items:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBox ID="chkBoxItemList" runat="server" />
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
                 <asp:Label ID="lblAdditionalServ" runat="server" Text="Do you need additional services?"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:CheckBoxList ID="chkBoxAddistionalServ" runat="server">
-                    <asp:ListItem Value="1">Moving</asp:ListItem>
-                    <asp:ListItem Value="2">Appraisal</asp:ListItem>
-                    <asp:ListItem Value="3">Trash Removal & Donation Hauling </asp:ListItem>
-                    <asp:ListItem Value="4">None</asp:ListItem>
+                    <asp:ListItem Value="Moving">Moving</asp:ListItem>
+                    <asp:ListItem Value="Appraisal">Appraisal</asp:ListItem>
+                    <asp:ListItem Value="None">None</asp:ListItem>
                 </asp:CheckBoxList>
             </asp:TableCell>
         </asp:TableRow>
@@ -98,7 +90,7 @@
     <asp:Table ID="tblbtn" runat="server">
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnSave" runat="server" Text="Save" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                 <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
             </asp:TableCell>
         </asp:TableRow>

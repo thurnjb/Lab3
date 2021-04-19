@@ -79,11 +79,11 @@ namespace Lab3
             String sqlCommitQuery = "INSERT INTO MoveAssessment(outDate,windowDays,address,mls,photo,additionalServices,auctionServices,room,furnitureList, roomFloor, boxes, appFloor, elevator, walk, house, climateStorage, outdoorStorage, businessPlace, truckAccessable, doorWalk, stepsWalk, equipNeeded, trucksRequired, moveEstimate, fixedRates, packingFees, storageFees, trashRemoval, CustomerID)  VALUES(@outDate, @windowDays, @address, @mls, @photo, @additionalServices, @auctionServices, @room, @furnitureList, @roomFloor, @boxes, @appFloor, @elevator, @walk, @house, @climateStorage, @outdoorStorage, @businessPlace, @truckAccessable, @doorWalk, @stepsWalk, @equipNeeded, @trucksRequired, @moveEstimate, @fixedRates, @packingFees, @storageFees, @trashRemoval, @CustomerID); ";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
             sqlConnect.Open();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandText = sqlCommitQuery;
+
             sqlCommand.Parameters.AddWithValue("@outDate", HttpUtility.HtmlEncode(TextBoxMoveOutDate.Text));
             sqlCommand.Parameters.AddWithValue("@windowDays", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
             sqlCommand.Parameters.AddWithValue("@address", HttpUtility.HtmlEncode(TextBoxAddressMovingTo.Text));
@@ -114,6 +114,8 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@trashRemoval", HttpUtility.HtmlEncode(TextBoxTrashRemoval.Text));
             sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
             sqlCommand.ExecuteNonQuery();
+
+            Response.Redirect("MoveScheduling.aspx");
 
         }
 
