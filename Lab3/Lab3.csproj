@@ -84,9 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="auction.html" />
     <Content Include="AuctionAssessment.aspx" />
-    <Content Include="bootstrap.min.css" />
     <Content Include="CompletionForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -98,35 +96,52 @@
     <Content Include="css\heading.css" />
     <Content Include="css\style.css" />
     <Content Include="css\styles.css" />
-    <Content Include="customerdatabase.html" />
     <Content Include="CustomerDetails.aspx" />
-    <Content Include="customerdetails.html" />
     <Content Include="CustomerPortalHome.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
     <Content Include="CustomerProfile.aspx" />
-    <Content Include="customers.html" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerList.aspx" />
     <Content Include="CustomerPortalService.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
     <Content Include="HomePageV2.aspx" />
+    <Content Include="auction.html" />
+    <Content Include="bootstrap.min.css" />
+    <Content Include="currentcustomer.html" />
+    <Content Include="customerdatabase.html" />
+    <Content Include="customerdetails.html" />
+    <Content Include="customers.html" />
+    <Content Include="customersearch.html" />
+    <Content Include="index.html" />
+    <Content Include="login.html" />
+    <Content Include="move.html" />
+    <Content Include="moveeight.html" />
+    <Content Include="movefive.html" />
+    <Content Include="movefour.html" />
+    <Content Include="moveseven.html" />
+    <Content Include="movesix.html" />
+    <Content Include="movethree.html" />
+    <Content Include="movetwo.html" />
+    <Content Include="newcustomer.html" />
+    <Content Include="new_account.html" />
+    <Content Include="storage.html" />
+    <Content Include="style.css" />
+    <Content Include="styles.css" />
+    <Content Include="tickets.html" />
     <Content Include="images\box.jpeg" />
     <Content Include="images\greenvalley.jpeg" />
     <Content Include="images\greenvalleyauctions.jpeg" />
     <Content Include="images\greeting.jpeg" />
     <Content Include="images\moving.jpeg" />
     <Content Include="images\typing.jpeg" />
-    <Content Include="index.html" />
     <Content Include="InitialContactForm.aspx" />
-    <Content Include="login.html" />
     <Content Include="LoginForm.aspx" />
     <Content Include="LookAtConfirmation.aspx" />
     <Content Include="LookAtScheduling.aspx" />
-    <Content Include="move.html" />
     <Content Include="MoveAssessmentForm.aspx" />
-    <Content Include="MoveScheduling.aspx" />
-    <Content Include="newcustomer.html" />
-    <Content Include="new_account.html" />
+	  <Content Include="MoveScheduling.aspx" />
+	  <Content Include="newcustomer.html" />
+	  <Content Include="new_account.html" />
     <Content Include="NotificationPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -152,7 +167,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Move.aspx" />
-    <Content Include="README.md" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Notifications.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -231,12 +245,8 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="ServiceTicketRecords.aspx" />
-    <Content Include="storage.html" />
-    <Content Include="style.css" />
-    <Content Include="styles.css" />
     <Content Include="TicketHistory.aspx" />
     <Content Include="Ticket.aspx" />
-    <Content Include="tickets.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

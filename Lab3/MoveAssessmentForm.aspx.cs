@@ -41,7 +41,6 @@ namespace Lab3
         //If next was clicked, make next panel visible
         protected void ChangePanelVisible(Boolean goNext)
         {
-            //this is awful programming
             //update with loop
             Panel[] arr = new Panel[] { Panel1, Panel2, Panel3, Panel4, Panel5, Panel6, Panel7, Panel8 };
 
@@ -114,8 +113,6 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@storageFees", HttpUtility.HtmlEncode(TextBoxStorageFees.Text));
             sqlCommand.Parameters.AddWithValue("@trashRemoval", HttpUtility.HtmlEncode(TextBoxTrashRemoval.Text));
             sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
-
-
             sqlCommand.ExecuteNonQuery();
 
         }
@@ -132,7 +129,6 @@ namespace Lab3
 
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
-            //eek I don't want to do this
             //Customer Questions
             TextBoxMoveOutDate.Text = "10 / 12 / 2021";
             TextBoxWindowDaysMove.Text = "any day";
@@ -144,7 +140,6 @@ namespace Lab3
 
             //Room Info
             CheckBoxListOrderOfRooms.SelectedValue = "Den";
-            ListBoxEachRoomFurniture.Text = "Couch and dresser";
             CheckBoxFloor.SelectedValue = "Basement";
             CheckBoxList1.SelectedValue = "Large";
 

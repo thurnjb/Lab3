@@ -22,7 +22,13 @@
             p {
                 color:#2b613d;
             }
-           a:hover {
+            a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
   background-color: #ddd;
   color: black;
 }
@@ -43,18 +49,17 @@
 .round {
   border-radius: 50%;
 }
-hr { color:black; border-style: inset; border-width: 1px;}
 </style>
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
-            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/headerlogo.png" alt="Green Valley Auctions logo"> </a>
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customersearch.html">CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
                         </li>
@@ -68,29 +73,32 @@ hr { color:black; border-style: inset; border-width: 1px;}
             <form class="example" action="action_page.php">
 <h1> Move Form</h1>
 <hr><br>
+<h3> Costing Out Move Information Below:</h3><br>
+
   <h1 class="masthead-heading mb-0"></h1>
                 <div class="row">
                        </div>
 
 
-  <label for="fname"> <strong> Move-Out Date: </strong></label>
+
+<label for="fname"> <strong> Move Estimate </strong></label>
   <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname"> <strong>Available Move Dates:</strong></label>
+  <label for="lname"> <strong>Fixed Rate</strong></label>
   <input type="text" id="lname" name="lname"><br><br>
-   <label for="fname"><strong>Address Moving To:</strong></label>
+   <label for="fname"><strong>Packaging Fees</strong></label>
   <input type="text" id="fname" name="fname"><br><br>
-<p><strong> MLS Listing? </strong> </p><input type="checkbox" id="move" >
-  <label for="move"> Yes </label>  <input type="checkbox" id="move" >   <label for="move"> No</label> 
-<p> <strong>Can you send photos, if needed?</strong> </p> <input type="checkbox" id="move" >
-  <label for="move"> Yes </label>  <input type="checkbox" id="move" >  
-<label for="move"> No</label> 
- <p> <strong>Need add-on services? </strong> </p><input type="checkbox" id="move" >
-  <label for="move"> Packing Service </label><br>  <input type="checkbox" id="move" >   <label for="move"> Travis Removal/Donation Hauling</label> <br>
+   <label for="fname"><strong>Storage Fees</strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+   <label for="fname"><strong>Trash Removal</strong></label>
+  <input type="text" id="fname" name="fname"><br><br>
+  
+  
 
   
-<a href="movetwo.html" class="next">Next</a>
 
-  
+
+ <a href="moveseven.html" class="previous">Previous</a>
+
 
 
 

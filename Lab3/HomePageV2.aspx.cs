@@ -16,7 +16,7 @@ namespace Lab3
     public partial class HomePageV2 : System.Web.UI.Page
     {
         private static DataTable CustomerGridView = new DataTable();
-
+        private static DataTable grdView = new DataTable();
         private static DataTable grdVwLookAt = new DataTable();
         private static DataTable grdVwLookAtConf = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace Lab3
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["CustomerID"] = grdCustomers.SelectedValue;
-            Response.Redirect("CustomerDetails.aspx");
+            //Response.Redirect("CustomerDetails.aspx");
 
         }
 
@@ -144,5 +144,7 @@ namespace Lab3
             grdCustomers.DataSource = CustomerGridView;
             grdCustomers.DataBind();
         }
+
+     
     }
 }
