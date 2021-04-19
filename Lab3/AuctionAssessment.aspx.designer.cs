@@ -69,22 +69,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblDeadline;
 
         /// <summary>
-        /// chkBoxConfirm control.
+        /// rblDeadline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkBoxConfirm;
-
-        /// <summary>
-        /// chkBoxDeny control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkBoxDeny;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblDeadline;
 
         /// <summary>
         /// lblDeadlineDate control.
@@ -139,24 +130,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkBoxPhoto;
-
-        /// <summary>
-        /// lblItemList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblItemList;
-
-        /// <summary>
-        /// chkBoxItemList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkBoxItemList;
 
         /// <summary>
         /// lblAdditionalServ control.

@@ -181,7 +181,15 @@ namespace Lab3
 
         protected void btn_addNote(object sender, EventArgs e)
         {
-            pnlNotes.Visible = true;
+            if (Session["TicketID"] == null)
+            {
+                lblErrorMsg.Text = "Please select a service ticket.";
+            }
+            else
+            {
+                pnlNotes.Visible = true;
+            }
+            
         }
 
         protected void fn_add(object sender, EventArgs e)
@@ -192,7 +200,7 @@ namespace Lab3
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = connection;
             sqlCommand.CommandText = sqlQuery;
-            sqlCommand.Parameters.AddWithValue("@TicketID", Session["TicketID"]);
+            sqlCommand.Parameters.AddWithValue("@TicketID", Session["TicketID"].ToString());
             sqlCommand.Parameters.AddWithValue("@NoteTitle", txtNoteTitle.Text);
             sqlCommand.Parameters.AddWithValue("@NoteContent", txtNotes.Text);
 
@@ -210,7 +218,58 @@ namespace Lab3
 
         protected void btn_assignEmp(object sender, EventArgs e)
         {
+            pnlEmp.Visible = true;
 
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            String sqlQuery = "SELECT concat(LastName, ', ', FirstName) as EmpName, EmployeeID FROM Employee";
+            connection.Open();
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            da.Fill(ds);
+            connection.Close();
+
+            ddlEmp.DataTextField = ds.Tables[0].Columns["EmpName"].ToString();
+            ddlEmp.DataValueField = ds.Tables[0].Columns["EmployeeID"].ToString();
+
+            ddlEmp.DataSource = ds.Tables[0];
+            ddlEmp.DataBind();
+        }
+
+        protected void fn_addEmp(object sender, EventArgs e)
+        {
+            if (Session["TicketID"] == null)
+            {
+                lblErrorMsg.Text = "Please select a service ticket.";
+            }
+            else
+            {
+                SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                String sqlQuery = "UPDATE ServiceTicket SET InitiatingEmployeeID=@EmpID WHERE ServiceTicketID=@TicketID";
+                connection.Open();
+                SqlCommand sqlCommand2 = new SqlCommand();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = connection;
+                sqlCommand.CommandText = sqlQuery;
+                sqlCommand.Parameters.AddWithValue("@TicketID", Session["TicketID"].ToString());
+                sqlCommand.Parameters.AddWithValue("@EmpID", ddlEmp.SelectedItem.Value);
+                sqlCommand.ExecuteNonQuery();
+
+
+                String sqlQueryHist = "INSERT INTO TicketHistory (ServiceTicketID, EmployeeID, TicketChangeDate, DetailsNote) VALUES (@TicketID, @EmpID, @Date, @Note)";
+                sqlCommand2.CommandText = sqlQueryHist;
+                sqlCommand2.Connection = connection;
+                sqlCommand2.Parameters.AddWithValue("@TicketID", Session["TicketID"].ToString());
+                sqlCommand2.Parameters.AddWithValue("@EmpID", ddlEmp.SelectedItem.Value);
+                sqlCommand2.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+                sqlCommand2.Parameters.AddWithValue("@Note", "Changed Employee to: " + ddlEmp.SelectedItem.Text);
+                sqlCommand2.ExecuteNonQuery();
+
+                connection.Close();
+                lblErrorMsg.Text = "Successfully saved to database!";
+                pnlEmp.Visible = false;
+            }
+            
         }
 
         protected void btn_closeTicket(object sender, EventArgs e)
@@ -228,7 +287,7 @@ namespace Lab3
 
         protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Session["TicketID"] = grdTickets.SelectedValue.ToString();
         }
 
         protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)

@@ -11,124 +11,97 @@ namespace Lab3
 {
 
 
-    public partial class TicketPage
+    public partial class InventoryRegistration
     {
 
         /// <summary>
-        /// grdTickets control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdTickets;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// lblErrorMsg control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// pnlNotes control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNotes;
+        protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
-        /// lblNoteTitle control.
+        /// tbName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoteTitle;
+        protected global::System.Web.UI.WebControls.TextBox tbName;
 
         /// <summary>
-        /// txtNoteTitle control.
+        /// lblDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoteTitle;
+        protected global::System.Web.UI.WebControls.Label lblDesc;
 
         /// <summary>
-        /// txtNotes control.
+        /// tbDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNotes;
+        protected global::System.Web.UI.WebControls.TextBox tbDesc;
 
         /// <summary>
-        /// pnlEmp control.
+        /// lblCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEmp;
+        protected global::System.Web.UI.WebControls.Label lblCost;
 
         /// <summary>
-        /// lblChooseEmp control.
+        /// tbCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChooseEmp;
+        protected global::System.Web.UI.WebControls.TextBox tbCost;
 
         /// <summary>
-        /// ddlEmp control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
+        protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
-        /// dtasrcServiceTicketID control.
+        /// tbDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcServiceTicketID;
-
-        /// <summary>
-        /// dtasrcNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcNotes;
-
-        /// <summary>
-        /// dtasrcEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployee;
-
-        /// <summary>
-        /// sqlInventory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlInventory;
+        protected global::System.Web.UI.WebControls.TextBox tbDate;
     }
 }

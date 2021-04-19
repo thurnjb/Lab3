@@ -115,6 +115,7 @@
     <Content Include="customers.html" />
     <Content Include="customersearch.html" />
     <Content Include="index.html" />
+    <Content Include="InventoryRegistration.aspx" />
     <Content Include="login.html" />
     <Content Include="move.html" />
     <Content Include="moveeight.html" />
@@ -355,12 +356,12 @@
     <Compile Include="InitialContactForm.aspx.designer.cs">
       <DependentUpon>InitialContactForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.aspx.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryRegistration.aspx.cs">
+      <DependentUpon>InventoryRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventory.aspx.designer.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryRegistration.aspx.designer.cs">
+      <DependentUpon>InventoryRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
