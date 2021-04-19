@@ -95,7 +95,7 @@ namespace Lab3
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName=@searchKey OR LastName=@searchKey OR concat(FirstName,' ',LastName)=@searchKey;";
+            cmd.CommandText = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate FROM CUSTOMER WHERE FirstName=@searchKey OR LastName=@searchKey OR concat(FirstName,' ',LastName)=@searchKey;";
             cmd.Parameters.AddWithValue("@searchKey", hpCustomerSearch.Text);
             cmd.Connection = con;
 
