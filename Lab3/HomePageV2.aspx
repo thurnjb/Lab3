@@ -83,29 +83,7 @@
         </div>
           <br />
           <br />
-<form class="example" action="action_page.php">
-    <asp:Label ID="lblTickets" runat="server" Text="Tickets"></asp:Label>
-    <asp:GridView ID="grdTickets" runat="server"
-        HeaderStyle-BackColor="#000000"
-        EmptyDataText="This Customer Has No Tickets!"
-        AutoGenerateColumns="false"
-        AutoGenerateSelectButton="true"
-        AllowSorting="true"
-        DataKeyNames="ServiceTicketID"
-        OnSelectedIndexChanged="grdTickets_SelectedIndexChanged"
-        OnSorting="grdTickets_Sorting">
 
-        <Columns>
-            <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
-            <asp:BoundField HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
-            <asp:BoundField HeaderText="ServiceType" DataField="ServiceType" SortExpression="ServiceType" />
-            <asp:BoundField HeaderText="TicketStatus" DataField="TicketStatus" SortExpression="TicketStatus" />
-            <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
-            <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
-            <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
-        </Columns>
-    </asp:GridView>
-</form>
 
           <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:" CssClass="label"></asp:Label>
           <br />

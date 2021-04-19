@@ -145,15 +145,6 @@ namespace Lab3
             grdCustomers.DataBind();
         }
 
-        protected void grdTickets_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["TicketID"] = grdTickets.SelectedValue;
-            Response.Redirect("Ticket.aspx");
-        }
-
-        protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
-        {
-
-        }
+     
     }
 }
