@@ -19,6 +19,8 @@ namespace Lab3
         private static DataTable grdView = new DataTable();
         private static DataTable grdVwLookAt = new DataTable();
         private static DataTable grdVwLookAtConf = new DataTable();
+        private static DataTable grdVwMoveSchedule = new DataTable();
+        private static DataTable grdVwMoveConf = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -32,6 +34,8 @@ namespace Lab3
         {
             grdVwLookAt.Clear();
             grdVwLookAtConf.Clear();
+            grdVwMoveSchedule.Clear();
+            grdVwMoveConf.Clear();
 
             String sqlQuery = "SELECT N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, C.Address, N.SaveDate FROM Customer C, LookAtNotification N WHERE N.CustomerID = C.CustomerID AND N.Archived IS NULL ORDER BY N.SaveDate";
 
@@ -58,34 +62,23 @@ namespace Lab3
 
             grdLookAtConf.DataSource = grdVwLookAtConf;
             grdLookAtConf.DataBind();
+
+            String query = "SELECT M.MoveNotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, M.PotentialDates, M.SaveDate FROM Customer C, MoveNotification M WHERE M.CustomerID = C.CustomerID AND M.Archived IS NULL";
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            connection.Open();
+            adapter.Fill(grdVwMoveSchedule);
+            grdMoveNotification.DataSource = grdVwMoveSchedule;
+            grdMoveNotification.DataBind();
+
+            String sql = "SELECT N.MoveNotifConfirmID, N.MoveNotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, N.PotentialDates, N.SaveDate FROM Customer C, MoveNotifConfirm N, MoveNotification M WHERE M.CustomerID = C.CustomerID AND M.MoveNotificationID = N.MoveNotificationID AND N.Archived IS NULL";
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlDataAdapter adapt = new SqlDataAdapter(sql, con);
+            con.Open();
+            adapt.Fill(grdVwMoveConf);
+            grdMoveConf.DataSource = grdVwMoveConf;
+            grdMoveConf.DataBind();
         }
-
-        protected void btnLookAtConfirm_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            GridViewRow row = btn.NamingContainer as GridViewRow;
-            string pk = grdNotification.DataKeys[row.RowIndex].Values[0].ToString();
-
-            Session["LookAtID"] = Convert.ToInt32(pk);
-
-            Response.Redirect("LookAtScheduling.aspx");
-        }
-
-        protected void btnConfirm_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("LookAtScheduling.aspx");
-        }
-
-        protected void btnLookAtConfConfirm_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            GridViewRow row = btn.NamingContainer as GridViewRow;
-            string pk = grdLookAtConf.DataKeys[row.RowIndex].Values[0].ToString();
-
-            Session["LookAtConfID"] = Convert.ToInt32(pk);
-            Response.Redirect("LookAtConfirmation.aspx");
-        }
-
 
         protected void searchBtn_Click(object sender, EventArgs e)
         {
@@ -147,6 +140,28 @@ namespace Lab3
             grdCustomers.DataBind();
         }
 
+        protected void grdNotification_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["LookAtID"] = grdNotification.SelectedValue;
+            Response.Redirect("LookAtScheduling.aspx");
+        }
 
+        protected void grdLookAtConf_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["LookAtConfID"] = grdLookAtConf.SelectedValue;
+            Response.Redirect("LookAtConfirmation.aspx");
+        }
+
+        protected void grdMoveNotification_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["MoveID"] = grdMoveNotification.SelectedValue;
+            Response.Redirect("MoveScheduling.aspx");
+        }
+
+        protected void grdMoveConf_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["MoveConfID"] = grdMoveConf.SelectedValue;
+            Response.Redirect("MoveSchedulingConfirmation.aspx");
+        }
     }
 }

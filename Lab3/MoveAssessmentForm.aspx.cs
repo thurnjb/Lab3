@@ -79,11 +79,11 @@ namespace Lab3
             String sqlCommitQuery = "INSERT INTO MoveAssessment(outDate,windowDays,address,mls,photo,additionalServices,auctionServices,room,furnitureList, roomFloor, boxes, appFloor, elevator, walk, house, climateStorage, outdoorStorage, businessPlace, truckAccessable, doorWalk, stepsWalk, equipNeeded, trucksRequired, moveEstimate, fixedRates, packingFees, storageFees, trashRemoval, CustomerID)  VALUES(@outDate, @windowDays, @address, @mls, @photo, @additionalServices, @auctionServices, @room, @furnitureList, @roomFloor, @boxes, @appFloor, @elevator, @walk, @house, @climateStorage, @outdoorStorage, @businessPlace, @truckAccessable, @doorWalk, @stepsWalk, @equipNeeded, @trucksRequired, @moveEstimate, @fixedRates, @packingFees, @storageFees, @trashRemoval, @CustomerID); ";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
             sqlConnect.Open();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandText = sqlCommitQuery;
+
             sqlCommand.Parameters.AddWithValue("@outDate", HttpUtility.HtmlEncode(TextBoxMoveOutDate.Text));
             sqlCommand.Parameters.AddWithValue("@windowDays", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
             sqlCommand.Parameters.AddWithValue("@address", HttpUtility.HtmlEncode(TextBoxAddressMovingTo.Text));
@@ -115,6 +115,20 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
             sqlCommand.ExecuteNonQuery();
 
+            String sqlQuery = "INSERT INTO MoveNotification(CustomerID, PotentialDates, SaveDate) VALUES(@CustomerID, @PotentialDates, @SaveDate)";
+
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = sqlQuery;
+            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
+            cmd.Parameters.AddWithValue("@PotentialDates", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
+            cmd.Parameters.AddWithValue("@SaveDate", HttpUtility.HtmlEncode(DateTime.Now));
+            cmd.ExecuteNonQuery();
+
+            Response.Redirect("HomePageV2.aspx");
         }
 
         protected void btnPreviousPanel_Click(object sender, EventArgs e)

@@ -11,53 +11,35 @@ namespace Lab3
 {
 
 
-    public partial class HomePageV2
+    public partial class MoveSchedulingConfirmation
     {
 
         /// <summary>
-        /// searchTitle control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label searchTitle;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// hpCustomerSearch control.
+        /// lblLookAtConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hpCustomerSearch;
+        protected global::System.Web.UI.WebControls.Label lblLookAtConfirm;
 
         /// <summary>
-        /// searchBtn control.
+        /// lblNotification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchBtn;
-
-        /// <summary>
-        /// grdCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomers;
-
-        /// <summary>
-        /// lblLookAtNotifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLookAtNotifications;
+        protected global::System.Web.UI.WebControls.Label lblNotification;
 
         /// <summary>
         /// grdNotification control.
@@ -69,66 +51,66 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdNotification;
 
         /// <summary>
-        /// lblLookAtConfirmations control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLookAtConfirmations;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// grdLookAtConf control.
+        /// txtSelectedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLookAtConf;
+        protected global::System.Web.UI.WebControls.TextBox txtSelectedDate;
 
         /// <summary>
-        /// lblMoveNotifications control.
+        /// lblEmployeeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoveNotifications;
+        protected global::System.Web.UI.WebControls.Label lblEmployeeList;
 
         /// <summary>
-        /// grdMoveNotification control.
+        /// ddlEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMoveNotification;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
 
         /// <summary>
-        /// lblMoveNotifConfirm control.
+        /// btnConfirmDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoveNotifConfirm;
+        protected global::System.Web.UI.WebControls.Button btnConfirmDate;
 
         /// <summary>
-        /// grdMoveConf control.
+        /// lblErrorMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMoveConf;
+        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
 
         /// <summary>
-        /// dtasrcLookAtConf control.
+        /// dtasrcEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcLookAtConf;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployee;
     }
 }

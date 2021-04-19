@@ -29,6 +29,20 @@ body {
   padding: 5px;
 }
 
+.table, .tableheader, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+.tableheader {
+    text-align: center;
+    color: #2b613d;
+}
+
+.tableheader, td {
+    padding: 15px;
+}
+
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }

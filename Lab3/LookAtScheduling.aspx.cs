@@ -96,7 +96,7 @@ namespace Lab3
             }
             else
             {
-                lblErrorMsg.Text = "Must select dates!";
+                lblErrorMsg.Text = "Must select date(s)!";
             }
         }
     }

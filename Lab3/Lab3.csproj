@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44357</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -114,11 +115,13 @@
     <Content Include="customers.html" />
     <Content Include="customersearch.html" />
     <Content Include="index.html" />
+    <Content Include="InventoryRegistration.aspx" />
     <Content Include="login.html" />
     <Content Include="move.html" />
     <Content Include="moveeight.html" />
     <Content Include="movefive.html" />
     <Content Include="movefour.html" />
+    <Content Include="MoveSchedulingConfirmation.aspx" />
     <Content Include="moveseven.html" />
     <Content Include="movesix.html" />
     <Content Include="movethree.html" />
@@ -353,12 +356,12 @@
     <Compile Include="InitialContactForm.aspx.designer.cs">
       <DependentUpon>InitialContactForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.aspx.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryRegistration.aspx.cs">
+      <DependentUpon>InventoryRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventory.aspx.designer.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryRegistration.aspx.designer.cs">
+      <DependentUpon>InventoryRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
@@ -394,6 +397,13 @@
     </Compile>
     <Compile Include="MoveScheduling.aspx.designer.cs">
       <DependentUpon>MoveScheduling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveSchedulingConfirmation.aspx.cs">
+      <DependentUpon>MoveSchedulingConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveSchedulingConfirmation.aspx.designer.cs">
+      <DependentUpon>MoveSchedulingConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotificationPage.aspx.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>

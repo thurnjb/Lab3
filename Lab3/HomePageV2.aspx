@@ -19,21 +19,6 @@
             .mobile-wrapper {
                 color: black;
             }
-
-            .table, .tableheader, td {
-                border: 3px solid black;
-                border-collapse: collapse;
-                ;
-            }
-
-            .tableheader {
-                text-align: center;
-                color: #2b613d;
-            }
-
-            .tableheader, td {
-                padding: 15px;
-            }
         </style>
     </head>
     <body>
@@ -77,31 +62,41 @@
                             <br />
                             <asp:Label ID="lblLookAtNotifications" runat="server" Text="Look Ats To Be Scheduled:" CssClass="label"></asp:Label>
                             <br />
-                            <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" CssClass="table">
+                            <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="NotificationID" AutoGenerateSelectButton="true" OnSelectedIndexChanged="grdNotification_SelectedIndexChanged" CssClass="table">
                                 <Columns>
                                     <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
                                     <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
                                     <asp:BoundField HeaderText="Address" DataField="Address" HeaderStyle-CssClass="tableheader" />
-                                    <asp:TemplateField HeaderStyle-CssClass="tableheader">
-                                        <ItemTemplate>
-                                            <asp:Button ID="btnLookAtConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfirm_Click" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                             <br />
                             <asp:Label ID="lblLookAtConfirmations" runat="server" Text="Look Ats To Be Confirmed With Customer:" CssClass="label"></asp:Label>
                             <br />
-                            <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="table">
+                            <asp:GridView ID="grdLookAtConf" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" AutoGenerateSelectButton="true" OnSelectedIndexChanged="grdLookAtConf_SelectedIndexChanged" CssClass="table">
                                 <Columns>
                                     <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
                                     <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" HeaderStyle-CssClass="tableheader" />
                                     <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
-                                    <asp:TemplateField HeaderStyle-CssClass="tableheader">
-                                        <ItemTemplate>
-                                            <asp:Button ID="btnLookAtConfConfirm" runat="server" Text="Confirm" OnClick="btnLookAtConfConfirm_Click" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                            <asp:Label ID="lblMoveNotifications" runat="server" Text="Moves To Be Scheduled:" CssClass="label"></asp:Label>
+                            <br />
+                            <asp:GridView ID="grdMoveNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="MoveNotificationID" AutoGenerateSelectButton="true" OnSelectedIndexChanged="grdMoveNotification_SelectedIndexChanged" CssClass="table">
+                                <Columns>
+                                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
+                                    <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" HeaderStyle-CssClass="tableheader" />
+                                    <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                            <asp:Label ID="lblMoveNotifConfirm" runat="server" Text="Moves To Be Confirmed With Customer"></asp:Label>
+                            <br />
+                            <asp:GridView ID="grdMoveConf" runat="server" AutoGenerateColumns="false" DataKeyNames="MoveNotifConfirmID" AutoGenerateSelectButton="true" OnSelectedIndexChanged="grdMoveConf_SelectedIndexChanged" CssClass="table">
+                                <Columns>
+                                    <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
+                                    <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" HeaderStyle-CssClass="tableheader" />
+                                    <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
                                 </Columns>
                             </asp:GridView>
                             <h1>Calendar </h1>

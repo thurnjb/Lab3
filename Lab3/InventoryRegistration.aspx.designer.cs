@@ -11,124 +11,97 @@ namespace Lab3
 {
 
 
-    public partial class HomePageV2
+    public partial class InventoryRegistration
     {
 
         /// <summary>
-        /// searchTitle control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label searchTitle;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// hpCustomerSearch control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hpCustomerSearch;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// searchBtn control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchBtn;
+        protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
-        /// grdCustomers control.
+        /// tbName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomers;
+        protected global::System.Web.UI.WebControls.TextBox tbName;
 
         /// <summary>
-        /// lblLookAtNotifications control.
+        /// lblDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLookAtNotifications;
+        protected global::System.Web.UI.WebControls.Label lblDesc;
 
         /// <summary>
-        /// grdNotification control.
+        /// tbDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdNotification;
+        protected global::System.Web.UI.WebControls.TextBox tbDesc;
 
         /// <summary>
-        /// lblLookAtConfirmations control.
+        /// lblCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLookAtConfirmations;
+        protected global::System.Web.UI.WebControls.Label lblCost;
 
         /// <summary>
-        /// grdLookAtConf control.
+        /// tbCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLookAtConf;
+        protected global::System.Web.UI.WebControls.TextBox tbCost;
 
         /// <summary>
-        /// lblMoveNotifications control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoveNotifications;
+        protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
-        /// grdMoveNotification control.
+        /// tbDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMoveNotification;
-
-        /// <summary>
-        /// lblMoveNotifConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoveNotifConfirm;
-
-        /// <summary>
-        /// grdMoveConf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMoveConf;
-
-        /// <summary>
-        /// dtasrcLookAtConf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcLookAtConf;
+        protected global::System.Web.UI.WebControls.TextBox tbDate;
     }
 }

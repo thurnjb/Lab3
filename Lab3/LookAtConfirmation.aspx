@@ -35,11 +35,11 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="ID">
+                <asp:GridView ID="grdNotification" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="table">
                     <Columns>
-                        <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" />
-                        <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" />
-                        <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" />
+                        <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" HeaderStyle-CssClass="tableheader" />
+                        <asp:BoundField HeaderText="PotentialDates" DataField="PotentialDates" HeaderStyle-CssClass="tableheader" />
+                        <asp:BoundField HeaderText="SaveDate" DataField="SaveDate" HeaderStyle-CssClass="tableheader" />
                     </Columns> 
                 </asp:GridView>
             </asp:TableCell>
