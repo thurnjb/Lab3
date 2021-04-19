@@ -5,17 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Auction</title>
+        <title>Customer</title>
         <link href="css/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    .form-control {
-            border-color: white;
-            background-color:#daac00;
-            text-align: center;
-            color:white;
+                 table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;;
+}
+th {
+  text-align: center;
+  color: #2b613d;;
+}
+th, td {
+  padding: 15px;
+}
+h3 {
+  text-align: center;
+  color:#2b613d;
+}
 </style>
     </head>
     <body id="page-top">
@@ -26,42 +36,33 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html"> CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
-                              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
-                        </li>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
+        
+
+    
+
+            <section class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-            <form class="example" action="action_page.php"> 
-   <form class="example" action="action_page.php">
-<h1> AUCTION </h1>
-
-  <h1 class="masthead-heading mb-0"></h1>
-                <div class="row">
-                       </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="date" placeholder="Requested Date">
-            </div>
-         
-              <div class="form-group">
-                <input type="text" class="form-control item" id="service" placeholder="Service Notes">
-            </div>
-              <div class="form-group">
-                <input type="text" class="form-control item" id="pictures" placeholder="Attach Pictures">
-            </div>
-            <input type="submit" value="Submit">
-
+            <form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button></form> 
+      </section>
+<section>
+    <div class="form-group">
+            <a href="newcustomer.html"> <button type="submit" class="btn btn-block create-account">Add New Customer</button> </div></a>
+</section>
+ 
 
 </div>
-
              
-        </header>
+    
       
           
     </body>
