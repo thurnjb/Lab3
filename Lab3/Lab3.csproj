@@ -139,6 +139,9 @@
     <Content Include="LookAtConfirmation.aspx" />
     <Content Include="LookAtScheduling.aspx" />
     <Content Include="MoveAssessmentForm.aspx" />
+	  <Content Include="MoveScheduling.aspx" />
+	  <Content Include="newcustomer.html" />
+	  <Content Include="new_account.html" />
     <Content Include="NotificationPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -367,6 +370,13 @@
     </Compile>
     <Compile Include="MoveAssessmentForm.aspx.designer.cs">
       <DependentUpon>MoveAssessmentForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveScheduling.aspx.cs">
+      <DependentUpon>MoveScheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveScheduling.aspx.designer.cs">
+      <DependentUpon>MoveScheduling.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotificationPage.aspx.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>
