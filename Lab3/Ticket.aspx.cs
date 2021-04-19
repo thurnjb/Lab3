@@ -178,6 +178,46 @@ namespace Lab3
         //    }
         //}
 
+
+        protected void btn_addNote(object sender, EventArgs e)
+        {
+            pnlNotes.Visible = true;
+        }
+
+        protected void fn_add(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            String sqlQuery = "INSERT INTO Notes (ServiceTicketID, NoteTitle, NoteContent) VALUES (@TicketID, @NoteTitle, @NoteContent)";
+            connection.Open();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = connection;
+            sqlCommand.CommandText = sqlQuery;
+            sqlCommand.Parameters.AddWithValue("@TicketID", Session["TicketID"]);
+            sqlCommand.Parameters.AddWithValue("@NoteTitle", txtNoteTitle.Text);
+            sqlCommand.Parameters.AddWithValue("@NoteContent", txtNotes.Text);
+
+            sqlCommand.ExecuteNonQuery();
+            lblErrorMsg.Text = "Successfully saved to database!";
+            pnlNotes.Visible = false;
+        }
+
+        protected void btn_editInventory(object sender, EventArgs e)
+        {
+            int ticketID = (int)grdTickets.DataKeys[0].Value;
+            Session["InvTicketID"] = ticketID;
+            Response.Redirect("Inventory.aspx");
+        }
+
+        protected void btn_assignEmp(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_closeTicket(object sender, EventArgs e)
+        {
+
+        }
+
         protected void dtlVwTicketNotes_ModeChanging(object sender, DetailsViewModeEventArgs e)
         {
             if (e.CancelingEdit)
@@ -192,6 +232,11 @@ namespace Lab3
         }
 
         protected void grdTickets_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
+
+        protected void AddRow(object sender, EventArgs e)
         {
 
         }
