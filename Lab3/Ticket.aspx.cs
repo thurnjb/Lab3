@@ -212,6 +212,11 @@ namespace Lab3
             pnlNotes.Visible = false;
         }
 
+        protected void fn_cancelNote(object sender, EventArgs e)
+        {
+            pnlNotes.Visible = false;
+        }
+
         protected void btn_editInventory(object sender, EventArgs e)
         {
             int ticketID = (int)grdTickets.DataKeys[0].Value;
@@ -277,7 +282,7 @@ namespace Lab3
 
         protected void btn_closeTicket(object sender, EventArgs e)
         {
-
+            Response.Redirect("CompletionForm.aspx");
         }
 
         protected void dtlVwTicketNotes_ModeChanging(object sender, DetailsViewModeEventArgs e)

@@ -52,6 +52,7 @@
                     <asp:TextBox ID="txtNoteTitle" runat="server"></asp:TextBox><br />
                     <asp:TextBox ID="txtNotes" Rows="10" runat="server"></asp:TextBox>
                     <button type="button" runat="server" OnServerClick="fn_add">Add</button>
+                    <button type="button" runat="server" OnServerClick="fn_cancelNote">Cancel</button>
                 </asp:Panel>
    <form class="example" action="action_page.php">
  <button type="button" class="form-control btn btn-primary submit px-3" runat="server" OnServerClick="btn_editInventory">Edit Inventory</button> 
@@ -80,11 +81,7 @@
                     <button type="button" runat="server" OnServerClick="fn_addEmp">Assign</button>
                 </asp:Panel>
    <form class="example" action="action_page.php">
- <button type="button" class="form-control btn btn-primary submit px-3" onclick="btn_closeTicket">Close Ticket</button> 
-<%--                <asp:Panel ID="Panel4" runat="server" Visible="false">
-                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox8" Rows="10" runat="server"></asp:TextBox>
-                </asp:Panel>--%>
+ <button type="button" class="form-control btn btn-primary submit px-3" runat="server" OnServerClick="btn_closeTicket">Close Ticket</button> 
 
 
 
