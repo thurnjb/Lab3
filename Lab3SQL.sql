@@ -224,6 +224,22 @@ Create Table MoveAssessment
 	trashRemoval varChar(255),
 	CustomerID int References Customer(CustomerID)
 	);
+	
+	Create Table AuctionAssessment
+	(AuctionAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	whatSell varChar(255),
+	whyAuction varChar(255),
+	dealine varChar(255),
+	deadlineDate varChar(255),
+	bringIn varChar(255),
+	walkThrough varChar(255),
+	pickUp varChar(255),
+	trashHaul varChar(255),
+	photos varChar(255),
+	moving varChar(255),
+	appraisal varChar(255),
+	CustomerID int References Customer(CustomerID)
+	);
 
 --Insert test records
 	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
