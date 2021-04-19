@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,25 @@ namespace Lab3
 {
     public partial class MoveAssessmentForm : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+
+            //String sqlquery = "SELECT FirstName, LastName FROM CUSTOMER WHERE CustomerID=" + Session["CustomerID"] + ";";
+
+            //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            //SqlCommand sqlCommand = new SqlCommand();
+            //sqlCommand.Connection = sqlConnect;
+            //sqlCommand.CommandType = CommandType.Text;
+            //sqlCommand.CommandText = sqlquery;
+
+
+            //sqlConnect.Open();
+            //SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            //lblName.Text = queryResults.ToString();
+
 
 
         }

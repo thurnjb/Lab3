@@ -4,7 +4,16 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+ 
     &nbsp;<asp:Table ID="Table1" runat="server">
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblTitle" runat="server" Text="Move Assessment"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <%--Navigation buttons--%>
