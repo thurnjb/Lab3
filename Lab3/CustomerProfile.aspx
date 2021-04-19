@@ -72,17 +72,24 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:LinkButton ID="lnkbtnMoveForm" runat="server" OnClick="lnkbtnMoveForm_Click">Attach Move Form</asp:LinkButton>
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:LinkButton ID="lnkbtnAuctionForm" runat="server" OnClick="lnkbtnAuctionForm_Click">Attach Auction Form</asp:LinkButton>
+                <asp:Button ID="btnViewTickets" runat="server" Text="View Tickets" OnClick="btnViewTickets_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnScheduleLookAt" runat="server" Text="Schedule Look At" OnClick="btnScheduleLookAt_Click" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnCreateMove" runat="server" Text="Create Move" OnClick="btnCreateMove_Click"  />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnCreateAuction" runat="server" Text="Create Auction" OnClick="btnCreateAuction_Click" />
             </asp:TableCell>
         </asp:TableRow>
+        
     </asp:Table>
 
 

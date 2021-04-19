@@ -94,7 +94,7 @@ namespace Lab3
 
                 SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
+                String sqlquery = "SELECT CustomerID,FirstName,LastName,Email FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
                 SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
                 connection.Open();
 
@@ -107,7 +107,7 @@ namespace Lab3
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["CustomerID"] = grdCustomers.SelectedValue;
-            Response.Redirect("CustomerDetails.aspx");
+            Response.Redirect("CustomerProfile.aspx");
         }
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
