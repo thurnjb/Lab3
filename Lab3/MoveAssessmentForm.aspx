@@ -384,11 +384,11 @@ hr { color:black; border-style: inset; border-width: 1px;}
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:CheckBoxList ID="CheckBoxListSpecialEquipment" runat="server">
-                        <asp:ListItem Value="0"> Appliance Cart </asp:ListItem>
-                        <asp:ListItem Value="1"> Piano Dolly </asp:ListItem>
-                        <asp:ListItem Value="2"> Piano Board </asp:ListItem>
-                        <asp:ListItem Value="3"> Gun Safe Cart </asp:ListItem>
-                        <asp:ListItem Value="4"> Extra Blankets </asp:ListItem>
+                        <asp:ListItem Value="Appliance Cart"> Appliance Cart </asp:ListItem>
+                        <asp:ListItem Value="Piano Dolly"> Piano Dolly </asp:ListItem>
+                        <asp:ListItem Value="Piano Board"> Piano Board </asp:ListItem>
+                        <asp:ListItem Value="Gun Safe Cart"> Gun Safe Cart </asp:ListItem>
+                        <asp:ListItem Value="Extra Blankets"> Extra Blankets </asp:ListItem>
                     </asp:CheckBoxList>
                 </asp:TableCell>
             </asp:TableRow>
