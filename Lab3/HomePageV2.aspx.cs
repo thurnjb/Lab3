@@ -16,7 +16,7 @@ namespace Lab3
     public partial class HomePageV2 : System.Web.UI.Page
     {
         private static DataTable CustomerGridView = new DataTable();
-
+        private static DataTable grdView = new DataTable();
         private static DataTable grdVwLookAt = new DataTable();
         private static DataTable grdVwLookAtConf = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Lab3
             string pk = grdNotification.DataKeys[row.RowIndex].Values[0].ToString();
 
             Session["LookAtID"] = Convert.ToInt32(pk);
-            
+
             Response.Redirect("LookAtScheduling.aspx");
         }
 
@@ -89,28 +89,30 @@ namespace Lab3
 
         protected void searchBtn_Click(object sender, EventArgs e)
         {
-            
-                CustomerGridView.Clear();
 
-                SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            CustomerGridView.Clear();
 
-                String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
-                SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
-                connection.Open();
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName=@searchKey OR LastName=@searchKey OR concat(FirstName,' ',LastName)=@searchKey;";
+            cmd.Parameters.AddWithValue("@searchKey", hpCustomerSearch.Text);
+            cmd.Connection = con;
 
-                SqlAdapter.Fill(CustomerGridView);
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter(cmd);
 
-                grdCustomers.DataSource = CustomerGridView;
-                grdCustomers.DataBind();
+            SqlAdapter.Fill(CustomerGridView);
 
-            
+            grdCustomers.DataSource = CustomerGridView;
+            grdCustomers.DataBind();
+            con.Close();
+
         }
 
         protected void grdCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["CustomerID"] = grdCustomers.SelectedValue;
-            Response.Redirect("CustomerDetails.aspx");
-
+            Response.Redirect("CustomerProfile.aspx");
         }
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
@@ -144,5 +146,7 @@ namespace Lab3
             grdCustomers.DataSource = CustomerGridView;
             grdCustomers.DataBind();
         }
+
+
     }
 }

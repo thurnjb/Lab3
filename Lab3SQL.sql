@@ -16,6 +16,8 @@ DROP TABLE TBLFILES;
 DROP TABLE LOOKAT;
 DROP TABLE LookAtNotifConfirm;
 DROP TABLE LOOKATNOTIFICATION;
+DROP TABLE MOVEASSESSMENT;
+DROP TABLE AUCTIONASSESSMENT;
 DROP TABLE CUSTOMER;
 
 --Create tables
@@ -28,7 +30,6 @@ CREATE TABLE Customer
 	Phone varchar(255),
 	Email varchar(255),
 	Address varchar(255),
-	DestAddress varchar(255),
 	RequestedService varchar(255),
 	SaveDate datetime
 	);
@@ -191,17 +192,66 @@ CREATE TABLE LookAtNotifConfirm
 	Archived varchar(255)
 	);
 
+Create Table MoveAssessment 
+	(MoveAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	outDate varChar(255),
+	windowDays varChar(255),
+	address varChar(255),
+	mls varChar(255),
+	photo varChar(255),
+	additionalServices varChar(255),
+	auctionServices varChar(255),
+	room varChar(255),
+	furnitureList varChar(255),
+	roomFloor varChar(255),
+	boxes varChar(255),
+	appFloor varChar(255),
+	elevator varChar(255),
+	walk varChar(255),
+	house varChar(255),
+	climateStorage varChar(255),
+	outdoorStorage varChar(255),
+	businessPlace varChar(255),
+	truckAccessable varChar(255),
+	doorWalk varChar(255),
+	stepsWalk varChar(255),
+	equipNeeded varChar(255),
+	trucksRequired varChar(255),
+	moveEstimate varChar(255),
+	fixedRates varChar(255),
+	packingFees varChar(255),
+	storageFees varChar(255),
+	trashRemoval varChar(255),
+	CustomerID int References Customer(CustomerID)
+	);
+	
+	Create Table AuctionAssessment
+	(AuctionAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	whatSell varChar(255),
+	whyAuction varChar(255),
+	deadline varChar(255),
+	deadlineDate varChar(255),
+	bringIn varChar(255),
+	walkThrough varChar(255),
+	pickUp varChar(255),
+	trashHaul varChar(255),
+	photos varChar(255),
+	moving varChar(255),
+	appraisal varChar(255),
+	CustomerID int References Customer(CustomerID)
+	);
+
 --Insert test records
-	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
-	('Joe', 'Jenkins', 'Phone', 'Web', '1234567890', 'joejoe@joe.com', '123 S. Main St.,Harrisonburg,Virginia,22801', '312 W. Water,Harrisonburg,Virginia,22801',  '2021-02-10');
-	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
-	('Sarah', 'Smiles', 'Email', 'Email', '0987654321', 'SarahBear@gmail.com',  '800 S. Main St.,Harrisonburg,Virginia,22801', null, '2021-02-11');
-	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
-	('Terry', 'Thurn', 'Text', 'Web', '1112223334', 'TerryRulez@gmail.com', '321 Boom St.,Nome,Alaska,11111', '1 North St.,Pasadena,California,20101', '2021-02-12');
-	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
-	('Scooby', 'Doo', 'Phone', 'Person', '1010101010', 'Scoobs@gmail.com',  '1 Street St.,Crystal Cove,Virginia,12345', null, '2021-02-13');
-	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate) VALUES
-	('Andrew', 'Amberson', 'Person', 'Email', '7037037037', 'Andypoo@gmail.com', '2 Court Ct.,Narnia,California,54321', '123 Broken blvd.,New York City,New York,10203', '2021-02-14');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES
+	('Joe', 'Jenkins', 'Phone', 'Web', '1234567890', 'joejoe@joe.com', '123 S. Main St.,Harrisonburg,Virginia,22801','2021-02-10');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES
+	('Sarah', 'Smiles', 'Email', 'Email', '0987654321', 'SarahBear@gmail.com',  '800 S. Main St.,Harrisonburg,Virginia,22801','2021-02-11');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES
+	('Terry', 'Thurn', 'Text', 'Web', '1112223334', 'TerryRulez@gmail.com', '321 Boom St.,Nome,Alaska,11111','2021-02-12');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES
+	('Scooby', 'Doo', 'Phone', 'Person', '1010101010', 'Scoobs@gmail.com',  '1 Street St.,Crystal Cove,Virginia,12345','2021-02-13');
+	INSERT INTO CUSTOMER(FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,SaveDate) VALUES
+	('Andrew', 'Amberson', 'Person', 'Email', '7037037037', 'Andypoo@gmail.com', '2 Court Ct.,Narnia,California,54321','2021-02-14');
 
 	INSERT INTO EMPLOYEE(FirstName,LastName,Position,Phone,Email) VALUES
 	('John', 'Jacob', 'Manager', '18005882300', 'JohnJacob@jingleheimer.com');

@@ -20,7 +20,7 @@ namespace Lab3
             if(Session["UserName"] != null)
             {
                 btnLogOut.Visible = true;
-                lblUserLoggedIn.ForeColor = Color.Green;
+                lblUserLoggedIn.ForeColor = Color.Gray;
                 lblUserLoggedIn.Text = Session["UserName"].ToString() + " logged in.";
             }
             else
@@ -32,12 +32,6 @@ namespace Lab3
         }
 
         //This method abandons the session and returns to login page
-        protected void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("LoginForm.aspx?loggedout=true");
-        }
-
         protected void btnLogout_Click1(object sender, EventArgs e)
         {
             Session.Abandon();

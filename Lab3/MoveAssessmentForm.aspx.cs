@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,25 @@ namespace Lab3
 {
     public partial class MoveAssessmentForm : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            //String sqlquery = "SELECT FirstName +' ' + LastName AS CustomerName FROM CUSTOMER WHERE CustomerID=" + Session["CustomerID"] + ";";
+
+            //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            //SqlCommand sqlCommand = new SqlCommand();
+            //sqlCommand.Connection = sqlConnect;
+            //sqlCommand.CommandType = CommandType.Text;
+            //sqlCommand.CommandText = sqlquery;
+
+
+            //sqlConnect.Open();
+            //SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            //lblName.Text = queryResults.ToString();
+
 
 
         }
@@ -24,7 +41,6 @@ namespace Lab3
         //If next was clicked, make next panel visible
         protected void ChangePanelVisible(Boolean goNext)
         {
-            //this is awful programming
             //update with loop
             Panel[] arr = new Panel[] { Panel1, Panel2, Panel3, Panel4, Panel5, Panel6, Panel7, Panel8 };
 
@@ -53,17 +69,52 @@ namespace Lab3
 
         protected void ButtonConfirm_Click(object sender, EventArgs e)
         {
-            //String sqlCommitQuery = "INSERT INTO";
+            string additionalService = CheckBoxListAddService.SelectedValue;
+            string rooms = CheckBoxListOrderOfRooms.SelectedValue;
+            string roomFloor = CheckBoxFloor.SelectedValue;
+            string boxes = CheckBoxList1.SelectedValue;
+            string equip = CheckBoxListSpecialEquipment.SelectedValue;
+            string trucks = CheckBoxListTrucksRequired.SelectedValue;
 
-            //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            String sqlCommitQuery = "INSERT INTO MoveAssessment(outDate,windowDays,address,mls,photo,additionalServices,auctionServices,room,furnitureList, roomFloor, boxes, appFloor, elevator, walk, house, climateStorage, outdoorStorage, businessPlace, truckAccessable, doorWalk, stepsWalk, equipNeeded, trucksRequired, moveEstimate, fixedRates, packingFees, storageFees, trashRemoval, CustomerID)  VALUES(@outDate, @windowDays, @address, @mls, @photo, @additionalServices, @auctionServices, @room, @furnitureList, @roomFloor, @boxes, @appFloor, @elevator, @walk, @house, @climateStorage, @outdoorStorage, @businessPlace, @truckAccessable, @doorWalk, @stepsWalk, @equipNeeded, @trucksRequired, @moveEstimate, @fixedRates, @packingFees, @storageFees, @trashRemoval, @CustomerID); ";
 
-            //sqlConnect.Open();
-            //SqlCommand sqlCommand = new SqlCommand();
-            //sqlCommand.Connection = sqlConnect;
-            //sqlCommand.CommandText = sqlCommitQuery;
-            //sqlCommand.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            //sqlCommand.ExecuteNonQuery();
+            sqlConnect.Open();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandText = sqlCommitQuery;
+            sqlCommand.Parameters.AddWithValue("@outDate", HttpUtility.HtmlEncode(TextBoxMoveOutDate.Text));
+            sqlCommand.Parameters.AddWithValue("@windowDays", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
+            sqlCommand.Parameters.AddWithValue("@address", HttpUtility.HtmlEncode(TextBoxAddressMovingTo.Text));
+            sqlCommand.Parameters.AddWithValue("@mls", HttpUtility.HtmlEncode(TextBoxMLSListing.Text));
+            sqlCommand.Parameters.AddWithValue("@photo", HttpUtility.HtmlEncode(TextBoxPhotos.Text));
+            sqlCommand.Parameters.AddWithValue("@additionalServices", HttpUtility.HtmlEncode(additionalService));
+            sqlCommand.Parameters.AddWithValue("@auctionServices", HttpUtility.HtmlEncode(TextBoxAuctionServices.Text));
+            sqlCommand.Parameters.AddWithValue("@room", HttpUtility.HtmlEncode(rooms));
+            sqlCommand.Parameters.AddWithValue("@furnitureList", HttpUtility.HtmlEncode("chair, table"));
+            sqlCommand.Parameters.AddWithValue("@roomFloor", HttpUtility.HtmlEncode(roomFloor));
+            sqlCommand.Parameters.AddWithValue("@boxes", HttpUtility.HtmlEncode(boxes));
+            sqlCommand.Parameters.AddWithValue("@appFloor", HttpUtility.HtmlEncode(TextBoxAptFloor.Text));
+            sqlCommand.Parameters.AddWithValue("@elevator", HttpUtility.HtmlEncode(TextBoxAptElevator.Text));
+            sqlCommand.Parameters.AddWithValue("@walk", HttpUtility.HtmlEncode(TextBoxAptWalk.Text));
+            sqlCommand.Parameters.AddWithValue("@house", HttpUtility.HtmlEncode(TextBoxHouse.Text));
+            sqlCommand.Parameters.AddWithValue("@climateStorage", HttpUtility.HtmlEncode(TextBoxClimateC.Text));
+            sqlCommand.Parameters.AddWithValue("@outdoorStorage", HttpUtility.HtmlEncode(TextBoxSelfStorage.Text));
+            sqlCommand.Parameters.AddWithValue("@businessPlace", HttpUtility.HtmlEncode(TextBoxBusiness.Text));
+            sqlCommand.Parameters.AddWithValue("@truckAccessable", HttpUtility.HtmlEncode(TextBoxTruckAccess.Text));
+            sqlCommand.Parameters.AddWithValue("@doorWalk", HttpUtility.HtmlEncode(TextBoxLoadingDoor.Text));
+            sqlCommand.Parameters.AddWithValue("@stepsWalk", HttpUtility.HtmlEncode(TextBoxSteps.Text));
+            sqlCommand.Parameters.AddWithValue("@equipNeeded", HttpUtility.HtmlEncode(equip));
+            sqlCommand.Parameters.AddWithValue("@trucksRequired", HttpUtility.HtmlEncode(trucks));
+            sqlCommand.Parameters.AddWithValue("@moveEstimate", HttpUtility.HtmlEncode(TextBoxEstimate.Text));
+            sqlCommand.Parameters.AddWithValue("@fixedRates", HttpUtility.HtmlEncode(TextBoxFixed.Text));
+            sqlCommand.Parameters.AddWithValue("@packingFees", HttpUtility.HtmlEncode(TextBoxPackingFees.Text));
+            sqlCommand.Parameters.AddWithValue("@storageFees", HttpUtility.HtmlEncode(TextBoxStorageFees.Text));
+            sqlCommand.Parameters.AddWithValue("@trashRemoval", HttpUtility.HtmlEncode(TextBoxTrashRemoval.Text));
+            sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
+            sqlCommand.ExecuteNonQuery();
+
         }
 
         protected void btnPreviousPanel_Click(object sender, EventArgs e)
@@ -78,7 +129,6 @@ namespace Lab3
 
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
-            //eek I don't want to do this
             //Customer Questions
             TextBoxMoveOutDate.Text = "10 / 12 / 2021";
             TextBoxWindowDaysMove.Text = "any day";
@@ -90,7 +140,6 @@ namespace Lab3
 
             //Room Info
             CheckBoxListOrderOfRooms.SelectedValue = "Den";
-            ListBoxEachRoomFurniture.Text = "Couch and dresser";
             CheckBoxFloor.SelectedValue = "Basement";
             CheckBoxList1.SelectedValue = "Large";
 
@@ -115,8 +164,8 @@ namespace Lab3
             TextBoxSteps.Text = "25 feet";
 
             //Equipemnt Needed
-            CheckBoxListSpecialEquipment.SelectedValue = "0";
-            CheckBoxListTrucksRequired.SelectedValue = "0";
+            CheckBoxListSpecialEquipment.SelectedValue = "Piano Dolly";
+            CheckBoxListTrucksRequired.SelectedValue = "2011";
 
             //Cost Estimate
             TextBoxEstimate.Text = "6,950";
