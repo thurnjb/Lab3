@@ -99,9 +99,7 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@searchKey", hpCustomerSearch.Text);
             cmd.Connection = con;
 
-            String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + hpCustomerSearch.Text + "' OR LastName='" + hpCustomerSearch.Text + "';";
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
-            connection.Open();
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter(cmd);
 
             SqlAdapter.Fill(CustomerGridView);
 
