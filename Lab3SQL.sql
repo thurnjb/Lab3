@@ -229,7 +229,7 @@ Create Table MoveAssessment
 	(AuctionAssessmentID int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	whatSell varChar(255),
 	whyAuction varChar(255),
-	dealine varChar(255),
+	deadline varChar(255),
 	deadlineDate varChar(255),
 	bringIn varChar(255),
 	walkThrough varChar(255),
