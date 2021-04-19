@@ -74,11 +74,12 @@
                 </asp:GridView>
                 </asp:Panel>--%>
    <form class="example" action="action_page.php">
- <button type="submit" class="form-control btn btn-primary submit px-3" onclick="btn_assignEmp">Assign Employee</button> 
-<%--                <asp:Panel ID="Panel3" runat="server" Visible="false">
-                    <asp:TextBox ID="" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox6" Rows="10" runat="server"></asp:TextBox>
-                </asp:Panel>--%>
+ <button type="submit" class="form-control btn btn-primary submit px-3" runat="server" OnServerClick="btn_assignEmp">Assign Employee</button> 
+                <asp:Panel ID="pnlEmp" runat="server" Visible="false">
+                    <asp:Label ID="lblChooseEmp" runat="server" Text="Select Employee:"></asp:Label>
+                    <asp:DropDownList ID="ddlEmp" runat="server"></asp:DropDownList><br />
+                    <button type="button" runat="server" OnServerClick="fn_addEmp">Assign</button>
+                </asp:Panel>
    <form class="example" action="action_page.php">
  <button type="button" class="form-control btn btn-primary submit px-3" onclick="btn_closeTicket">Close Ticket</button> 
 <%--                <asp:Panel ID="Panel4" runat="server" Visible="false">

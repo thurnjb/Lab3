@@ -69,6 +69,33 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtNotes;
 
         /// <summary>
+        /// pnlEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlEmp;
+
+        /// <summary>
+        /// lblChooseEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChooseEmp;
+
+        /// <summary>
+        /// ddlEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
+
+        /// <summary>
         /// dtasrcServiceTicketID control.
         /// </summary>
         /// <remarks>
