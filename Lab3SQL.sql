@@ -109,7 +109,8 @@ CREATE TABLE ServiceTicket
 	TicketStatus varchar(255),
 	TicketOpenDate datetime,
 	Address varchar(255),
-	Date varchar(255)
+	Date varchar(255),
+	Archived varchar(255)
 	);
 
 CREATE TABLE Notes
