@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44357</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -86,6 +87,7 @@
   <ItemGroup>
     <Content Include="AuctionAssessment.aspx" />
     <Content Include="AuctionServiceOrder.aspx" />
+    <Content Include="css\body.css" />
     <Content Include="CompletionForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -93,10 +95,6 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\body.css" />
-    <Content Include="css\heading.css" />
-    <Content Include="css\style.css" />
-    <Content Include="css\styles.css" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="CustomerPortalHome.aspx" />
     <Content Include="CustomerPortalLogin.aspx" />
@@ -105,6 +103,7 @@
     <Content Include="CustomerList.aspx" />
     <Content Include="CustomerPortalService.aspx" />
     <Content Include="CustomerRecordsV2.aspx" />
+    <Content Include="css\heading.css" />
     <Content Include="HomePageV2.aspx" />
     <Content Include="auction.html" />
     <Content Include="bootstrap.min.css" />
@@ -130,7 +129,7 @@
     <Content Include="new_account.html" />
     <Content Include="storage.html" />
     <Content Include="style.css" />
-    <Content Include="styles.css" />
+    <Content Include="css\styles.css" />
     <Content Include="tickets.html" />
     <Content Include="images\box.jpeg" />
     <Content Include="images\greenvalley.jpeg" />

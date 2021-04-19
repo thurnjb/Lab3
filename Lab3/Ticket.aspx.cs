@@ -282,6 +282,7 @@ namespace Lab3
 
         protected void btn_closeTicket(object sender, EventArgs e)
         {
+            Session["ServiceTicketID"] = grdTickets.SelectedValue;
             Response.Redirect("CompletionForm.aspx");
         }
 
