@@ -14,9 +14,9 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
 
-            //String sqlquery = "SELECT FirstName, LastName FROM CUSTOMER WHERE CustomerID=" + Session["CustomerID"] + ";";
+
+            //String sqlquery = "SELECT FirstName +' ' + LastName AS CustomerName FROM CUSTOMER WHERE CustomerID=" + Session["CustomerID"] + ";";
 
             //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 

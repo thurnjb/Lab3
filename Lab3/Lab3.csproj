@@ -124,6 +124,7 @@
     <Content Include="LookAtScheduling.aspx" />
     <Content Include="move.html" />
     <Content Include="MoveAssessmentForm.aspx" />
+    <Content Include="MoveScheduling.aspx" />
     <Content Include="newcustomer.html" />
     <Content Include="new_account.html" />
     <Content Include="NotificationPage.aspx" />
@@ -359,6 +360,13 @@
     </Compile>
     <Compile Include="MoveAssessmentForm.aspx.designer.cs">
       <DependentUpon>MoveAssessmentForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveScheduling.aspx.cs">
+      <DependentUpon>MoveScheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveScheduling.aspx.designer.cs">
+      <DependentUpon>MoveScheduling.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotificationPage.aspx.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>
