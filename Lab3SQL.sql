@@ -204,6 +204,7 @@ Create Table MoveAssessment
 	room varChar(255),
 	furnitureList varChar(255),
 	roomFloor varChar(255),
+	boxes varChar(255),
 	appFloor varChar(255),
 	elevator varChar(255),
 	walk varChar(255),
@@ -219,7 +220,7 @@ Create Table MoveAssessment
 	moveEstimate varChar(255),
 	fixedRates varChar(255),
 	packingFees varChar(255),
-	storeageFees varChar(255),
+	storageFees varChar(255),
 	trashRemoval varChar(255),
 	CustomerID int References Customer(CustomerID)
 	);

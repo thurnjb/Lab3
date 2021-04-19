@@ -102,8 +102,14 @@ sub {
 sup {
   top: -.5em; }
 
+.a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 a {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -157,6 +163,11 @@ label {
   display: inline-block;
   margin-bottom: 0.5rem; }
 
+.label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
 button {
   border-radius: 0; }
 
@@ -173,6 +184,14 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit; }
+
+.input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: visible;
+}
 
 button,
 input {
@@ -208,6 +227,11 @@ input[type="radio"],
 input[type="checkbox"] {
   box-sizing: border-box;
   padding: 0; }
+
+.inputcheckbox {
+    box-sizing: border-box;
+    padding: 0;
+}
 
 input[type="date"],
 input[type="time"],
@@ -1412,7 +1436,7 @@ textarea.form-control {
   .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {
     border-color: #28a745; }
 
-.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {
+.was-validated .custom-control-:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {
   border-color: #34ce57;
   background-color: #34ce57; }
 
