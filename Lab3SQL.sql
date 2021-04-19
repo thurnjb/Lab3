@@ -219,7 +219,7 @@ Create Table MoveAssessment
 	moveEstimate varChar(255),
 	fixedRates varChar(255),
 	packingFees varChar(255),
-	storeageFees varChar(255),
+	storageFees varChar(255),
 	trashRemoval varChar(255),
 	CustomerID int References Customer(CustomerID)
 	);
