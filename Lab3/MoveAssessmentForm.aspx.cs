@@ -115,6 +115,20 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
             sqlCommand.ExecuteNonQuery();
 
+            String sqlQuery = "INSERT INTO MoveNotification(CustomerID, PotentialDates, SaveDate) VALUES(@CustomerID, @PotentialDates, @SaveDate)";
+
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = sqlQuery;
+            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
+            cmd.Parameters.AddWithValue("@PotentialDates", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
+            cmd.Parameters.AddWithValue("@SaveDate", HttpUtility.HtmlEncode(DateTime.Now));
+            cmd.ExecuteNonQuery();
+
+            Response.Redirect("HomePageV2.aspx");
         }
 
         protected void btnPreviousPanel_Click(object sender, EventArgs e)

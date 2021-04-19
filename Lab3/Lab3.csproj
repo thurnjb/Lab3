@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44357</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -119,6 +120,7 @@
     <Content Include="moveeight.html" />
     <Content Include="movefive.html" />
     <Content Include="movefour.html" />
+    <Content Include="MoveSchedulingConfirmation.aspx" />
     <Content Include="moveseven.html" />
     <Content Include="movesix.html" />
     <Content Include="movethree.html" />
@@ -394,6 +396,13 @@
     </Compile>
     <Compile Include="MoveScheduling.aspx.designer.cs">
       <DependentUpon>MoveScheduling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveSchedulingConfirmation.aspx.cs">
+      <DependentUpon>MoveSchedulingConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveSchedulingConfirmation.aspx.designer.cs">
+      <DependentUpon>MoveSchedulingConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotificationPage.aspx.cs">
       <DependentUpon>NotificationPage.aspx</DependentUpon>
