@@ -11,21 +11,31 @@
         <link rel="stylesheet" href="css/body.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+                 .form-group {
+                  background-color:#DBAA00;
+                  color:white;
+
+                 }
                  table, th, td {
-  border: 3px solid black;
+  border: none;
   border-collapse: collapse;;
 }
 th {
   text-align: center;
-  color: #2b613d;;
+  color: #2b613d;
+  background-color:lightgreen;
 }
 th, td {
   padding: 15px;
+}
+h1 {
+  text-align: center;
 }
 h3 {
   text-align: center;
   color:#2b613d;
 }
+
 </style>
     </head>
     <body id="page-top">
@@ -39,27 +49,35 @@ h3 {
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customersearch.html"> CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
+                             
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <header>
-            
-        </header>
 
-    
-
-            <section class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-            <form class="example" action="action_page.php">
-  <input type="text" placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button></form> 
-      </section>
+            <header class="masthead bg-primary text-white text-center">
+          <div class="container d-flex align-items-center flex-column">
+       <h1> Search Customers </h1>
+</header>
+<hr>
 <section>
-    <div class="form-group">
-            <a href="newcustomer.html"> <button type="submit" class="btn btn-block create-account">Add New Customer</button> </div></a>
+  <table style="width:100%">
+ 
+  <tr>
+   <th><strong> Search By: <select name="todo" id="todo">
+    <option value="name">Name</option>
+    <option value="date">Date</option>
+    <option value="location">Location</option>
+    <option value="keyword">Keyword</option> </th>
+<th>
+  <form class="example" action="action_page.php">
+  <a href="currentcustomer.html"> <input type="text" placeholder="Search.." name="search">
+  <button type="submit"> <i class="fa fa-search"></i></button></form> </a>
+ </th>
 </section>
+         <div class="form-group">
+            <a href="newcustomer.html"> <button type="submit" class="btn btn-block create-account">Add New Customer</button> </div></a>
  
 
 </div>

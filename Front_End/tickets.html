@@ -15,22 +15,33 @@
             border-color: white;
             background-color:#daac00;
             text-align: center;
-            color:white;
+            color:white;}
+            table, th, td {
+                border:#2b613d .5em solid;
+  text-align: center;
+  background-color:;
+  color: #2b613d;
+  padding:15px;
+}
+tr {
+  padding:15px;
+}
+  .form-group {
+                background-color:#DBAA00;
+                 }
 </style>
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
-            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/greenvalleyauctions.jpeg" alt="Green Valley Auctions logo"> </a>
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img id="brandImage" <img src="images/headerlogo.png" alt="Green Valley Auctions logo"> </a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customerdatabase.html">HOME</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customers.html">CUSTOMER INFO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="customersearch.html">CUSTOMER INFO</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="calendar">CALENDAR</a>
-                        </li>
-                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" <a href="tickets.html">TICKETS</a>
                         </li>
                     </ul>
                 </div>
@@ -39,13 +50,27 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
             <form class="example" action="action_page.php">
-                  <h1> OPEN TICKETS </h1>
- <button type="submit" class="form-control btn btn-primary submit px-3">Add Note</button> 
-   <form class="example" action="action_page.php">
- <button type="submit" class="form-control btn btn-primary submit px-3">Assign Employee</button> 
-   <form class="example" action="action_page.php">
- <button type="submit" class="form-control btn btn-primary submit px-3">Close Ticket</button> 
+                  <h1>View Open Forms </h1>
+                  <hr>
+<p> Customer: Patricia Wells</p>
+<table style="width:100%">
+  <tr>
+    
+    <th><strong> <u> Type: </u>
+ </strong></th> 
+    <th><strong><u>Date: </u><strong></th>
+    
+  </tr>
+  <tr>
+    <td>  </p><input type="checkbox" id="move" > Auction</td>
+    <td> 4-25-21 </td>
 
+ 
+  </tr>
+
+</table>
+<div class="form-group">
+     <a href="tickets.html"> <button type="submit" class="btn btn-block create-account">Open Form</button> </div></a>
 
 
 
