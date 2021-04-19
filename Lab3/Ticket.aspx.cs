@@ -27,7 +27,10 @@ namespace Lab3
             grdVwTicket.Clear();
 
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            String sqlQuery = "Select T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, S.ServiceType, T.TicketStatus, T.FromDeadline, T.ToDeadline, T.TicketOpenDate FROM Customer C, Employee E, Service S, ServiceTicket T WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.ServiceID = S.ServiceID AND T.CustomerID = " + Session["CustomerID"];
+            String sqlQuery = "Select T.ServiceTicketID, C.FirstName + ' ' + C.LastName as CustomerName, E.FirstName + ' ' + E.LastName as EmployeeName, " +
+                "T.Service, T.TicketStatus, T.TicketOpenDate " +
+                "FROM Customer C, Employee E, ServiceTicket T " +
+                "WHERE T.CustomerID = C.CustomerID AND T.InitiatingEmployeeID = E.EmployeeID AND T.Archived IS NULL AND T.CustomerID = " + Session["CustomerID"];
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection);
             connection.Open();

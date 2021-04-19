@@ -24,7 +24,7 @@ namespace Lab3
                 ticketID = (int)Session["InvTicketID"];
                 DataTable invTable = new DataTable();
                 SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                String sqlQuery = "SELECT Ii.ItemName, Ii.ItemDesc, Ii.ItemCost, Ii.InventoryDate FROM InventoryItem as Ii INNER JOIN InventoryService ON Ii.InventoryServiceID = InventoryService.InventoryServiceID WHERE InventoryService.InventoryServiceID = @InventoryServiceID AND Archived = null";
+                String sqlQuery = "SELECT Ii.ItemName, Ii.ItemDesc, Ii.ItemCost, Ii.InventoryDate FROM InventoryItem as Ii INNER JOIN InventoryService ON Ii.InventoryServiceID = InventoryService.InventoryServiceID WHERE InventoryService.InventoryServiceID = @InventoryServiceID";
                 connection.Open();
                 SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
                 sqlCommand.Parameters.AddWithValue("@InventoryServiceID", ticketID);

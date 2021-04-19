@@ -37,13 +37,12 @@
                     OnSelectedIndexChanged="grdTickets_SelectedIndexChanged" 
                     OnSorting="grdTickets_Sorting">
                     <Columns>
-                        <asp:BoundField HeaderText="CustomerName" DataField="CustomerName" SortExpression="CustomerName" />
-                        <asp:BoundField HeaderText="EmployeeName" DataField="EmployeeName" SortExpression="EmployeeName" />
-                        <asp:BoundField HeaderText="ServiceType" DataField="ServiceType" SortExpression="ServiceType" />
-                        <asp:BoundField HeaderText="TicketStatus" DataField="TicketStatus" SortExpression="TicketStatus" />
-                        <asp:BoundField HeaderText="TicketOpenDate" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
-                        <asp:BoundField HeaderText="FromDeadline" DataField="FromDeadline" SortExpression="FromDeadline" />
-                        <asp:BoundField HeaderText="ToDeadline" DataField="ToDeadline" SortExpression="ToDeadline" />
+                        <asp:BoundField HeaderText="Customer Name" DataField="CustomerName" SortExpression="CustomerName" />
+                        <asp:BoundField HeaderText="Employee Name" DataField="EmployeeName" SortExpression="EmployeeName" />
+                        <asp:BoundField HeaderText="Service Type" DataField="Service" SortExpression="Service" />
+                        <asp:BoundField HeaderText="Ticket Status" DataField="TicketStatus" SortExpression="TicketStatus" />
+                        <asp:BoundField HeaderText="Ticket Open Date" DataField="TicketOpenDate" SortExpression="TicketOpenDate" />
+
                     </Columns>
                 </asp:GridView>
                 <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label>
