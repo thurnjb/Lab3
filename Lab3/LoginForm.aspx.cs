@@ -74,6 +74,7 @@ namespace Lab3
                 lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = "Username/Password incorrect.";
             }
+            dbConnection.Close();
         }
 
         protected void btnCustLogin_Click(object sender, EventArgs e)

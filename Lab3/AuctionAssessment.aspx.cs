@@ -24,12 +24,12 @@ namespace Lab3
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String photo = "No"; 
+            String photo = "No";
             String whyAuction = ddlAuctionServ.SelectedValue;
             String deadline = rblDeadline.SelectedValue;
             String sched = chkBoxListSchedule.SelectedValue;
             String addServices = chkBoxAddistionalServ.SelectedValue;
-            if(chkBoxPhoto.Checked)
+            if (chkBoxPhoto.Checked)
             {
                 photo = "Yes";
             }
@@ -55,6 +55,7 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@appraisal", HttpUtility.HtmlEncode(addServices));
             sqlCommand.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
             sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
 
             //Response.Redirect("InventoryRegistration.aspx");
         }

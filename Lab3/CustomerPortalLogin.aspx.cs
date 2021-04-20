@@ -92,11 +92,12 @@ Our submission of this assignment indicates that we have neither received nor gi
             {
                 lblAccountStatus.Text = "Username/Password incorrect.";
             }
+            dbConnection.Close();
         }
 
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            if(tbFirstNameCreate.Text != "" & tbLastNameCreate.Text != "" & tbUsernameCreate.Text != "" & tbPasswordCreate.Text != "" & tbAddressCreate.Text != "" & tbPhoneCreate.Text != "" & tbHearCreate.Text != "")
+            if (tbFirstNameCreate.Text != "" & tbLastNameCreate.Text != "" & tbUsernameCreate.Text != "" & tbPasswordCreate.Text != "" & tbAddressCreate.Text != "" & tbPhoneCreate.Text != "" & tbHearCreate.Text != "")
             {
                 Application["CustUsername"] = tbUsernameCreate.Text;
                 Application["CustPassword"] = tbPasswordCreate.Text;

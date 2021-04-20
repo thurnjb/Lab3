@@ -29,17 +29,18 @@ namespace Lab3
         protected void btnView_Click(object sender, EventArgs e)
         {
             CustomerGridView.Clear();
-            
+
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             String sqlquery = "SELECT CustomerID,FirstName,LastName,InitialContact,HeardFrom,Phone,Email,Address,DestAddress,SaveDate FROM CUSTOMER WHERE FirstName='" + txtCustomerSearch.Text + "' OR LastName='" + txtCustomerSearch.Text + "';";
             SqlDataAdapter SqlAdapter = new SqlDataAdapter(sqlquery, connection);
             connection.Open();
-            
+
             SqlAdapter.Fill(CustomerGridView);
 
             grdCustomers.DataSource = CustomerGridView;
             grdCustomers.DataBind();
+            connection.Close();
 
         }
 
@@ -52,16 +53,16 @@ namespace Lab3
 
         protected void grdCustomers_Sorting(object sender, GridViewSortEventArgs e)
         {
-            if(ViewState["CustomerSort"] == null)
+            if (ViewState["CustomerSort"] == null)
             {
                 ViewState["CustomerSort"] = e.SortExpression + " " + e.SortDirection;
             }
 
             String[] sortData = ViewState["CustomerSort"].ToString().Trim().Split(' ');
 
-            if(e.SortExpression == sortData[0])
+            if (e.SortExpression == sortData[0])
             {
-                if(sortData[1] == "Ascending")
+                if (sortData[1] == "Ascending")
                 {
                     CustomerGridView.DefaultView.Sort = e.SortExpression + " DESC";
                     this.ViewState["CustomerSort"] = e.SortExpression + " Descending";

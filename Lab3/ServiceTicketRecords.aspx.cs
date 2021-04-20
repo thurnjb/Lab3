@@ -22,7 +22,7 @@ namespace Lab3
         //On page load, connect to data
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Application["NewAdd"] != null)
+            if (Application["NewAdd"] != null)
             {
                 txtCustomerName.Text = Application["CustFName"].ToString() + " " + Application["CustLName"].ToString();
                 txtServiceType.Text = Application["CustService"].ToString();
@@ -56,7 +56,7 @@ namespace Lab3
         //This method creates an insert sql statement and executes
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
+            if (txtCustomerName.Text != "" & txtInitiatingEmployee.Text != "" & txtServiceType.Text != "" & txtFromDeadline.Text != "" & txtToDeadline.Text != "")
             {
 
                 sqlCommitQuery = "INSERT INTO ServiceTicket(CustomerID, InitiatingEmployeeID, ServiceID, AdditionalServiceID, TicketStatus, TicketOpenDate, FromDeadline, ToDeadline, LookAt, Pickup)" +
@@ -85,6 +85,7 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("@Pickup", HttpUtility.HtmlEncode(txtPickup.Text));
 
                 sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
 
                 Session["EmployeeID"] = ddlEmployeeList.SelectedValue;
 
@@ -178,7 +179,7 @@ namespace Lab3
                 {
                     Session["ServiceTicketID"] = queryResults["ServiceTicketID"].ToString();
                 }
-                
+
 
 
                 String sqlCommitQuery = "INSERT INTO Notes(ServiceTicketID, NoteTitle, NoteContent) VALUES (" + Session["ServiceTicketID"] + ", @NoteTitle, @NoteContent);";
@@ -202,7 +203,7 @@ namespace Lab3
                 sqlcommand.Connection = sqlConnect;
                 sqlcommand.CommandText = sqlCommitQuery;
                 sqlcommand.ExecuteNonQuery();
-                
+
                 lblNoteErrorMsg.Text = "Note was successfully added!";
                 btnNoteCancel.Visible = false;
                 btnNoteSave.Visible = false;
