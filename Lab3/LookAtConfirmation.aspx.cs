@@ -52,7 +52,7 @@ namespace Lab3
 
             connection.Open();
             queryResults = sqlCommand.ExecuteReader();
-            connection.Close();
+            
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
