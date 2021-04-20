@@ -23,7 +23,7 @@ namespace Lab3
         //Page_Load method calls connectToData method
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Application["NewAdd"] != null)
+            if (Application["NewAdd"] != null)
             {
                 String[] info = getCustomerInfo(Application["CustUsername"].ToString());
                 txtFirstName.Text = Application["CustFName"].ToString();
@@ -90,9 +90,10 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestAddress.Text));
 
                 sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
                 lblErrorMsg.Text = "Successfully saved to database!";
 
-                if(Application["NewAdd"] != null)
+                if (Application["NewAdd"] != null)
                 {
                     Response.Redirect("ServiceTicketRecords.aspx");
                 }

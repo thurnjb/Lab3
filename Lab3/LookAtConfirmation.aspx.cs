@@ -39,6 +39,7 @@ namespace Lab3
 
             grdNotification.DataSource = grdVwNotification;
             grdNotification.DataBind();
+            sqlConnect.Close();
 
             String query = "SELECT C.CustomerID, C.Address FROM Customer C, LookAtNotification N, LookAtNotifConfirm L WHERE L.NotificationID = N.NotificationID AND N.CustomerID = C.CustomerID AND L.ID = " + Session["LookAtConfID"];
 
@@ -51,6 +52,7 @@ namespace Lab3
 
             connection.Open();
             queryResults = sqlCommand.ExecuteReader();
+            connection.Close();
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace Lab3
 
         protected void btnConfirmDate_Click(object sender, EventArgs e)
         {
-            if(txtSelectedDate.Text != null)
+            if (txtSelectedDate.Text != null)
             {
                 if (queryResults.Read())
                 {

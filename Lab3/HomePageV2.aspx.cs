@@ -49,6 +49,7 @@ namespace Lab3
 
             grdNotification.DataSource = grdVwLookAt;
             grdNotification.DataBind();
+            sqlConnect.Close();
 
             String sqlquery = "SELECT N.ID, N.NotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, N.PotentialDates, N.SaveDate FROM Customer C, LookAtNotification L, LookAtNotifConfirm N WHERE L.CustomerID = C.CustomerID AND N.NotificationID = L.NotificationID AND N.Archived IS NULL";
 
@@ -62,6 +63,8 @@ namespace Lab3
 
             grdLookAtConf.DataSource = grdVwLookAtConf;
             grdLookAtConf.DataBind();
+            sqlConnect.Close();
+
 
             String query = "SELECT M.MoveNotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, M.PotentialDates, M.SaveDate FROM Customer C, MoveNotification M WHERE M.CustomerID = C.CustomerID AND M.Archived IS NULL";
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -70,6 +73,7 @@ namespace Lab3
             adapter.Fill(grdVwMoveSchedule);
             grdMoveNotification.DataSource = grdVwMoveSchedule;
             grdMoveNotification.DataBind();
+            connection.Close();
 
             String sql = "SELECT N.MoveNotifConfirmID, N.MoveNotificationID, C.FirstName + ' ' + C.LastName AS CustomerName, N.PotentialDates, N.SaveDate FROM Customer C, MoveNotifConfirm N, MoveNotification M WHERE M.CustomerID = C.CustomerID AND M.MoveNotificationID = N.MoveNotificationID AND N.Archived IS NULL";
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -78,6 +82,7 @@ namespace Lab3
             adapt.Fill(grdVwMoveConf);
             grdMoveConf.DataSource = grdVwMoveConf;
             grdMoveConf.DataBind();
+            con.Close();
         }
 
         protected void searchBtn_Click(object sender, EventArgs e)

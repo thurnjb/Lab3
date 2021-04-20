@@ -45,6 +45,7 @@ namespace Lab3
                 txtPhone.Text = queryResults["Phone"].ToString();
                 txtAddress.Text = queryResults["Address"].ToString();
             }
+            sqlConnect.Close();
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -88,8 +89,8 @@ namespace Lab3
                 txtEmail.Text != "" & txtHeardFrom.Text != "" & txtInitialContact.Text != "" &
                 txtPhone.Text != "" & txtAddress.Text != "")
             {
-                String sqlQuery = "UPDATE Customer SET FirstName = '" + txtCustomerFirstName.Text + "', LastName = '" + 
-                    txtCustomerLastName.Text + "', Email = '" + txtEmail.Text + "',Phone = '" + txtPhone.Text + "', HeardFrom = '" + 
+                String sqlQuery = "UPDATE Customer SET FirstName = '" + txtCustomerFirstName.Text + "', LastName = '" +
+                    txtCustomerLastName.Text + "', Email = '" + txtEmail.Text + "',Phone = '" + txtPhone.Text + "', HeardFrom = '" +
                     txtHeardFrom.Text + "', InitialContact = '" + txtInitialContact.Text + "', Address = '" + txtAddress.Text + "' WHERE CustomerID = " + Session["CustomerID"] + ";";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -99,6 +100,7 @@ namespace Lab3
                 sqlCommand.CommandText = sqlQuery;
 
                 sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
             }
         }
 
@@ -118,6 +120,7 @@ namespace Lab3
             sqlcommand.Parameters.AddWithValue("@CustomerID", Session["CustomerID"]);
             sqlcommand.Parameters.AddWithValue("@SaveDate", DateTime.Now.ToString());
             sqlcommand.ExecuteNonQuery();
+            sqlConnect.Close();
 
             Response.Redirect("HomePageV2.aspx");
         }
