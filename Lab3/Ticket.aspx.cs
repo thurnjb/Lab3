@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
+using System.Web.Configuration; 
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -39,11 +39,10 @@ namespace Lab3
 
             grdTickets.DataSource = grdVwTicket;
             grdTickets.DataBind();
-            connection.Close();
         }
         //protected void btnAddNote_Click(object sender, EventArgs e)
         //{
-
+             
         //    Session["EditTicketPage"] = "true";
         //    btnNoteCancel.Visible = true;
         //    btnNoteSave.Visible = true;
@@ -193,7 +192,7 @@ namespace Lab3
             {
                 pnlNotes.Visible = true;
             }
-
+            
         }
 
         protected void fn_add(object sender, EventArgs e)
@@ -209,7 +208,6 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@NoteContent", txtNotes.Text);
 
             sqlCommand.ExecuteNonQuery();
-            connection.Close();
             lblErrorMsg.Text = "Successfully saved to database!";
             pnlNotes.Visible = false;
         }
@@ -279,7 +277,7 @@ namespace Lab3
                 lblErrorMsg.Text = "Successfully saved to database!";
                 pnlEmp.Visible = false;
             }
-
+            
         }
 
         protected void btn_closeTicket(object sender, EventArgs e)

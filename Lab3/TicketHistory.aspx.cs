@@ -18,7 +18,7 @@ namespace Lab3
         //On first page load, Fills grid view with all tickets
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         //This method fills the SelectedTicket and SelectedTicketHistory gridviews
@@ -127,7 +127,6 @@ namespace Lab3
                     sqlCommand.CommandText = sqlQuery;
 
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
 
                     lblErrorMsg.Text = "Employee successfully changed!";
                     ddlEmployee.Visible = false;
@@ -185,7 +184,6 @@ namespace Lab3
                         sqlcommand.Connection = sqlConnect;
                         sqlcommand.CommandText = sqlCommitQuery;
                         sqlcommand.ExecuteNonQuery();
-                        sqlConnect.Close();
                     }
                     lblNoteErrorMsg.Text = "Note was successfully added!";
                     btnNoteCancel.Visible = false;

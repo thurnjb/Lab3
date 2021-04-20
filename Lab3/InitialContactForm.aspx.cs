@@ -42,7 +42,6 @@ namespace Lab3
             sqlcommand.Parameters.AddWithValue("@CustomerID", Session["Notification"]);
             sqlcommand.Parameters.AddWithValue("@SaveDate", DateTime.Now.ToString());
             sqlcommand.ExecuteNonQuery();
-            sqlConnect.Close();
 
             Response.Redirect("HomePageV2.aspx");
         }
@@ -81,10 +80,9 @@ namespace Lab3
                 sqlCommand.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
                 sqlCommand.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
                 sqlCommand.Parameters.AddWithValue("@RequestedService", HttpUtility.HtmlEncode(txtRequestedService.Text));
-
+                
 
                 sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
                 lblError.Text = "Successfully saved to database!";
             }
 

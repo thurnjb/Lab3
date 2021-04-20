@@ -45,9 +45,9 @@ namespace Lab3
         protected void btnSendRequest_Click(object sender, EventArgs e)
         {
             int lstbxCount = lstbxPotentialDates.Items.Count;
-            if (lstbxPotentialDates.Items.Count != 0 & grdNotifications.SelectedValue != null)
+            if(lstbxPotentialDates.Items.Count != 0 & grdNotifications.SelectedValue != null)
             {
-                for (int i = 0; i < lstbxCount; i++)
+                for(int i = 0; i < lstbxCount; i++)
                 {
                     String sqlQuery = "INSERT INTO NotificationTable_Dates(NotificationID, PotentialDate) VALUES (" + grdNotifications.SelectedValue + ", '" + lstbxPotentialDates.Items[i].ToString() + "')";
 
@@ -59,9 +59,8 @@ namespace Lab3
                     sqlCommand.CommandText = sqlQuery;
 
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
                 }
-                for (int k = lstbxCount - 1; k >= 0; k--)
+                for(int k = lstbxCount - 1; k >= 0; k--)
                 {
                     lstbxPotentialDates.Items.RemoveAt(k);
                 }

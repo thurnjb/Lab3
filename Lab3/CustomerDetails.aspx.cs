@@ -49,7 +49,6 @@ namespace Lab3
 
             grdTickets.DataSource = grdVwTicket;
             grdTickets.DataBind();
-            connection.Close();
         }
         protected void btnCreateMove_Click(object sender, EventArgs e)
         {

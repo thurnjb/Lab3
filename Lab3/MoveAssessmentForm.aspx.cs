@@ -114,7 +114,6 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@trashRemoval", HttpUtility.HtmlEncode(TextBoxTrashRemoval.Text));
             sqlCommand.Parameters.AddWithValue("@customerID", HttpUtility.HtmlEncode(Session["CustomerID"]));
             sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
 
             String sqlQuery = "INSERT INTO MoveNotification(CustomerID, PotentialDates, SaveDate) VALUES(@CustomerID, @PotentialDates, @SaveDate)";
 
@@ -128,7 +127,6 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@PotentialDates", HttpUtility.HtmlEncode(TextBoxWindowDaysMove.Text));
             cmd.Parameters.AddWithValue("@SaveDate", HttpUtility.HtmlEncode(DateTime.Now));
             cmd.ExecuteNonQuery();
-            connection.Close();
 
             Response.Redirect("HomePageV2.aspx");
         }

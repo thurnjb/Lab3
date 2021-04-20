@@ -35,7 +35,6 @@ namespace Lab3
             sqlAdapter.Fill(grdVwMove);
             grdNotification.DataSource = grdVwMove;
             grdNotification.DataBind();
-            sqlConnect.Close();
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)

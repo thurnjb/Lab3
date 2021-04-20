@@ -57,7 +57,6 @@ namespace Lab3
             sqlCommand.Parameters.AddWithValue("@InventoryServiceID", ticketID);
 
             sqlCommand.ExecuteNonQuery();
-            connection.Close();
 
             Response.Redirect("Inventory.aspx");
         }

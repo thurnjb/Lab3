@@ -25,7 +25,6 @@ namespace Lab3
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = sqlQuery;
             sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
 
             Response.Redirect("HomePageV2.aspx");
         }
